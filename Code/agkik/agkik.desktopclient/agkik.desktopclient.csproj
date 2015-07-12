@@ -265,7 +265,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MedInventus.Data\agkik.businesslogic.csproj">
+    <ProjectReference Include="..\agkik.businesslogic\agkik.businesslogic.csproj">
       <Project>{045D61E1-19F7-42E3-BAF0-FB59460AC03F}</Project>
       <Name>agkik.businesslogic</Name>
     </ProjectReference>
