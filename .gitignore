@@ -197,3 +197,7 @@ FakesAssemblies/
 
 #logs
 logs/
+
+#do not ignore dlls under dependencies folder
+
+!Dependencies/*.dll
