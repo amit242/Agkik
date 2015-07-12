@@ -1,8 +1,0 @@
-D:\Amit\DesktopApplications\wpf\agkik\Code\Desktop Client\MedInventus.Data\bin\Debug\log4net.dll
-D:\Amit\DesktopApplications\wpf\agkik\Code\Desktop Client\MedInventus.Data\bin\Debug\log4net.xml
-D:\Amit\DesktopApplications\wpf\agkik\Code\Desktop Client\MedInventus.Data\obj\Debug\agkik.businesslogic.csprojResolveAssemblyReference.cache
-D:\Amit\DesktopApplications\wpf\agkik\Code\Desktop Client\MedInventus.Data\bin\Debug\agkik.businesslogic.dll.config
-D:\Amit\DesktopApplications\wpf\agkik\Code\Desktop Client\MedInventus.Data\bin\Debug\agkik.businesslogic.dll
-D:\Amit\DesktopApplications\wpf\agkik\Code\Desktop Client\MedInventus.Data\bin\Debug\agkik.businesslogic.pdb
-D:\Amit\DesktopApplications\wpf\agkik\Code\Desktop Client\MedInventus.Data\obj\Debug\agkik.businesslogic.dll
-D:\Amit\DesktopApplications\wpf\agkik\Code\Desktop Client\MedInventus.Data\obj\Debug\agkik.businesslogic.pdb
