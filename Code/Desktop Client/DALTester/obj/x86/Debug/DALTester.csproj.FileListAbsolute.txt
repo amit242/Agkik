@@ -1,8 +1,0 @@
-D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\DALTester\bin\Debug\DALTester.exe
-D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\DALTester\bin\Debug\DALTester.pdb
-D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\DALTester\obj\x86\Debug\DALTester.exe
-D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\DALTester\obj\x86\Debug\DALTester.pdb
-D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\DALTester\bin\Debug\MedInventusDAL.dll
-D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\DALTester\bin\Debug\MedInventusDAL.pdb
-D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\DALTester\obj\x86\Debug\DALTester.csprojResolveAssemblyReference.cache
-D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\DALTester\bin\Debug\DALTester.exe.config
