@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "agkik.businesslogic.tests",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EE9D36F1-60A1-4CD6-9A49-493B4241DDEB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop Client", "Desktop Client", "{9E6465FD-DB31-4AF4-8FF6-1FE864DE5335}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "agkik", "agkik", "{9E6465FD-DB31-4AF4-8FF6-1FE864DE5335}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "agkik.desktopclient.tests", "..\Tests\MedInventus.DesktopClient.Tests\agkik.desktopclient.tests.csproj", "{4AF49E61-F691-4C6E-9BE4-7DE8FD58DC98}"
 EndProject
