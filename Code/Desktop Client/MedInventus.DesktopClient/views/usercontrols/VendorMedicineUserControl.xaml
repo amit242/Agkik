@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.VendorMedicineUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblBatchNo" Content="_Batch No: " Target="{Binding ElementName=txtBatchNo}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtBatchNo" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=BatchNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblExpiryDate" Content="_Expiry Date: " Target="{Binding ElementName=dpExpiryDate}" Style="{StaticResource labelStyleWide}"/>
+            <DatePicker Name="dpExpiryDate" Width="150" Height="25" Style="{StaticResource datePickerStyleCustom}" DisplayDateStart="{x:Static sys:DateTime.Now}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblMRP" Content="_MRP: " Target="{Binding ElementName=txtMRP}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtMRP" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=MRP, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblExpiryDateAlert" Content="_Expiry Date Alert: " Target="{Binding ElementName=txtExpiryDate}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtExpiryDateAlert" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=ExpiryDate, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblTaxOnMRP" Content="_Tax On MRP: " Target="{Binding ElementName=txtTaxOnMRP}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtTaxOnMRP" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=TaxOnMRP, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblExciseDuty" Content="_Excise Duty: " Target="{Binding ElementName=txtExciseDuty}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtExciseDuty" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=ExciseDuty, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="3"  Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblRate" Content="_Rate: " Target="{Binding ElementName=txtRate}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtRate" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=Rate, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblTaxOnExciseDuty" Content="_Tax on Excise Duty: " Target="{Binding ElementName=txtExpiryDate}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtTaxOnExciseDuty" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=TaxOnExciseDuty, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblVendorDiscount" Content="_Discount Given by Vendor: " Target="{Binding ElementName=txtVendorDiscount}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtVendorDiscount" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=VendorDiscount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblCustomerDiscount" Content="_Discount for Customer: " Target="{Binding ElementName=txtCustomerDiscount}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtCustomerDiscount" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=CustomerDiscount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblQuantity" Content="_Quantity: " Target="{Binding ElementName=txtQuantity}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtQuantity" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=Quantity, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblInventoryEntryDate" Content="_Inventory Entry Date: " Target="{Binding ElementName=dpInventoryEntryDate}" Style="{StaticResource labelStyleWide}"/>
+            <DatePicker Name="dpInventoryEntryDate" Width="150" Height="25" Style="{StaticResource datePickerStyleCustom}" SelectedDate="{x:Static sys:DateTime.Now}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblQuantitySold" Content="_Quantity Sold: " Target="{Binding ElementName=txtQuantitySold}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtQuantitySold" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=QuantitySold, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

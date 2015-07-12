@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.MedicineSearchUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500" xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
+    <StackPanel>
+        <StackPanel.Resources>
+            <CollectionViewSource x:Key="searchedMedCollection" Source="{Binding Path=SearchResultMedicineList}"></CollectionViewSource>
+        </StackPanel.Resources>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblMedName" Content="_Medicine Name: " Style="{StaticResource labelStyleWide}" Target="{Binding ElementName=txtMedName}"/>
+            <TextBox Name="txtMedName" MaxLength="100" Style="{StaticResource textBoxStyle}" Text="{Binding Path=NewMedicine.MedicineName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblMedGenName" Content="_Generic Name: " Style="{StaticResource labelStyleWide}" Target="{Binding ElementName=txtMedGenName}"/>
+            <TextBox Name="txtMedGenName" MaxLength="100" Style="{StaticResource textBoxStyle}" Text="{Binding Path=NewMedicine.GenericName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <Button Name="btnSearchMedicine" Content="Search Medicine" Margin="10" HorizontalAlignment="Left" Height="auto" Width="auto" Command="{Binding Path=SearchMedicineCommand}" />
+        <DataGrid Name="dgMeds_Suppliers" Background="AliceBlue" ItemsSource="{Binding Source={StaticResource searchedMedCollection}}" SelectionMode="Single" Height="260" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=MedicineId}" Header="Medicine Id"  FontWeight="Bold" Width="*"  />
+                <DataGridTextColumn Binding="{Binding Path=MedicineName}" Header="Medicine Name" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=GenericName}" Header="Generic Name" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=IsRetail}" Header="Is Retail?" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=IsH1}" Header="IsH1 Drug" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=QuantityAlert}" Header="Alert quantity" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=QuantityAlertDays}" Header="Alert before (days)" FontWeight="Bold" Width="*"/>
+            </DataGrid.Columns>
+            <ia:Interaction.Triggers>
+                <ia:EventTrigger EventName="SelectionChanged">
+                    <ia:InvokeCommandAction Command="{Binding SelectSearchedMedicineCommand}" CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" />
+                </ia:EventTrigger>
+            </ia:Interaction.Triggers>
+        </DataGrid>
+    </StackPanel>
+</UserControl>

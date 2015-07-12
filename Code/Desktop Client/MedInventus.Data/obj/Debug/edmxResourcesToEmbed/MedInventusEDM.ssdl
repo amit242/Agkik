@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Medinventus.Model.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MedinventusModelStoreContainer">
+    <EntitySet Name="address" EntityType="Medinventus.Model.Store.address" store:Type="Tables" Schema="medinventusdb" />
+    <EntitySet Name="customers" EntityType="Medinventus.Model.Store.customers" store:Type="Tables" Schema="medinventusdb" />
+    <EntitySet Name="roles" EntityType="Medinventus.Model.Store.roles" store:Type="Tables" Schema="medinventusdb" />
+    <EntitySet Name="users" EntityType="Medinventus.Model.Store.users" store:Type="Tables" Schema="medinventusdb" />
+    <EntitySet Name="vendors" EntityType="Medinventus.Model.Store.vendors" store:Type="Tables" Schema="medinventusdb" />
+    <AssociationSet Name="fk_Customers_Address" Association="Medinventus.Model.Store.fk_Customers_Address">
+      <End Role="address" EntitySet="address" />
+      <End Role="customers" EntitySet="customers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Customers_AltAddress" Association="Medinventus.Model.Store.fk_Customers_AltAddress">
+      <End Role="address" EntitySet="address" />
+      <End Role="customers" EntitySet="customers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Users_Address" Association="Medinventus.Model.Store.fk_Users_Address">
+      <End Role="address" EntitySet="address" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Users_AltAddress" Association="Medinventus.Model.Store.fk_Users_AltAddress">
+      <End Role="address" EntitySet="address" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Users_Roles1" Association="Medinventus.Model.Store.fk_Users_Roles1">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Vendors_Address" Association="Medinventus.Model.Store.fk_Vendors_Address">
+      <End Role="address" EntitySet="address" />
+      <End Role="vendors" EntitySet="vendors" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Vendors_AltAddress" Association="Medinventus.Model.Store.fk_Vendors_AltAddress">
+      <End Role="address" EntitySet="address" />
+      <End Role="vendors" EntitySet="vendors" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="address">
+    <Key>
+      <PropertyRef Name="idAddress" />
+    </Key>
+    <Property Name="idAddress" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddressLine1" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="60" />
+    <Property Name="City" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="State" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Country" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Zip" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="idCustomers" />
+    </Key>
+    <Property Name="idCustomers" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="AlternateEmail" Type="varchar" MaxLength="50" />
+    <Property Name="Address_idAddress" Type="int" />
+    <Property Name="AltAddress_idAddress" Type="int" />
+    <Property Name="IsRegular" Type="binary" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="idRoles" />
+    </Key>
+    <Property Name="idRoles" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="idUsers" />
+    </Key>
+    <Property Name="idUsers" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="AlternateEmail" Type="varchar" MaxLength="50" />
+    <Property Name="Address_idAddress" Type="int" />
+    <Property Name="AltAddress_idAddress" Type="int" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Roles_idRoles" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vendors">
+    <Key>
+      <PropertyRef Name="idVendors" />
+    </Key>
+    <Property Name="idVendors" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="AlternateEmail" Type="varchar" MaxLength="50" />
+    <Property Name="Address_idAddress" Type="int" />
+    <Property Name="AltAddress_idAddress" Type="int" />
+  </EntityType>
+  <Association Name="fk_Customers_Address">
+    <End Role="address" Type="Medinventus.Model.Store.address" Multiplicity="0..1" />
+    <End Role="customers" Type="Medinventus.Model.Store.customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="idAddress" />
+      </Principal>
+      <Dependent Role="customers">
+        <PropertyRef Name="Address_idAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Customers_AltAddress">
+    <End Role="address" Type="Medinventus.Model.Store.address" Multiplicity="0..1" />
+    <End Role="customers" Type="Medinventus.Model.Store.customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="idAddress" />
+      </Principal>
+      <Dependent Role="customers">
+        <PropertyRef Name="AltAddress_idAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Users_Address">
+    <End Role="address" Type="Medinventus.Model.Store.address" Multiplicity="0..1" />
+    <End Role="users" Type="Medinventus.Model.Store.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="idAddress" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="Address_idAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Users_AltAddress">
+    <End Role="address" Type="Medinventus.Model.Store.address" Multiplicity="0..1" />
+    <End Role="users" Type="Medinventus.Model.Store.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="idAddress" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="AltAddress_idAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Users_Roles1">
+    <End Role="roles" Type="Medinventus.Model.Store.roles" Multiplicity="1" />
+    <End Role="users" Type="Medinventus.Model.Store.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="idRoles" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="Roles_idRoles" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Vendors_Address">
+    <End Role="address" Type="Medinventus.Model.Store.address" Multiplicity="0..1" />
+    <End Role="vendors" Type="Medinventus.Model.Store.vendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="idAddress" />
+      </Principal>
+      <Dependent Role="vendors">
+        <PropertyRef Name="Address_idAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Vendors_AltAddress">
+    <End Role="address" Type="Medinventus.Model.Store.address" Multiplicity="0..1" />
+    <End Role="vendors" Type="Medinventus.Model.Store.vendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="idAddress" />
+      </Principal>
+      <Dependent Role="vendors">
+        <PropertyRef Name="AltAddress_idAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

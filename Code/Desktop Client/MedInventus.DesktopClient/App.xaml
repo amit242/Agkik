@@ -1,0 +1,21 @@
+﻿<Application x:Class="agkik.businesslogic.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Views\Login.xaml"
+             xmlns:vm="clr-namespace:agkik.desktopclient.ViewModels"
+             xmlns:rsrc="clr-namespace:agkik.desktopclient.Resources.Converters">
+    <Application.Resources>
+        <ResourceDictionary>
+            <vm:LoginViewModel x:Key="loginVM"></vm:LoginViewModel>
+            <rsrc:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"></rsrc:BooleanToVisibilityConverter>
+            <rsrc:ToggleVisibilityConverter x:Key="toggleVisibilityConverter"></rsrc:ToggleVisibilityConverter>
+            <rsrc:DistinctConverter x:Key="distinctConverter"></rsrc:DistinctConverter>
+            <rsrc:HeightConverter x:Key="heightConverter" />
+            <rsrc:RadioButtonCheckedConverter x:Key="radioBtnConverter"></rsrc:RadioButtonCheckedConverter>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Basic.Styles.xaml" />
+                <ResourceDictionary Source="Resources/Validators.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,5 @@
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.DesktopClient.Tests\bin\Debug\MedInventus.DesktopClient.Tests.dll
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.DesktopClient.Tests\bin\Debug\MedInventus.DesktopClient.Tests.pdb
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.DesktopClient.Tests\obj\Debug\agkik.desktopclient.tests.csprojResolveAssemblyReference.cache
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.DesktopClient.Tests\obj\Debug\MedInventus.DesktopClient.Tests.dll
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.DesktopClient.Tests\obj\Debug\MedInventus.DesktopClient.Tests.pdb

@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.Uom"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:utl="clr-namespace:agkik.desktopclient.Utils"
+             mc:Ignorable="d">
+    <StackPanel Orientation="Vertical">
+        <TextBlock Name="tbMedDetails" Text="UOM Details" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblUOM" Content="_Unit of Measure(UOM): " Style="{StaticResource labelStyleWide}" Target="{Binding ElementName=cboUOM}"/>
+            <Grid>
+                <ComboBox x:Name="cboUOM" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=UOMList}" DisplayMemberPath="UomName" SelectedItem="{Binding SelectedUOM}" Style="{StaticResource typeAheadComboboxStyle}" Text="{Binding Path=NewUomName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
+                    <ComboBox.Resources>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Setter Property="MaxLength" Value="20"></Setter>
+                        </Style>
+                    </ComboBox.Resources>
+                </ComboBox>
+                <TextBlock x:Name="tbSelectOrType" Text="--Select or Type--" IsHitTestVisible="False" Foreground="Gray" Margin="20,5,0,0" >
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Setters>
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </Style.Setters>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=cboUOM, Path=Text}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblPieces" Content="_No of Pieces per Unit: " Style="{StaticResource labelStyleWide}" Target="{Binding ElementName=txtPieces}"/>
+            <TextBox Name="txtPieces" MaxLength="6" Style="{StaticResource textBoxStyle}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" PreviewTextInput="DisableNonNumericValue">
+                <TextBox.Text>
+                    <Binding Path="SelectedUOM.UOMConversionFactor" Mode="TwoWay" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <!--<utl:DecimalValidationRule ValidationStep="UpdatedValue"></utl:DecimalValidationRule>-->
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Name="btnAddOM" Content="Add New UOM" HorizontalAlignment="Left" Height="auto" Width="100" Command="{Binding Path=AddUOMCommand}" />
+            <Button Name="btnUpdateUOM" Content="Update Existing UOM" HorizontalAlignment="Left" Height="auto" Width="130" Margin="80,0,0,0" Command="{Binding Path=UpdateUOMCommand}" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

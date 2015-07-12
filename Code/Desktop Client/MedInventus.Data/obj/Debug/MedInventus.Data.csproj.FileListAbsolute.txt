@@ -1,0 +1,16 @@
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\Code\Desktop Client\MedInventus.Data\bin\Debug\MedInventusDAL.dll.config
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\Code\Desktop Client\MedInventus.Data\bin\Debug\MedInventusDAL.dll
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\Code\Desktop Client\MedInventus.Data\bin\Debug\MedInventusDAL.pdb
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\Code\Desktop Client\MedInventus.Data\obj\Debug\MedInventusDAL.dll
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\Code\Desktop Client\MedInventus.Data\obj\Debug\MedInventusDAL.pdb
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\Code\Desktop Client\MedInventus.Data\obj\Debug\MedInventus.Data.csprojResolveAssemblyReference.cache
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\Code\Desktop Client\MedInventus.Data\bin\Debug\log4net.dll
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\Code\Desktop Client\MedInventus.Data\bin\Debug\log4net.xml
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\Future\Code\Desktop Client\MedInventus.Data\bin\Debug\MedInventusDAL.dll.config
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\Future\Code\Desktop Client\MedInventus.Data\bin\Debug\MedInventusDAL.dll
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\Future\Code\Desktop Client\MedInventus.Data\bin\Debug\MedInventusDAL.pdb
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\Future\Code\Desktop Client\MedInventus.Data\bin\Debug\log4net.dll
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\Future\Code\Desktop Client\MedInventus.Data\bin\Debug\log4net.xml
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\Future\Code\Desktop Client\MedInventus.Data\obj\Debug\MedInventus.Data.csprojResolveAssemblyReference.cache
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\Future\Code\Desktop Client\MedInventus.Data\obj\Debug\MedInventusDAL.dll
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\Future\Code\Desktop Client\MedInventus.Data\obj\Debug\MedInventusDAL.pdb

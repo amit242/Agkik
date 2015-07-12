@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.VendorUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols"
+             xmlns:vm="clr-namespace:agkik.desktopclient.ViewModels">
+
+    <StackPanel>
+        <AdornerDecorator>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Name="tbVendorDetails" Text="Personal Details" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                        <Label Name="lblFirstName" Content="_First Name: " Target="{Binding ElementName=txtFirstName}" Style="{StaticResource labelStyle}"/>
+                        <TextBox Name="txtFirstName" MaxLength="45" Style="{StaticResource textBoxStyle}" Text="{Binding Path=FirstName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                        <Label Name="lblLastName" Content="_Last Name: " Target="{Binding ElementName=txtLastName}" Style="{StaticResource labelStyle}" />
+                        <TextBox Name="txtLastName" MaxLength="45" Style="{StaticResource textBoxStyle}" Text="{Binding Path=LastName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                        <Label Name="lblCompanyName" Content="C_ompany Name: " Target="{Binding ElementName=txtCompanyName}" Style="{StaticResource labelStyle}"/>
+                        <TextBox Name="txtCompanyName" MaxLength="45"  Style="{StaticResource textBoxStyle}" Text="{Binding Path=CompanyName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+                    </StackPanel>
+                </StackPanel>
+                <Separator Height="5" />
+                <StackPanel Orientation="Horizontal"></StackPanel>
+                <uc:Address x:Name="vendorAddress" AddressName="Primary Address" DataContext="{Binding PrimaryAddress}"></uc:Address>
+                <!--<CheckBox Name="chkShowAltAddress" Content="Has alternate address" />-->
+                <Separator Height="5" />
+
+                <Expander IsExpanded="{Binding Path=ShowAltAddress}" Margin="2,0,0,2" Visibility="{Binding Path=ShowAltAddress, Converter={StaticResource booleanToVisibilityConverter}}">
+                    <Expander.Header>
+                        <TextBlock FontStyle="Italic" FontSize="14" Visibility="{Binding Path=IsEnabled, Converter={StaticResource booleanToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Text" Value="Click here to provide Alternate Address" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Expander, AncestorLevel=1}, Path=IsExpanded}" Value="True">
+                                            <Setter Property="Text" Value="Remove Alternate Address" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Expander.Header>
+
+                    <AdornerDecorator>
+                        <uc:Address x:Name="vendorAltAddress" AddressName="Alternate Address" DataContext="{Binding AlternateAddress}"></uc:Address>
+                    </AdornerDecorator>
+                </Expander>
+                <Separator Height="5"/>
+                <uc:ContactDetails x:Name="vendorContact" ContactName="Vendor Contact" DataContext="{Binding Contact}"></uc:ContactDetails>
+                <Separator Height="15" />
+
+                <Label Name="lblVendorNotes" HorizontalAlignment="Left" Content="_Notes: " Target="{Binding ElementName=txtVendorNotes}" Style="{StaticResource labelStyle}"/>
+                <TextBox Name="txtVendorNotes" HorizontalAlignment="Left" MaxLength="200" Style="{StaticResource textBoxStyleNotes}" Text="{Binding Path=Notes, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+                
+            </StackPanel>
+        </AdornerDecorator>
+    </StackPanel>
+</UserControl>

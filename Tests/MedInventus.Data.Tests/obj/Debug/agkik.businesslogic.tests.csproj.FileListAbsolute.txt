@@ -1,0 +1,7 @@
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.Data.Tests\bin\Debug\MedInventus.Data.Tests.dll
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.Data.Tests\bin\Debug\MedInventus.Data.Tests.pdb
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.Data.Tests\bin\Debug\EntityFramework.dll
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.Data.Tests\bin\Debug\EntityFramework.xml
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.Data.Tests\obj\Debug\agkik.businesslogic.tests.csprojResolveAssemblyReference.cache
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.Data.Tests\obj\Debug\MedInventus.Data.Tests.dll
+D:\Amit\DesktopApplications\wpf\agkik\Tests\MedInventus.Data.Tests\obj\Debug\MedInventus.Data.Tests.pdb

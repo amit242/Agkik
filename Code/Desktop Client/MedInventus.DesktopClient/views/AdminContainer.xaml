@@ -1,0 +1,151 @@
+﻿<Window x:Class="agkik.desktopclient.views.AdminContainer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MedInventus Admin Console" Width="700" Icon="../Media/Manage.gif">
+    <StackPanel>
+        <Menu IsMainMenu="True" HorizontalAlignment="Stretch">
+            <MenuItem Header="_File" >
+                <MenuItem Header="_Import Inventory..."/>
+                <MenuItem Header="_Import Customer..."/>
+                <MenuItem Header="_Import Invoice..."/>
+                <MenuItem Header="_Import Vendor..."/>
+                <Separator />
+                <MenuItem Header="_Export Invoice..."/>
+                <MenuItem Header="_Export Total Profit Report..."/>
+                <MenuItem Header="_Export Inventory..."/>
+                <MenuItem Header="_Export Customer..."/>
+                <MenuItem Header="_Export Customer Report by Item..."/>
+                <MenuItem Header="_Export Vendor..." />
+                <Separator />
+                <MenuItem Header="_Backup Database" />
+                <Separator />
+                <MenuItem Header="_Print" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+
+            <MenuItem Header="_Edit" >
+                <MenuItem Header="_Undo" Command="Undo"/>
+                <Separator />
+                <MenuItem Header="_Cut" Command="Cut"/>
+                <MenuItem Header="_Copy" Command="Copy"/>
+                <MenuItem Header="_Paste" Command="Paste"/>
+                <Separator />
+                <MenuItem Header="_Select All" Command="SelectAll"/>
+            </MenuItem>
+
+            <MenuItem Header="_Invoices" >
+                <MenuItem Header="_Invoice History"/>
+                <MenuItem Header="_New Invoice..." />
+                <MenuItem Header="_Find Invoice..." />
+                <Separator />
+                <MenuItem Header="_New Quote..." />
+                <MenuItem Header="_View Quotes..." />
+            </MenuItem>
+
+            <MenuItem Header="_Inventory" >
+                <MenuItem Header="_View Inventory" />
+                <MenuItem Header="_View Item Groups" />
+                <MenuItem Header="_Add Item..." />
+                <MenuItem Header="_Find Item..." />
+                <Separator />
+                <MenuItem Header="_Receive Stock..." />
+                <MenuItem Header="_Reduce Stock..."  />
+                <MenuItem Header="_Transfer Stock..." />
+                <MenuItem Header="_Stock Count..." />
+            </MenuItem>
+
+            <MenuItem Header="_Customers" >
+                <MenuItem Header="_View Customers" />
+                <MenuItem Header="_Add Customers"/>
+                <MenuItem Header="_Find Customer..."/>
+            </MenuItem>
+
+            <MenuItem Header="_Vendors" >
+                <MenuItem Header="_View Vendors" />
+                <MenuItem Header="_Add Vendor..." />
+                <MenuItem Header="_Find Vendor..." />
+                <Separator />
+                <MenuItem Header="_New PO..." />
+                <MenuItem Header="_New Reorder..." />
+                <MenuItem Header="_Show Reorder..." />
+                <MenuItem Header="_Receive Order..." />
+            </MenuItem>
+
+            <MenuItem Header="_Reports" >
+                <MenuItem Header="_Purchase Report..." />
+                <MenuItem Header="_Sales Report..." />
+                <MenuItem Header="_Invoicing Report..." />
+                <MenuItem Header="_Itemwise Stock Report..." />
+                <MenuItem Header="_Transaction Report..." />
+                <MenuItem Header="_Credit Report..." />
+                <MenuItem Header="_Customer Outstanding Report..." />
+            </MenuItem>
+
+            <MenuItem Header="_Configure" >
+                <MenuItem Header="_Configuretion Wizard"/>
+                <Separator />
+                <MenuItem Header="_Item Location and Ware Houses..." />
+                <MenuItem Header="_Item Category..." />
+                <MenuItem Header="_Payment Methods..." />
+
+            </MenuItem>
+
+            <MenuItem Header="_Help" />
+        </Menu>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Background="#FFC1CCDB">
+            <Button Name="btnInventory" Click="btnInventory_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
+                            <Image Source="../Media/Inventory.gif" Style="{StaticResource menuButtonStyle}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Name="btnVendor" Click="btnVendor_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
+                            <Image Source="../Media/Vendor.gif" Style="{StaticResource menuButtonStyle}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Name="btnCustomer">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
+                            <Image Source="../Media/Customer.png" Style="{StaticResource menuButtonStyle}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Name="btnReports"  >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
+                            <Image Source="../Media/Reports.gif" Style="{StaticResource menuButtonStyle}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Name="buttonFind"  >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
+                            <Image Source="../Media/Search.gif" Style="{StaticResource menuButtonStyle}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window, AncestorLevel=1}, Path=ActualHeight, Converter={StaticResource heightConverter}}">
+            <Frame Name="frmContent" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden">
+
+            </Frame>
+        </ScrollViewer>
+        
+    </StackPanel>
+</Window>

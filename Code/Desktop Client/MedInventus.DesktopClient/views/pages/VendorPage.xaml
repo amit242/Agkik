@@ -1,0 +1,73 @@
+﻿<Page x:Class="agkik.desktopclient.views.pages.VendorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols"
+      xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+      xmlns:vm="clr-namespace:agkik.desktopclient.ViewModels" Title="Vendor Page">
+    <DockPanel>
+        <DockPanel.Resources>
+            <vm:VendorViewModel x:Key="vendorVM"></vm:VendorViewModel>
+        </DockPanel.Resources>
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Left" Margin="0,0,10,0">
+            <Button Name="btnSelectAddVendor">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
+                            <Image Source="../../Media/Vendor.gif" Style="{StaticResource menuButtonStyle}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <TextBlock>Add Vendor</TextBlock>
+            <Button Name="btnSelectViewVendor">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
+                            <Image Source="../../Media/Vendor.gif" Style="{StaticResource menuButtonStyle}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        <TabControl Name="tcVendor" DockPanel.Dock="Right" DataContext="{Binding Source={StaticResource vendorVM}}">
+            <TabItem Header="Add Vendor" Name="tiAddVendor" PreviewKeyDown="tiAddVendor_PreviewKeyDown">
+                <AdornerDecorator>
+                    <StackPanel Orientation="Vertical">
+                        <uc:VendorUserControl x:Name="newVendor" Background="Beige" IsEnabled="True" DataContext="{Binding Path=NewVendor}"></uc:VendorUserControl>
+                        <Button Name="btnAddVendor" Content="Add Vendor" HorizontalAlignment="Left" Height="auto" Width="auto" Command="{Binding Path=AddVendorCommand}" />
+                        <TextBlock Name="tbErrorMessage" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" OpacityMask="Crimson" Foreground="#FF0000" Text="{Binding Path=DisplayMessage}" Visibility="{Binding Path=IsMessageVisible, Converter={StaticResource booleanToVisibilityConverter}}"/>
+                    </StackPanel>
+                </AdornerDecorator>
+            </TabItem>
+            <TabItem Header="View/Update Existing Vendors" Name="tiShowVendors">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel.Resources>
+                        <CollectionViewSource x:Key="vendorCollection" Source="{Binding Path=VendorList}"></CollectionViewSource>
+                    </StackPanel.Resources>
+                    
+                    <DataGrid Name="dgVendors" Background="AliceBlue" ItemsSource="{Binding Source={StaticResource vendorCollection}}" SelectionMode="Single" Height="200" IsReadOnly="True" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=VendorId}" Header="VendorId"  FontWeight="Bold" Width="*"  />
+                            <DataGridTextColumn Binding="{Binding Path=FirstName}" Header="First Name" FontWeight="Bold" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Last Name" FontWeight="Bold" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=CompanyName}" Header="Company Name" FontWeight="Bold" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=RegistrationDate}" Header="Registration Date" FontWeight="Bold" Width="*"/>
+                        </DataGrid.Columns>
+                        <ia:Interaction.Triggers>
+                            <ia:EventTrigger EventName="SelectionChanged">
+                                <ia:InvokeCommandAction Command="{Binding SelectVendorCommand}" CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" />
+                            </ia:EventTrigger>
+                        </ia:Interaction.Triggers>
+                    </DataGrid>
+                    <CheckBox Name="chkEditDetails" Content="Edit Details" FontSize="15" FontWeight="Bold"/>
+                    <uc:VendorUserControl x:Name="selectedVendor" Background="Beige" DataContext="{Binding Path=SelectedVendor}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}"></uc:VendorUserControl>
+                    <Separator Height="15" />
+                    <Button Name="btnUpdateVendor" Content="Update Vendor" HorizontalAlignment="Left" Height="auto" Width="auto" Command="{Binding Path=UpdateVendorCommand}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Page>

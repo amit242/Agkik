@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.Address"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:agkik.desktopclient.ViewModels"
+             mc:Ignorable="d">
+    <!--<UserControl.Resources>
+        <vm:AddressViewModel x:Key="addressVM"></vm:AddressViewModel>
+    </UserControl.Resources>-->
+    <StackPanel Orientation="Vertical">
+        <TextBlock Name="tbAddressName" Text="Address" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblAddress1" Content="Address Line_1: " Target="{Binding ElementName=txtAddress1}" Style="{StaticResource labelStyle}"/>
+            <TextBox Name="txtAddress1" MaxLength="60" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=AddressLine1, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblAddress2" Content="Address Line_2: " Target="{Binding ElementName=txtAddress2}" Style="{StaticResource labelStyle}"/>
+            <TextBox Name="txtAddress2" MaxLength="60" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=AddressLine2, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblCity" Content="_City: " Target="{Binding ElementName=cboCity}" Style="{StaticResource labelStyle}"/>
+            <ComboBox Name="cboCity" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=Cities}" Text="{Binding Path=City, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource typeAheadComboboxStyle}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
+                <ComboBox.Resources>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="MaxLength" Value="10"></Setter>
+                    </Style>
+                </ComboBox.Resources>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblState" Content="_State: " Target="{Binding ElementName=txtState}" Style="{StaticResource labelStyle}"/>
+            <!--<TextBox Name="txtState" Style="{StaticResource textBoxStyle}" Text="{Binding Path=State, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />-->
+            <ComboBox Name="cboState" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=States}" Text="{Binding Path=State, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource typeAheadComboboxStyle}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}"></ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblCountry" Content="C_ountry: " Target="{Binding ElementName=txtCountry}" Style="{StaticResource labelStyle}"/>
+            <!--<TextBox Name="txtCountry" Style="{StaticResource textBoxStyle}" Text="{Binding Path=Country, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />-->
+            <ComboBox Name="cboCountry" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=Countries}" Text="{Binding Path=Country, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource typeAheadComboboxStyle}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}"></ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblZip" Content="_PIN Code: " Target="{Binding ElementName=txtZip}" Style="{StaticResource labelStyle}"/>
+            <TextBox Name="txtZip" Style="{StaticResource textBoxStyle}" MaxLength="6" Text="{Binding Path=PIN, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" PreviewTextInput="txtZip_PreviewTextInput" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

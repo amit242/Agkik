@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.ContactDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:agkik.desktopclient.ViewModels"
+             mc:Ignorable="d">
+    <!--<UserControl.Resources>
+        <vm:ContactViewModel x:Key="contactVM"></vm:ContactViewModel>
+    </UserControl.Resources>-->
+    <StackPanel Orientation="Vertical">
+        <TextBlock Name="tbContactName" Text="Contact Details" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblMobileNo" Content="_Mobile No: " Target="{Binding ElementName=txtMobileNo}" Style="{StaticResource labelStyle}"/>
+            <TextBlock Width="25">+91</TextBlock>
+            <TextBox Name="txtMobileNo" MaxLength="10" Style="{StaticResource textBoxStyle}" Text="{Binding Path=MobileNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" Width="125" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblPhoneNo" Content="_Phone No: " Target="{Binding ElementName=txtStdCode}" Style="{StaticResource labelStyle}"/>
+            <TextBlock Width="25">+91</TextBlock>
+            <TextBox Name="txtPhoneNo" MaxLength="10" Style="{StaticResource textBoxStyle}" Width="125" Text="{Binding Path=PhoneNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblEmail" Content="E_mail: " Target="{Binding ElementName=txtEmail}" Style="{StaticResource labelStyle}"/>
+            <TextBox Name="txtEmail" Style="{StaticResource textBoxStyle}" Text="{Binding Path=Email, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblAltEmail" Content="_Alternate Email: " Target="{Binding ElementName=txtAltEmail}" Style="{StaticResource labelStyle}"/>
+            <TextBox Name="txtAltEmail" Style="{StaticResource textBoxStyle}" Text="{Binding Path=AltEmail, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblFax" Content="_Fax: " Target="{Binding ElementName=txtFax}" Style="{StaticResource labelStyle}"/>
+            <TextBox Name="txtFax" MaxLength="10" Style="{StaticResource textBoxStyle}" Text="{Binding Path=Fax, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

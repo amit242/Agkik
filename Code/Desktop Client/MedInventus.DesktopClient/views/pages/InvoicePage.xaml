@@ -1,0 +1,52 @@
+﻿<Page x:Class="agkik.desktopclient.views.pages.InvoicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:agkik.desktopclient.views.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="300"
+      Title="InvoicePage" Background="White">
+
+    <StackPanel>
+        <Grid Background="Beige">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                <Label Name="lblInvoiceNo" Content="_Invoice No: " Target="{Binding ElementName=txtInvoiceNo}" Style="{StaticResource labelStyleWide}"/>
+                <TextBox Name="txtInvoiceNo" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=InvoiceNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                <Label Name="lblVendorNo" Content="_Vendor No: " Target="{Binding ElementName=txtVendorNo}" Style="{StaticResource labelStyleWide}"/>
+                <TextBox Name="txtVendorNo" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=VendorNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+            </StackPanel>
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                <Label Name="lblBillNo" Content="_Bill No: " Target="{Binding ElementName=txtBillNo}" Style="{StaticResource labelStyleWide}"/>
+                <TextBox Name="txtBillNo" MaxLength="100" Width="240" Style="{StaticResource textBoxStyle}" Text="{Binding Path=VendorNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+            </StackPanel>
+        </Grid>
+        <StackPanel Height="20"></StackPanel>
+        <DataGrid Name="dgInvoicelines" Background="AliceBlue" SelectionMode="Single" Height="200" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=GLAccountNumber}" Header="GL Account"  FontWeight="Bold" Width="*"  />
+                <DataGridComboBoxColumn Header="Item Code" Width="*"  />
+                <DataGridTextColumn Binding="{Binding Path=ItemDesc}" Header="Item Description" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=Quantity}" Header="Quantity" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=UnitPrice}" Header="Unit Price" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=TotalPrice}" Header="Total Price" FontWeight="Bold" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Page>

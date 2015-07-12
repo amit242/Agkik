@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.VendorSearchUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500" xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
+    <StackPanel>
+        <StackPanel.Resources>
+            <CollectionViewSource x:Key="searchedVendorCollection" Source="{Binding Path=SearchResultVendorList}"></CollectionViewSource>
+        </StackPanel.Resources>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblVendorFirstName" Content="Vendor _First Name: " Style="{StaticResource labelStyleWide}" Target="{Binding ElementName=txtVendorFirstName}"/>
+            <TextBox Name="txtVendorFirstName" MaxLength="100" Style="{StaticResource textBoxStyle}" Text="{Binding Path=NewMedicine.MedicineName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblVendorLastName" Content="Vendor _Last Name: " Style="{StaticResource labelStyleWide}" Target="{Binding ElementName=txtVendorLastName}"/>
+            <TextBox Name="txtVendorLastName" MaxLength="100" Style="{StaticResource textBoxStyle}" Text="{Binding Path=NewMedicine.GenericName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <Button Name="btnSearchVendor" Content="Search Vendors" Margin="10" HorizontalAlignment="Left" Height="auto" Width="auto" Command="{Binding Path=SearchVendorCommand}" />
+        <DataGrid Name="dgVendors" Background="AliceBlue" ItemsSource="{Binding Source={StaticResource searchedVendorCollection}}" SelectionMode="Single" Height="260" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=VendorId}" Header="VendorId"  FontWeight="Bold" Width="*"  />
+                <DataGridTextColumn Binding="{Binding Path=FirstName}" Header="First Name" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Last Name" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=CompanyName}" Header="Company Name" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=RegistrationDate}" Header="Registration Date" FontWeight="Bold" Width="*"/>
+            </DataGrid.Columns>
+            <ia:Interaction.Triggers>
+                <ia:EventTrigger EventName="SelectionChanged">
+                    <ia:InvokeCommandAction Command="{Binding SelectSearchedVendorCommand}" CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" />
+                </ia:EventTrigger>
+            </ia:Interaction.Triggers>
+        </DataGrid>
+    </StackPanel>
+</UserControl>

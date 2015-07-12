@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.BankAccountUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Background="Black" Initialized="UserControl_Initialized">
+    <Grid Name="accountGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Style="{StaticResource gridRowBorder}" Grid.Row="0" Grid.ColumnSpan="3" />
+        <Border Style="{StaticResource gridRowBorder}" Grid.Row="1" Grid.ColumnSpan="3" />
+        <Border Style="{StaticResource gridRowBorder}" Grid.Row="2" Grid.ColumnSpan="3" />
+        <Border Style="{StaticResource gridRowBorder}" Grid.Row="3" Grid.ColumnSpan="3" />
+        <Border Style="{StaticResource gridRowBorder}" Grid.Row="4" Grid.ColumnSpan="3" />
+        <Border Style="{StaticResource gridRowBorder}" Grid.Row="5" Grid.ColumnSpan="3" />
+        <Border Style="{StaticResource gridRowBorder}" Grid.Row="6" Grid.ColumnSpan="3" />
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblAccountType" Content="_Account Type: " Target="{Binding ElementName=cbAccountType}" Style="{StaticResource labelStyleWide}"/>
+            <ComboBox Name="cbAccountType" Style="{StaticResource widerComboBoxStyle}" SelectionChanged="cbAccountType_SelectionChanged" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblIsPrimaryAccount" Content="_Set As Primary Account?: " Target="{Binding ElementName=txtIsPrimaryAccount}" Style="{StaticResource labelStyleWide}"/>
+            <CheckBox Style="{StaticResource checkboxbaseStyle}" Name="txtIsPrimaryAccount" IsChecked="{Binding Path=IsPrimaryAccount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblBalanceAmount" Content="_Balance Amount: " Target="{Binding ElementName=txtBalanceAmount}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtBalanceAmount" MaxLength="10" Typography.NumeralAlignment="Normal" Style="{StaticResource textBoxStyleBigger}" Text="{Binding Path=BalanceAmount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblAccountNo" Content="_Account No: " Target="{Binding ElementName=txtAccountNo}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtAccountNo" MaxLength="34"  Style="{StaticResource textBoxStyleWider}" Text="{Binding Path=AccountNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblAccountName" Content="Account _Name: " Target="{Binding ElementName=txtAccountName}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtAccountName" MaxLength="100"  Style="{StaticResource textBoxStyleWider}" Text="{Binding Path=AccountName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblAccountHolderName" Content="Account _Holder's Name: " Target="{Binding ElementName=txtExpiryDate}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtAccountHolderName" MaxLength="100"  Style="{StaticResource textBoxStyleWider}" Text="{Binding Path=AccountHolderName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblCardNo" Content="_Debit/Credit Card No: " Target="{Binding ElementName=txtCardNo}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtCardNo" MaxLength="16"  Style="{StaticResource textBoxStyleWider}" Text="{Binding Path=CardNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblBankName" Content="_Bank Name: " Target="{Binding ElementName=txtBankName}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtBankName" MaxLength="100"  Style="{StaticResource textBoxStyleWider}" Text="{Binding Path=BankName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblBankBranch" Content="_Bank Branch: " Target="{Binding ElementName=txtBankBranch}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtBankBranch" MaxLength="100"  Style="{StaticResource textBoxStyleWider}" Text="{Binding Path=BankBranch, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+            <Label Name="lblBankIFSC" Content="_IFSC Code: " Target="{Binding ElementName=txtBankIFSC}" Style="{StaticResource labelStyleWide}"/>
+            <TextBox Name="txtBankIFSC" MaxLength="11" Style="{StaticResource textBoxStyleWider}" Text="{Binding Path=BankIFSC, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MedinventusModelStoreContainer" CdmEntityContainer="medinventusConn">
+    <EntitySetMapping Name="addresses">
+      <EntityTypeMapping TypeName="Medinventus.Model.address">
+        <MappingFragment StoreEntitySet="address">
+          <ScalarProperty Name="idAddress" ColumnName="idAddress" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="Medinventus.Model.customer">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="idCustomers" ColumnName="idCustomers" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="Address_idAddress" ColumnName="Address_idAddress" />
+          <ScalarProperty Name="AltAddress_idAddress" ColumnName="AltAddress_idAddress" />
+          <ScalarProperty Name="IsRegular" ColumnName="IsRegular" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="Medinventus.Model.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="idRoles" ColumnName="idRoles" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="Medinventus.Model.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="idUsers" ColumnName="idUsers" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="Address_idAddress" ColumnName="Address_idAddress" />
+          <ScalarProperty Name="AltAddress_idAddress" ColumnName="AltAddress_idAddress" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roles_idRoles" ColumnName="Roles_idRoles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vendors">
+      <EntityTypeMapping TypeName="Medinventus.Model.vendor">
+        <MappingFragment StoreEntitySet="vendors">
+          <ScalarProperty Name="idVendors" ColumnName="idVendors" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="Address_idAddress" ColumnName="Address_idAddress" />
+          <ScalarProperty Name="AltAddress_idAddress" ColumnName="AltAddress_idAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

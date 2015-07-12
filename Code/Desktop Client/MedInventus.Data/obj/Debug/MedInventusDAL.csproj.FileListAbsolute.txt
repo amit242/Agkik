@@ -1,0 +1,6 @@
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\MedInventusDAL\bin\Debug\MedInventusDAL.dll
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\MedInventusDAL\bin\Debug\MedInventusDAL.pdb
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\MedInventusDAL\obj\Debug\MedInventusDAL.dll
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\MedInventusDAL\obj\Debug\MedInventusDAL.pdb
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\MedInventusDAL\bin\Debug\MedInventusDAL.dll.config
+D:\Amit\VisualStudioWorkSpace\MedicalInventory\MedInventus\MedInventusDAL\obj\Debug\MedInventusDAL.csprojResolveAssemblyReference.cache

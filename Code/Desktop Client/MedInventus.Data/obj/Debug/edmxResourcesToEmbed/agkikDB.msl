@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="agkikdbModelStoreContainer" CdmEntityContainer="AgkikdbEntities">
+    <EntitySetMapping Name="addresses">
+      <EntityTypeMapping TypeName="agkikdbModel.address">
+        <MappingFragment StoreEntitySet="address">
+          <ScalarProperty Name="idAddress" ColumnName="idAddress" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="agkikdbModel.customer">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="idCustomers" ColumnName="idCustomers" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="Address_idAddress" ColumnName="Address_idAddress" />
+          <ScalarProperty Name="AltAddress_idAddress" ColumnName="AltAddress_idAddress" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="IsRegular" ColumnName="IsRegular" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoices">
+      <EntityTypeMapping TypeName="agkikdbModel.invoice">
+        <MappingFragment StoreEntitySet="invoice">
+          <ScalarProperty Name="idInvoice" ColumnName="idInvoice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoicelines">
+      <EntityTypeMapping TypeName="agkikdbModel.invoiceline">
+        <MappingFragment StoreEntitySet="invoicelines">
+          <ScalarProperty Name="idInvoiceLines" ColumnName="idInvoiceLines" />
+          <ScalarProperty Name="Invoice_idInvoice" ColumnName="Invoice_idInvoice" />
+          <ScalarProperty Name="Item_idItem" ColumnName="Item_idItem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="agkikdbModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="idItem" ColumnName="idItem" />
+          <ScalarProperty Name="ItemSKU" ColumnName="ItemSKU" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="agkikdbModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="idRoles" ColumnName="idRoles" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="agkikdbModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="idUsers" ColumnName="idUsers" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="Address_idAddress" ColumnName="Address_idAddress" />
+          <ScalarProperty Name="AltAddress_idAddress" ColumnName="AltAddress_idAddress" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="LastLoggedInDate" ColumnName="LastLoggedInDate" />
+          <ScalarProperty Name="Roles_idRoles" ColumnName="Roles_idRoles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vendors">
+      <EntityTypeMapping TypeName="agkikdbModel.vendor">
+        <MappingFragment StoreEntitySet="vendors">
+          <ScalarProperty Name="idVendors" ColumnName="idVendors" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="VendorCompany" ColumnName="VendorCompany" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Address_idAddress" ColumnName="Address_idAddress" />
+          <ScalarProperty Name="AltAddress_idAddress" ColumnName="AltAddress_idAddress" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="agkikdbModel.account">
+        <MappingFragment StoreEntitySet="accounts">
+          <ScalarProperty Name="AccountBalance" ColumnName="AccountBalance" />
+          <ScalarProperty Name="BankIFSC" ColumnName="BankIFSC" />
+          <ScalarProperty Name="BankBranch" ColumnName="BankBranch" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="AccountHolderName" ColumnName="AccountHolderName" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="idBankAccounts" ColumnName="idBankAccounts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="accounttransactions">
+      <EntityTypeMapping TypeName="agkikdbModel.accounttransaction">
+        <MappingFragment StoreEntitySet="accounttransaction">
+          <ScalarProperty Name="Users_idUsers" ColumnName="Users_idUsers" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="TransactionRemarks" ColumnName="TransactionRemarks" />
+          <ScalarProperty Name="TransactionAmount" ColumnName="TransactionAmount" />
+          <ScalarProperty Name="Accounts_idBankAccounts" ColumnName="Accounts_idBankAccounts" />
+          <ScalarProperty Name="idAccountTransaction" ColumnName="idAccountTransaction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

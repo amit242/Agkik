@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B21D3027-9CAE-4B10-906B-4C98BE0CB2FD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>agkik.desktopclient</RootNamespace>
+    <AssemblyName>agkik.desktopclient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Dependencies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="customcontrols\TestCustomControl.cs" />
+    <Compile Include="resources\Converters.cs" />
+    <Compile Include="services\IMessageBoxService.cs" />
+    <Compile Include="services\MessageBoxService.cs" />
+    <Compile Include="services\ServiceContainer.cs" />
+    <Compile Include="services\ServiceInjector.cs" />
+    <Compile Include="utils\BasicUtils.cs" />
+    <Compile Include="utils\DecimalValidationRule.cs" />
+    <Compile Include="utils\ValidationUtils.cs" />
+    <Compile Include="viewmodels\AddressViewModel.cs" />
+    <Compile Include="viewmodels\ContactViewModel.cs" />
+    <Compile Include="viewmodels\ContainerViewModel.cs" />
+    <Compile Include="viewmodels\InventoryViewModel.cs" />
+    <Compile Include="viewmodels\LoginViewModel.cs" />
+    <Compile Include="viewmodels\MedicineViewModel.cs" />
+    <Compile Include="viewmodels\UomViewModel.cs" />
+    <Compile Include="viewmodels\ViewModelBase.cs" />
+    <Compile Include="viewmodels\VendorViewModel.cs" />
+    <Compile Include="views\Container.xaml.cs">
+      <DependentUpon>Container.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="command\RelayCommand.cs" />
+    <Compile Include="views\AdminContainer.xaml.cs">
+      <DependentUpon>AdminContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\pages\BankAccPage.xaml.cs">
+      <DependentUpon>BankAccPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\pages\InventoryPage.xaml.cs">
+      <DependentUpon>InventoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\pages\InvoicePage.xaml.cs">
+      <DependentUpon>InvoicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\pages\VendorPage.xaml.cs">
+      <DependentUpon>VendorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\Address.xaml.cs">
+      <DependentUpon>Address.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\BankAccountUserControl.xaml.cs">
+      <DependentUpon>BankAccountUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\ContactDetails.xaml.cs">
+      <DependentUpon>ContactDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\MedicineSearchUserControl.xaml.cs">
+      <DependentUpon>MedicineSearchUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\MedicineStockUserControl.xaml.cs">
+      <DependentUpon>MedicineStockUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\MedicineUserControl.xaml.cs">
+      <DependentUpon>MedicineUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\Uom.xaml.cs">
+      <DependentUpon>Uom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\VendorMedicineUserControl.xaml.cs">
+      <DependentUpon>VendorMedicineUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\VendorSearchUserControl.xaml.cs">
+      <DependentUpon>VendorSearchUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\VendorUserControl.xaml.cs">
+      <DependentUpon>VendorUserControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="resources\AutoComplete.Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\Basic.Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resources\ComboBox.Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\Validators.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\Container.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\AdminContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\pages\BankAccPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\pages\InventoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\pages\InvoicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\pages\VendorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\Address.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\BankAccountUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\ContactDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\MedicineSearchUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\MedicineStockUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\MedicineUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\Uom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\VendorMedicineUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\VendorSearchUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\VendorUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedInventus.Data\agkik.businesslogic.csproj">
+      <Project>{045D61E1-19F7-42E3-BAF0-FB59460AC03F}</Project>
+      <Name>agkik.businesslogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\LookupGlass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\LoginScreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\Customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\Vendor.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\Manage.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\Logout.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\Invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\Inventory.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\Reports.gif" />
+    <Resource Include="media\Search.gif" />
+    <Resource Include="media\Show_Invoice.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\agkikLogin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\agkikLogin2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\cash.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
