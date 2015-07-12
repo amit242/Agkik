@@ -37,10 +37,10 @@
     <Compile Include="businessapi\VendorManager.cs" />
     <Compile Include="common\MessageableObject.cs" />
     <Compile Include="common\ObservableObject.cs" />
-    <Compile Include="agkikDB.Designer.cs">
+    <Compile Include="AgkikDBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>agkikDB.edmx</DependentUpon>
+      <DependentUpon>AgkikDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="models\Address.cs" />
     <Compile Include="models\City.cs" />
@@ -67,9 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="agkikDB.edmx">
+    <EntityDeploy Include="AgkikDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>agkikDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>AgkikDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Properties\DataSources\MedInventus.Data.MedInventusEntities.datasource" />
     <None Include="Properties\DataSources\MedInventusEntities.datasource" />

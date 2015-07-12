@@ -4410,3 +4410,4 @@
 2015-07-12 20:42:42,898 [10] [agkik.desktopclient.ViewModels.LoginViewModel] DEBUG: [admin] has successfully logged in!
 2015-07-12 20:43:37,250 [8] [agkik.desktopclient.ViewModels.LoginViewModel] DEBUG: [admin] has successfully logged in!
 2015-07-12 20:44:43,847 [9] [agkik.desktopclient.ViewModels.LoginViewModel] DEBUG: [admin] has successfully logged in!
+2015-07-12 23:22:35,154 [7] [agkik.desktopclient.ViewModels.LoginViewModel] DEBUG: [admin] has successfully logged in!

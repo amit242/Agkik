@@ -29,6 +29,7 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
+using agkik.desktopclient.customcontrols;
 
 
 namespace agkik.desktopclient.views {

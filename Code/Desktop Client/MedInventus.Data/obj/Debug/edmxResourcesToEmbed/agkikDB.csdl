@@ -291,6 +291,8 @@
     <Property Type="String" Name="BankIFSC" />
     <Property Type="Decimal" Name="AccountBalance" Nullable="false" />
     <NavigationProperty Name="accounttransactions" Relationship="agkikdbModel.fk_AccountTransaction_Accounts1" FromRole="account" ToRole="accounttransaction" />
+    <Property Type="Boolean" Name="IsAccountPrimary" />
+    <Property Type="Boolean" Name="IsPrimaryAccount" />
   </EntityType>
   <EntityType Name="accounttransaction">
     <Key>

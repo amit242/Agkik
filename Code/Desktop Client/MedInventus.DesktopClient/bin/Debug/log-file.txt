@@ -1,2 +1,0 @@
-2014-10-05 21:08:19,781 [8] DEBUG MedInventus.DesktopClient.CustomControls.AutocompleteTextBox [(null)] - Data: System.Collections.Generic.List`1[System.String]
-2014-10-05 21:08:26,225 [8] DEBUG MedInventus.DesktopClient.CustomControls.AutocompleteTextBox [(null)] - Was IList

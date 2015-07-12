@@ -29,5 +29,10 @@ namespace agkik.desktopclient.views.pages
         {
             dgAccounts.ItemsSource = AccountManager.getAccounts();
         }
+
+        private void dgAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //dgAccounts.SelectedItem
+        }
     }
 }

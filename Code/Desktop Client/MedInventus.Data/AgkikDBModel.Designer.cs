@@ -19,17 +19,17 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_Customers_Address", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "customers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.customer), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_Customers_AltAddress", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "customers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.customer), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_Users_Address", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.user), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_Users_AltAddress", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.user), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_Vendors_Address", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "vendors", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.vendor), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_Vendors_AltAddress", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "vendors", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.vendor), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_InvoiceLines_Invoice1", "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.invoice), "invoicelines", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.invoiceline), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_InvoiceLines_Item1", "item", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.item), "invoicelines", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.invoiceline), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_Users_Roles1", "roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.role), "users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.user), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_AccountTransaction_Accounts1", "account", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.account), "accounttransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.accounttransaction), true)]
-[assembly: EdmRelationshipAttribute("agkikdbModel", "fk_AccountTransaction_Users1", "user", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.user), "accounttransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.accounttransaction), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_AccountTransaction_Accounts1", "accounts", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.account), "accounttransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.accounttransaction), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_AccountTransaction_Users1", "users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.user), "accounttransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.accounttransaction), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_Customers_Address", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "customers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.customer), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_Customers_AltAddress", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "customers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.customer), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_Users_Address", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.user), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_Users_AltAddress", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.user), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_Vendors_Address", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "vendors", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.vendor), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_Vendors_AltAddress", "address", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(agkik.businesslogic.address), "vendors", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.vendor), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_InvoiceLines_Invoice1", "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.invoice), "invoicelines", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.invoiceline), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_InvoiceLines_Item1", "item", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.item), "invoicelines", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.invoiceline), true)]
+[assembly: EdmRelationshipAttribute("AgkikdbModel", "fk_Users_Roles1", "roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(agkik.businesslogic.role), "users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(agkik.businesslogic.user), true)]
 
 #endregion
 
@@ -80,6 +80,38 @@ namespace agkik.businesslogic
         #endregion
     
         #region ObjectSet Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<account> accounts
+        {
+            get
+            {
+                if ((_accounts == null))
+                {
+                    _accounts = base.CreateObjectSet<account>("accounts");
+                }
+                return _accounts;
+            }
+        }
+        private ObjectSet<account> _accounts;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<accounttransaction> accounttransactions
+        {
+            get
+            {
+                if ((_accounttransactions == null))
+                {
+                    _accounttransactions = base.CreateObjectSet<accounttransaction>("accounttransactions");
+                }
+                return _accounttransactions;
+            }
+        }
+        private ObjectSet<accounttransaction> _accounttransactions;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -208,42 +240,26 @@ namespace agkik.businesslogic
             }
         }
         private ObjectSet<vendor> _vendors;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<account> accounts
-        {
-            get
-            {
-                if ((_accounts == null))
-                {
-                    _accounts = base.CreateObjectSet<account>("accounts");
-                }
-                return _accounts;
-            }
-        }
-        private ObjectSet<account> _accounts;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<accounttransaction> accounttransactions
-        {
-            get
-            {
-                if ((_accounttransactions == null))
-                {
-                    _accounttransactions = base.CreateObjectSet<accounttransaction>("accounttransactions");
-                }
-                return _accounttransactions;
-            }
-        }
-        private ObjectSet<accounttransaction> _accounttransactions;
 
         #endregion
 
         #region AddTo Methods
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the accounts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaccounts(account account)
+        {
+            base.AddObject("accounts", account);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the accounttransactions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaccounttransactions(accounttransaction accounttransaction)
+        {
+            base.AddObject("accounttransactions", accounttransaction);
+        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the addresses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -308,22 +324,6 @@ namespace agkik.businesslogic
         {
             base.AddObject("vendors", vendor);
         }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the accounts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToaccounts(account account)
-        {
-            base.AddObject("accounts", account);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the accounttransactions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToaccounttransactions(accounttransaction accounttransaction)
-        {
-            base.AddObject("accounttransactions", accounttransaction);
-        }
 
         #endregion
 
@@ -336,7 +336,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="account")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="account")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class account : EntityObject
@@ -606,6 +606,30 @@ namespace agkik.businesslogic
         private global::System.Decimal _AccountBalance;
         partial void OnAccountBalanceChanging(global::System.Decimal value);
         partial void OnAccountBalanceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsPrimaryAccount
+        {
+            get
+            {
+                return _IsPrimaryAccount;
+            }
+            set
+            {
+                OnIsPrimaryAccountChanging(value);
+                ReportPropertyChanging("IsPrimaryAccount");
+                _IsPrimaryAccount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsPrimaryAccount");
+                OnIsPrimaryAccountChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsPrimaryAccount;
+        partial void OnIsPrimaryAccountChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsPrimaryAccountChanged();
 
         #endregion
 
@@ -618,18 +642,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_AccountTransaction_Accounts1", "accounttransaction")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_AccountTransaction_Accounts1", "accounttransaction")]
         public EntityCollection<accounttransaction> accounttransactions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<accounttransaction>("agkikdbModel.fk_AccountTransaction_Accounts1", "accounttransaction");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<accounttransaction>("AgkikdbModel.fk_AccountTransaction_Accounts1", "accounttransaction");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<accounttransaction>("agkikdbModel.fk_AccountTransaction_Accounts1", "accounttransaction", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<accounttransaction>("AgkikdbModel.fk_AccountTransaction_Accounts1", "accounttransaction", value);
                 }
             }
         }
@@ -641,7 +665,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="accounttransaction")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="accounttransaction")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class accounttransaction : EntityObject
@@ -829,16 +853,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_AccountTransaction_Accounts1", "account")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_AccountTransaction_Accounts1", "accounts")]
         public account account
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<account>("agkikdbModel.fk_AccountTransaction_Accounts1", "account").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<account>("AgkikdbModel.fk_AccountTransaction_Accounts1", "accounts").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<account>("agkikdbModel.fk_AccountTransaction_Accounts1", "account").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<account>("AgkikdbModel.fk_AccountTransaction_Accounts1", "accounts").Value = value;
             }
         }
         /// <summary>
@@ -850,13 +874,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<account>("agkikdbModel.fk_AccountTransaction_Accounts1", "account");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<account>("AgkikdbModel.fk_AccountTransaction_Accounts1", "accounts");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<account>("agkikdbModel.fk_AccountTransaction_Accounts1", "account", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<account>("AgkikdbModel.fk_AccountTransaction_Accounts1", "accounts", value);
                 }
             }
         }
@@ -867,16 +891,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_AccountTransaction_Users1", "user")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_AccountTransaction_Users1", "users")]
         public user user
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<user>("agkikdbModel.fk_AccountTransaction_Users1", "user").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<user>("AgkikdbModel.fk_AccountTransaction_Users1", "users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<user>("agkikdbModel.fk_AccountTransaction_Users1", "user").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<user>("AgkikdbModel.fk_AccountTransaction_Users1", "users").Value = value;
             }
         }
         /// <summary>
@@ -888,13 +912,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<user>("agkikdbModel.fk_AccountTransaction_Users1", "user");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<user>("AgkikdbModel.fk_AccountTransaction_Users1", "users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<user>("agkikdbModel.fk_AccountTransaction_Users1", "user", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<user>("AgkikdbModel.fk_AccountTransaction_Users1", "users", value);
                 }
             }
         }
@@ -906,7 +930,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="address")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="address")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class address : EntityObject
@@ -1120,18 +1144,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Customers_Address", "customers")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Customers_Address", "customers")]
         public EntityCollection<customer> customers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer>("agkikdbModel.fk_Customers_Address", "customers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer>("AgkikdbModel.fk_Customers_Address", "customers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer>("agkikdbModel.fk_Customers_Address", "customers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer>("AgkikdbModel.fk_Customers_Address", "customers", value);
                 }
             }
         }
@@ -1142,18 +1166,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Customers_AltAddress", "customers")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Customers_AltAddress", "customers")]
         public EntityCollection<customer> customers1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer>("agkikdbModel.fk_Customers_AltAddress", "customers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer>("AgkikdbModel.fk_Customers_AltAddress", "customers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer>("agkikdbModel.fk_Customers_AltAddress", "customers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer>("AgkikdbModel.fk_Customers_AltAddress", "customers", value);
                 }
             }
         }
@@ -1164,18 +1188,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Users_Address", "users")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Users_Address", "users")]
         public EntityCollection<user> users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<user>("agkikdbModel.fk_Users_Address", "users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<user>("AgkikdbModel.fk_Users_Address", "users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<user>("agkikdbModel.fk_Users_Address", "users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<user>("AgkikdbModel.fk_Users_Address", "users", value);
                 }
             }
         }
@@ -1186,18 +1210,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Users_AltAddress", "users")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Users_AltAddress", "users")]
         public EntityCollection<user> users1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<user>("agkikdbModel.fk_Users_AltAddress", "users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<user>("AgkikdbModel.fk_Users_AltAddress", "users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<user>("agkikdbModel.fk_Users_AltAddress", "users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<user>("AgkikdbModel.fk_Users_AltAddress", "users", value);
                 }
             }
         }
@@ -1208,18 +1232,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Vendors_Address", "vendors")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Vendors_Address", "vendors")]
         public EntityCollection<vendor> vendors
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<vendor>("agkikdbModel.fk_Vendors_Address", "vendors");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<vendor>("AgkikdbModel.fk_Vendors_Address", "vendors");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<vendor>("agkikdbModel.fk_Vendors_Address", "vendors", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<vendor>("AgkikdbModel.fk_Vendors_Address", "vendors", value);
                 }
             }
         }
@@ -1230,18 +1254,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Vendors_AltAddress", "vendors")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Vendors_AltAddress", "vendors")]
         public EntityCollection<vendor> vendors1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<vendor>("agkikdbModel.fk_Vendors_AltAddress", "vendors");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<vendor>("AgkikdbModel.fk_Vendors_AltAddress", "vendors");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<vendor>("agkikdbModel.fk_Vendors_AltAddress", "vendors", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<vendor>("AgkikdbModel.fk_Vendors_AltAddress", "vendors", value);
                 }
             }
         }
@@ -1253,7 +1277,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="customer")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="customer")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class customer : EntityObject
@@ -1559,16 +1583,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Customers_Address", "address")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Customers_Address", "address")]
         public address address
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Customers_Address", "address").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Customers_Address", "address").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Customers_Address", "address").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Customers_Address", "address").Value = value;
             }
         }
         /// <summary>
@@ -1580,13 +1604,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Customers_Address", "address");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Customers_Address", "address");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("agkikdbModel.fk_Customers_Address", "address", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("AgkikdbModel.fk_Customers_Address", "address", value);
                 }
             }
         }
@@ -1597,16 +1621,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Customers_AltAddress", "address")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Customers_AltAddress", "address")]
         public address address1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Customers_AltAddress", "address").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Customers_AltAddress", "address").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Customers_AltAddress", "address").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Customers_AltAddress", "address").Value = value;
             }
         }
         /// <summary>
@@ -1618,13 +1642,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Customers_AltAddress", "address");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Customers_AltAddress", "address");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("agkikdbModel.fk_Customers_AltAddress", "address", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("AgkikdbModel.fk_Customers_AltAddress", "address", value);
                 }
             }
         }
@@ -1636,7 +1660,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="invoice")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="invoice")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class invoice : EntityObject
@@ -1696,18 +1720,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_InvoiceLines_Invoice1", "invoicelines")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_InvoiceLines_Invoice1", "invoicelines")]
         public EntityCollection<invoiceline> invoicelines
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<invoiceline>("agkikdbModel.fk_InvoiceLines_Invoice1", "invoicelines");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<invoiceline>("AgkikdbModel.fk_InvoiceLines_Invoice1", "invoicelines");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoiceline>("agkikdbModel.fk_InvoiceLines_Invoice1", "invoicelines", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoiceline>("AgkikdbModel.fk_InvoiceLines_Invoice1", "invoicelines", value);
                 }
             }
         }
@@ -1719,7 +1743,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="invoiceline")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="invoiceline")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class invoiceline : EntityObject
@@ -1831,16 +1855,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_InvoiceLines_Invoice1", "invoice")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_InvoiceLines_Invoice1", "invoice")]
         public invoice invoice
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<invoice>("agkikdbModel.fk_InvoiceLines_Invoice1", "invoice").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<invoice>("AgkikdbModel.fk_InvoiceLines_Invoice1", "invoice").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<invoice>("agkikdbModel.fk_InvoiceLines_Invoice1", "invoice").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<invoice>("AgkikdbModel.fk_InvoiceLines_Invoice1", "invoice").Value = value;
             }
         }
         /// <summary>
@@ -1852,13 +1876,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<invoice>("agkikdbModel.fk_InvoiceLines_Invoice1", "invoice");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<invoice>("AgkikdbModel.fk_InvoiceLines_Invoice1", "invoice");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<invoice>("agkikdbModel.fk_InvoiceLines_Invoice1", "invoice", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<invoice>("AgkikdbModel.fk_InvoiceLines_Invoice1", "invoice", value);
                 }
             }
         }
@@ -1869,16 +1893,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_InvoiceLines_Item1", "item")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_InvoiceLines_Item1", "item")]
         public item item
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<item>("agkikdbModel.fk_InvoiceLines_Item1", "item").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<item>("AgkikdbModel.fk_InvoiceLines_Item1", "item").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<item>("agkikdbModel.fk_InvoiceLines_Item1", "item").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<item>("AgkikdbModel.fk_InvoiceLines_Item1", "item").Value = value;
             }
         }
         /// <summary>
@@ -1890,13 +1914,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<item>("agkikdbModel.fk_InvoiceLines_Item1", "item");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<item>("AgkikdbModel.fk_InvoiceLines_Item1", "item");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<item>("agkikdbModel.fk_InvoiceLines_Item1", "item", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<item>("AgkikdbModel.fk_InvoiceLines_Item1", "item", value);
                 }
             }
         }
@@ -1908,7 +1932,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="item")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="item")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class item : EntityObject
@@ -2020,18 +2044,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_InvoiceLines_Item1", "invoicelines")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_InvoiceLines_Item1", "invoicelines")]
         public EntityCollection<invoiceline> invoicelines
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<invoiceline>("agkikdbModel.fk_InvoiceLines_Item1", "invoicelines");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<invoiceline>("AgkikdbModel.fk_InvoiceLines_Item1", "invoicelines");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoiceline>("agkikdbModel.fk_InvoiceLines_Item1", "invoicelines", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoiceline>("AgkikdbModel.fk_InvoiceLines_Item1", "invoicelines", value);
                 }
             }
         }
@@ -2043,7 +2067,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="role")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="role")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class role : EntityObject
@@ -2127,18 +2151,18 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Users_Roles1", "users")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Users_Roles1", "users")]
         public EntityCollection<user> users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<user>("agkikdbModel.fk_Users_Roles1", "users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<user>("AgkikdbModel.fk_Users_Roles1", "users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<user>("agkikdbModel.fk_Users_Roles1", "users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<user>("AgkikdbModel.fk_Users_Roles1", "users", value);
                 }
             }
         }
@@ -2150,7 +2174,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="user")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="user")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class user : EntityObject
@@ -2534,16 +2558,38 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Users_Address", "address")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_AccountTransaction_Users1", "accounttransaction")]
+        public EntityCollection<accounttransaction> accounttransactions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<accounttransaction>("AgkikdbModel.fk_AccountTransaction_Users1", "accounttransaction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<accounttransaction>("AgkikdbModel.fk_AccountTransaction_Users1", "accounttransaction", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Users_Address", "address")]
         public address address
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Users_Address", "address").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Users_Address", "address").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Users_Address", "address").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Users_Address", "address").Value = value;
             }
         }
         /// <summary>
@@ -2555,13 +2601,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Users_Address", "address");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Users_Address", "address");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("agkikdbModel.fk_Users_Address", "address", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("AgkikdbModel.fk_Users_Address", "address", value);
                 }
             }
         }
@@ -2572,16 +2618,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Users_AltAddress", "address")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Users_AltAddress", "address")]
         public address address1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Users_AltAddress", "address").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Users_AltAddress", "address").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Users_AltAddress", "address").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Users_AltAddress", "address").Value = value;
             }
         }
         /// <summary>
@@ -2593,13 +2639,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Users_AltAddress", "address");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Users_AltAddress", "address");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("agkikdbModel.fk_Users_AltAddress", "address", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("AgkikdbModel.fk_Users_AltAddress", "address", value);
                 }
             }
         }
@@ -2610,16 +2656,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Users_Roles1", "roles")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Users_Roles1", "roles")]
         public role role
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<role>("agkikdbModel.fk_Users_Roles1", "roles").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<role>("AgkikdbModel.fk_Users_Roles1", "roles").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<role>("agkikdbModel.fk_Users_Roles1", "roles").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<role>("AgkikdbModel.fk_Users_Roles1", "roles").Value = value;
             }
         }
         /// <summary>
@@ -2631,35 +2677,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<role>("agkikdbModel.fk_Users_Roles1", "roles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<role>("AgkikdbModel.fk_Users_Roles1", "roles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<role>("agkikdbModel.fk_Users_Roles1", "roles", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_AccountTransaction_Users1", "accounttransaction")]
-        public EntityCollection<accounttransaction> accounttransactions
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<accounttransaction>("agkikdbModel.fk_AccountTransaction_Users1", "accounttransaction");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<accounttransaction>("agkikdbModel.fk_AccountTransaction_Users1", "accounttransaction", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<role>("AgkikdbModel.fk_Users_Roles1", "roles", value);
                 }
             }
         }
@@ -2671,7 +2695,7 @@ namespace agkik.businesslogic
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="agkikdbModel", Name="vendor")]
+    [EdmEntityTypeAttribute(NamespaceName="AgkikdbModel", Name="vendor")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class vendor : EntityObject
@@ -2999,16 +3023,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Vendors_Address", "address")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Vendors_Address", "address")]
         public address address
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Vendors_Address", "address").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Vendors_Address", "address").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Vendors_Address", "address").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Vendors_Address", "address").Value = value;
             }
         }
         /// <summary>
@@ -3020,13 +3044,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Vendors_Address", "address");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Vendors_Address", "address");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("agkikdbModel.fk_Vendors_Address", "address", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("AgkikdbModel.fk_Vendors_Address", "address", value);
                 }
             }
         }
@@ -3037,16 +3061,16 @@ namespace agkik.businesslogic
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("agkikdbModel", "fk_Vendors_AltAddress", "address")]
+        [EdmRelationshipNavigationPropertyAttribute("AgkikdbModel", "fk_Vendors_AltAddress", "address")]
         public address address1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Vendors_AltAddress", "address").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Vendors_AltAddress", "address").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Vendors_AltAddress", "address").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Vendors_AltAddress", "address").Value = value;
             }
         }
         /// <summary>
@@ -3058,13 +3082,13 @@ namespace agkik.businesslogic
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("agkikdbModel.fk_Vendors_AltAddress", "address");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<address>("AgkikdbModel.fk_Vendors_AltAddress", "address");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("agkikdbModel.fk_Vendors_AltAddress", "address", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<address>("AgkikdbModel.fk_Vendors_AltAddress", "address", value);
                 }
             }
         }

@@ -4,59 +4,59 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="agkikdbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="agkikdbModelStoreContainer">
-          <EntitySet Name="accounts" EntityType="agkikdbModel.Store.accounts" store:Type="Tables" Schema="agkikdb" />
-          <EntitySet Name="accounttransaction" EntityType="agkikdbModel.Store.accounttransaction" store:Type="Tables" Schema="agkikdb" />
-          <EntitySet Name="address" EntityType="agkikdbModel.Store.address" store:Type="Tables" Schema="agkikdb" />
-          <EntitySet Name="customers" EntityType="agkikdbModel.Store.customers" store:Type="Tables" Schema="agkikdb" />
-          <EntitySet Name="invoice" EntityType="agkikdbModel.Store.invoice" store:Type="Tables" Schema="agkikdb" />
-          <EntitySet Name="invoicelines" EntityType="agkikdbModel.Store.invoicelines" store:Type="Tables" Schema="agkikdb" />
-          <EntitySet Name="item" EntityType="agkikdbModel.Store.item" store:Type="Tables" Schema="agkikdb" />
-          <EntitySet Name="roles" EntityType="agkikdbModel.Store.roles" store:Type="Tables" Schema="agkikdb" />
-          <EntitySet Name="users" EntityType="agkikdbModel.Store.users" store:Type="Tables" Schema="agkikdb" />
-          <EntitySet Name="vendors" EntityType="agkikdbModel.Store.vendors" store:Type="Tables" Schema="agkikdb" />
-          <AssociationSet Name="fk_AccountTransaction_Accounts1" Association="agkikdbModel.Store.fk_AccountTransaction_Accounts1">
+      <Schema Namespace="AgkikdbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AgkikdbModelStoreContainer">
+          <EntitySet Name="accounts" EntityType="AgkikdbModel.Store.accounts" store:Type="Tables" Schema="agkikdb" />
+          <EntitySet Name="accounttransaction" EntityType="AgkikdbModel.Store.accounttransaction" store:Type="Tables" Schema="agkikdb" />
+          <EntitySet Name="address" EntityType="AgkikdbModel.Store.address" store:Type="Tables" Schema="agkikdb" />
+          <EntitySet Name="customers" EntityType="AgkikdbModel.Store.customers" store:Type="Tables" Schema="agkikdb" />
+          <EntitySet Name="invoice" EntityType="AgkikdbModel.Store.invoice" store:Type="Tables" Schema="agkikdb" />
+          <EntitySet Name="invoicelines" EntityType="AgkikdbModel.Store.invoicelines" store:Type="Tables" Schema="agkikdb" />
+          <EntitySet Name="item" EntityType="AgkikdbModel.Store.item" store:Type="Tables" Schema="agkikdb" />
+          <EntitySet Name="roles" EntityType="AgkikdbModel.Store.roles" store:Type="Tables" Schema="agkikdb" />
+          <EntitySet Name="users" EntityType="AgkikdbModel.Store.users" store:Type="Tables" Schema="agkikdb" />
+          <EntitySet Name="vendors" EntityType="AgkikdbModel.Store.vendors" store:Type="Tables" Schema="agkikdb" />
+          <AssociationSet Name="fk_AccountTransaction_Accounts1" Association="AgkikdbModel.Store.fk_AccountTransaction_Accounts1">
             <End Role="accounts" EntitySet="accounts" />
             <End Role="accounttransaction" EntitySet="accounttransaction" />
           </AssociationSet>
-          <AssociationSet Name="fk_AccountTransaction_Users1" Association="agkikdbModel.Store.fk_AccountTransaction_Users1">
+          <AssociationSet Name="fk_AccountTransaction_Users1" Association="AgkikdbModel.Store.fk_AccountTransaction_Users1">
             <End Role="users" EntitySet="users" />
             <End Role="accounttransaction" EntitySet="accounttransaction" />
           </AssociationSet>
-          <AssociationSet Name="fk_Customers_Address" Association="agkikdbModel.Store.fk_Customers_Address">
+          <AssociationSet Name="fk_Customers_Address" Association="AgkikdbModel.Store.fk_Customers_Address">
             <End Role="address" EntitySet="address" />
             <End Role="customers" EntitySet="customers" />
           </AssociationSet>
-          <AssociationSet Name="fk_Customers_AltAddress" Association="agkikdbModel.Store.fk_Customers_AltAddress">
+          <AssociationSet Name="fk_Customers_AltAddress" Association="AgkikdbModel.Store.fk_Customers_AltAddress">
             <End Role="address" EntitySet="address" />
             <End Role="customers" EntitySet="customers" />
           </AssociationSet>
-          <AssociationSet Name="fk_InvoiceLines_Invoice1" Association="agkikdbModel.Store.fk_InvoiceLines_Invoice1">
+          <AssociationSet Name="fk_InvoiceLines_Invoice1" Association="AgkikdbModel.Store.fk_InvoiceLines_Invoice1">
             <End Role="invoice" EntitySet="invoice" />
             <End Role="invoicelines" EntitySet="invoicelines" />
           </AssociationSet>
-          <AssociationSet Name="fk_InvoiceLines_Item1" Association="agkikdbModel.Store.fk_InvoiceLines_Item1">
+          <AssociationSet Name="fk_InvoiceLines_Item1" Association="AgkikdbModel.Store.fk_InvoiceLines_Item1">
             <End Role="item" EntitySet="item" />
             <End Role="invoicelines" EntitySet="invoicelines" />
           </AssociationSet>
-          <AssociationSet Name="fk_Users_Address" Association="agkikdbModel.Store.fk_Users_Address">
+          <AssociationSet Name="fk_Users_Address" Association="AgkikdbModel.Store.fk_Users_Address">
             <End Role="address" EntitySet="address" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
-          <AssociationSet Name="fk_Users_AltAddress" Association="agkikdbModel.Store.fk_Users_AltAddress">
+          <AssociationSet Name="fk_Users_AltAddress" Association="AgkikdbModel.Store.fk_Users_AltAddress">
             <End Role="address" EntitySet="address" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
-          <AssociationSet Name="fk_Users_Roles1" Association="agkikdbModel.Store.fk_Users_Roles1">
+          <AssociationSet Name="fk_Users_Roles1" Association="AgkikdbModel.Store.fk_Users_Roles1">
             <End Role="roles" EntitySet="roles" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
-          <AssociationSet Name="fk_Vendors_Address" Association="agkikdbModel.Store.fk_Vendors_Address">
+          <AssociationSet Name="fk_Vendors_Address" Association="AgkikdbModel.Store.fk_Vendors_Address">
             <End Role="address" EntitySet="address" />
             <End Role="vendors" EntitySet="vendors" />
           </AssociationSet>
-          <AssociationSet Name="fk_Vendors_AltAddress" Association="agkikdbModel.Store.fk_Vendors_AltAddress">
+          <AssociationSet Name="fk_Vendors_AltAddress" Association="AgkikdbModel.Store.fk_Vendors_AltAddress">
             <End Role="address" EntitySet="address" />
             <End Role="vendors" EntitySet="vendors" />
           </AssociationSet>
@@ -75,6 +75,7 @@
           <Property Name="BankBranch" Type="varchar" MaxLength="100" />
           <Property Name="BankIFSC" Type="varchar" MaxLength="11" />
           <Property Name="AccountBalance" Type="decimal" Nullable="false" />
+          <Property Name="IsPrimaryAccount" Type="bool" />
         </EntityType>
         <EntityType Name="accounttransaction">
           <Key>
@@ -181,8 +182,8 @@
           <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="fk_AccountTransaction_Accounts1">
-          <End Role="accounts" Type="agkikdbModel.Store.accounts" Multiplicity="1" />
-          <End Role="accounttransaction" Type="agkikdbModel.Store.accounttransaction" Multiplicity="*" />
+          <End Role="accounts" Type="AgkikdbModel.Store.accounts" Multiplicity="1" />
+          <End Role="accounttransaction" Type="AgkikdbModel.Store.accounttransaction" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="accounts">
               <PropertyRef Name="idBankAccounts" />
@@ -193,8 +194,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_AccountTransaction_Users1">
-          <End Role="users" Type="agkikdbModel.Store.users" Multiplicity="1" />
-          <End Role="accounttransaction" Type="agkikdbModel.Store.accounttransaction" Multiplicity="*" />
+          <End Role="users" Type="AgkikdbModel.Store.users" Multiplicity="1" />
+          <End Role="accounttransaction" Type="AgkikdbModel.Store.accounttransaction" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="users">
               <PropertyRef Name="idUsers" />
@@ -205,8 +206,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Customers_Address">
-          <End Role="address" Type="agkikdbModel.Store.address" Multiplicity="0..1" />
-          <End Role="customers" Type="agkikdbModel.Store.customers" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.Store.address" Multiplicity="0..1" />
+          <End Role="customers" Type="AgkikdbModel.Store.customers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -217,8 +218,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Customers_AltAddress">
-          <End Role="address" Type="agkikdbModel.Store.address" Multiplicity="0..1" />
-          <End Role="customers" Type="agkikdbModel.Store.customers" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.Store.address" Multiplicity="0..1" />
+          <End Role="customers" Type="AgkikdbModel.Store.customers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -229,8 +230,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_InvoiceLines_Invoice1">
-          <End Role="invoice" Type="agkikdbModel.Store.invoice" Multiplicity="1" />
-          <End Role="invoicelines" Type="agkikdbModel.Store.invoicelines" Multiplicity="*" />
+          <End Role="invoice" Type="AgkikdbModel.Store.invoice" Multiplicity="1" />
+          <End Role="invoicelines" Type="AgkikdbModel.Store.invoicelines" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="invoice">
               <PropertyRef Name="idInvoice" />
@@ -241,8 +242,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_InvoiceLines_Item1">
-          <End Role="item" Type="agkikdbModel.Store.item" Multiplicity="1" />
-          <End Role="invoicelines" Type="agkikdbModel.Store.invoicelines" Multiplicity="*" />
+          <End Role="item" Type="AgkikdbModel.Store.item" Multiplicity="1" />
+          <End Role="invoicelines" Type="AgkikdbModel.Store.invoicelines" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="item">
               <PropertyRef Name="idItem" />
@@ -253,8 +254,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Users_Address">
-          <End Role="address" Type="agkikdbModel.Store.address" Multiplicity="0..1" />
-          <End Role="users" Type="agkikdbModel.Store.users" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.Store.address" Multiplicity="0..1" />
+          <End Role="users" Type="AgkikdbModel.Store.users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -265,8 +266,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Users_AltAddress">
-          <End Role="address" Type="agkikdbModel.Store.address" Multiplicity="0..1" />
-          <End Role="users" Type="agkikdbModel.Store.users" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.Store.address" Multiplicity="0..1" />
+          <End Role="users" Type="AgkikdbModel.Store.users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -277,8 +278,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Users_Roles1">
-          <End Role="roles" Type="agkikdbModel.Store.roles" Multiplicity="1" />
-          <End Role="users" Type="agkikdbModel.Store.users" Multiplicity="*" />
+          <End Role="roles" Type="AgkikdbModel.Store.roles" Multiplicity="1" />
+          <End Role="users" Type="AgkikdbModel.Store.users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="roles">
               <PropertyRef Name="idRoles" />
@@ -289,8 +290,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Vendors_Address">
-          <End Role="address" Type="agkikdbModel.Store.address" Multiplicity="0..1" />
-          <End Role="vendors" Type="agkikdbModel.Store.vendors" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.Store.address" Multiplicity="0..1" />
+          <End Role="vendors" Type="AgkikdbModel.Store.vendors" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -301,8 +302,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Vendors_AltAddress">
-          <End Role="address" Type="agkikdbModel.Store.address" Multiplicity="0..1" />
-          <End Role="vendors" Type="agkikdbModel.Store.vendors" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.Store.address" Multiplicity="0..1" />
+          <End Role="vendors" Type="AgkikdbModel.Store.vendors" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -312,66 +313,97 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="agkikdbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="AgkikdbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="AgkikdbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="addresses" EntityType="agkikdbModel.address" />
-          <EntitySet Name="customers" EntityType="agkikdbModel.customer" />
-          <EntitySet Name="invoices" EntityType="agkikdbModel.invoice" />
-          <EntitySet Name="invoicelines" EntityType="agkikdbModel.invoiceline" />
-          <EntitySet Name="items" EntityType="agkikdbModel.item" />
-          <EntitySet Name="roles" EntityType="agkikdbModel.role" />
-          <EntitySet Name="users" EntityType="agkikdbModel.user" />
-          <EntitySet Name="vendors" EntityType="agkikdbModel.vendor" />
-          <AssociationSet Name="fk_Customers_Address" Association="agkikdbModel.fk_Customers_Address">
+          <EntitySet Name="accounts" EntityType="AgkikdbModel.account" />
+          <EntitySet Name="accounttransactions" EntityType="AgkikdbModel.accounttransaction" />
+          <EntitySet Name="addresses" EntityType="AgkikdbModel.address" />
+          <EntitySet Name="customers" EntityType="AgkikdbModel.customer" />
+          <EntitySet Name="invoices" EntityType="AgkikdbModel.invoice" />
+          <EntitySet Name="invoicelines" EntityType="AgkikdbModel.invoiceline" />
+          <EntitySet Name="items" EntityType="AgkikdbModel.item" />
+          <EntitySet Name="roles" EntityType="AgkikdbModel.role" />
+          <EntitySet Name="users" EntityType="AgkikdbModel.user" />
+          <EntitySet Name="vendors" EntityType="AgkikdbModel.vendor" />
+          <AssociationSet Name="fk_AccountTransaction_Accounts1" Association="AgkikdbModel.fk_AccountTransaction_Accounts1">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="accounttransaction" EntitySet="accounttransactions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_AccountTransaction_Users1" Association="AgkikdbModel.fk_AccountTransaction_Users1">
+            <End Role="users" EntitySet="users" />
+            <End Role="accounttransaction" EntitySet="accounttransactions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Customers_Address" Association="AgkikdbModel.fk_Customers_Address">
             <End Role="address" EntitySet="addresses" />
             <End Role="customers" EntitySet="customers" />
           </AssociationSet>
-          <AssociationSet Name="fk_Customers_AltAddress" Association="agkikdbModel.fk_Customers_AltAddress">
+          <AssociationSet Name="fk_Customers_AltAddress" Association="AgkikdbModel.fk_Customers_AltAddress">
             <End Role="address" EntitySet="addresses" />
             <End Role="customers" EntitySet="customers" />
           </AssociationSet>
-          <AssociationSet Name="fk_Users_Address" Association="agkikdbModel.fk_Users_Address">
+          <AssociationSet Name="fk_Users_Address" Association="AgkikdbModel.fk_Users_Address">
             <End Role="address" EntitySet="addresses" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
-          <AssociationSet Name="fk_Users_AltAddress" Association="agkikdbModel.fk_Users_AltAddress">
+          <AssociationSet Name="fk_Users_AltAddress" Association="AgkikdbModel.fk_Users_AltAddress">
             <End Role="address" EntitySet="addresses" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
-          <AssociationSet Name="fk_Vendors_Address" Association="agkikdbModel.fk_Vendors_Address">
+          <AssociationSet Name="fk_Vendors_Address" Association="AgkikdbModel.fk_Vendors_Address">
             <End Role="address" EntitySet="addresses" />
             <End Role="vendors" EntitySet="vendors" />
           </AssociationSet>
-          <AssociationSet Name="fk_Vendors_AltAddress" Association="agkikdbModel.fk_Vendors_AltAddress">
+          <AssociationSet Name="fk_Vendors_AltAddress" Association="AgkikdbModel.fk_Vendors_AltAddress">
             <End Role="address" EntitySet="addresses" />
             <End Role="vendors" EntitySet="vendors" />
           </AssociationSet>
-          <AssociationSet Name="fk_InvoiceLines_Invoice1" Association="agkikdbModel.fk_InvoiceLines_Invoice1">
+          <AssociationSet Name="fk_InvoiceLines_Invoice1" Association="AgkikdbModel.fk_InvoiceLines_Invoice1">
             <End Role="invoice" EntitySet="invoices" />
             <End Role="invoicelines" EntitySet="invoicelines" />
           </AssociationSet>
-          <AssociationSet Name="fk_InvoiceLines_Item1" Association="agkikdbModel.fk_InvoiceLines_Item1">
+          <AssociationSet Name="fk_InvoiceLines_Item1" Association="AgkikdbModel.fk_InvoiceLines_Item1">
             <End Role="item" EntitySet="items" />
             <End Role="invoicelines" EntitySet="invoicelines" />
           </AssociationSet>
-          <AssociationSet Name="fk_Users_Roles1" Association="agkikdbModel.fk_Users_Roles1">
+          <AssociationSet Name="fk_Users_Roles1" Association="AgkikdbModel.fk_Users_Roles1">
             <End Role="roles" EntitySet="roles" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
-          <EntitySet Name="accounts" EntityType="agkikdbModel.account" />
-          <EntitySet Name="accounttransactions" EntityType="agkikdbModel.accounttransaction" />
-          <AssociationSet Name="fk_AccountTransaction_Accounts1" Association="agkikdbModel.fk_AccountTransaction_Accounts1">
-            <End Role="account" EntitySet="accounts" />
-            <End Role="accounttransaction" EntitySet="accounttransactions" />
-          </AssociationSet>
-          <AssociationSet Name="fk_AccountTransaction_Users1" Association="agkikdbModel.fk_AccountTransaction_Users1">
-            <End Role="user" EntitySet="users" />
-            <End Role="accounttransaction" EntitySet="accounttransactions" />
-          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="idBankAccounts" />
+          </Key>
+          <Property Name="idBankAccounts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountType" Type="SByte" Nullable="false" />
+          <Property Name="AccountName" Type="String" Nullable="false" />
+          <Property Name="AccountNo" Type="String" />
+          <Property Name="AccountHolderName" Type="String" />
+          <Property Name="CardNo" Type="String" />
+          <Property Name="BankName" Type="String" />
+          <Property Name="BankBranch" Type="String" />
+          <Property Name="BankIFSC" Type="String" />
+          <Property Name="AccountBalance" Type="Decimal" Nullable="false" />
+          <Property Name="IsPrimaryAccount" Type="Boolean" />
+          <NavigationProperty Name="accounttransactions" Relationship="AgkikdbModel.fk_AccountTransaction_Accounts1" FromRole="accounts" ToRole="accounttransaction" />
+        </EntityType>
+        <EntityType Name="accounttransaction">
+          <Key>
+            <PropertyRef Name="idAccountTransaction" />
+          </Key>
+          <Property Name="idAccountTransaction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Accounts_idBankAccounts" Type="Int32" Nullable="false" />
+          <Property Name="TransactionAmount" Type="Decimal" Nullable="false" />
+          <Property Name="TransactionRemarks" Type="String" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" />
+          <Property Name="Users_idUsers" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="account" Relationship="AgkikdbModel.fk_AccountTransaction_Accounts1" FromRole="accounttransaction" ToRole="accounts" />
+          <NavigationProperty Name="user" Relationship="AgkikdbModel.fk_AccountTransaction_Users1" FromRole="accounttransaction" ToRole="users" />
+        </EntityType>
         <EntityType Name="address">
           <Key>
             <PropertyRef Name="idAddress" />
@@ -383,12 +415,12 @@
           <Property Name="State" Type="String" Nullable="false" />
           <Property Name="Country" Type="String" Nullable="false" />
           <Property Name="Zip" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="customers" Relationship="agkikdbModel.fk_Customers_Address" FromRole="address" ToRole="customers" />
-          <NavigationProperty Name="customers1" Relationship="agkikdbModel.fk_Customers_AltAddress" FromRole="address" ToRole="customers" />
-          <NavigationProperty Name="users" Relationship="agkikdbModel.fk_Users_Address" FromRole="address" ToRole="users" />
-          <NavigationProperty Name="users1" Relationship="agkikdbModel.fk_Users_AltAddress" FromRole="address" ToRole="users" />
-          <NavigationProperty Name="vendors" Relationship="agkikdbModel.fk_Vendors_Address" FromRole="address" ToRole="vendors" />
-          <NavigationProperty Name="vendors1" Relationship="agkikdbModel.fk_Vendors_AltAddress" FromRole="address" ToRole="vendors" />
+          <NavigationProperty Name="customers" Relationship="AgkikdbModel.fk_Customers_Address" FromRole="address" ToRole="customers" />
+          <NavigationProperty Name="customers1" Relationship="AgkikdbModel.fk_Customers_AltAddress" FromRole="address" ToRole="customers" />
+          <NavigationProperty Name="users" Relationship="AgkikdbModel.fk_Users_Address" FromRole="address" ToRole="users" />
+          <NavigationProperty Name="users1" Relationship="AgkikdbModel.fk_Users_AltAddress" FromRole="address" ToRole="users" />
+          <NavigationProperty Name="vendors" Relationship="AgkikdbModel.fk_Vendors_Address" FromRole="address" ToRole="vendors" />
+          <NavigationProperty Name="vendors1" Relationship="AgkikdbModel.fk_Vendors_AltAddress" FromRole="address" ToRole="vendors" />
         </EntityType>
         <EntityType Name="customer">
           <Key>
@@ -405,15 +437,15 @@
           <Property Name="MobileNo" Type="String" />
           <Property Name="IsRegular" Type="Binary" Nullable="false" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="address" Relationship="agkikdbModel.fk_Customers_Address" FromRole="customers" ToRole="address" />
-          <NavigationProperty Name="address1" Relationship="agkikdbModel.fk_Customers_AltAddress" FromRole="customers" ToRole="address" />
+          <NavigationProperty Name="address" Relationship="AgkikdbModel.fk_Customers_Address" FromRole="customers" ToRole="address" />
+          <NavigationProperty Name="address1" Relationship="AgkikdbModel.fk_Customers_AltAddress" FromRole="customers" ToRole="address" />
         </EntityType>
         <EntityType Name="invoice">
           <Key>
             <PropertyRef Name="idInvoice" />
           </Key>
           <Property Name="idInvoice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="invoicelines" Relationship="agkikdbModel.fk_InvoiceLines_Invoice1" FromRole="invoice" ToRole="invoicelines" />
+          <NavigationProperty Name="invoicelines" Relationship="AgkikdbModel.fk_InvoiceLines_Invoice1" FromRole="invoice" ToRole="invoicelines" />
         </EntityType>
         <EntityType Name="invoiceline">
           <Key>
@@ -422,8 +454,8 @@
           <Property Name="idInvoiceLines" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Invoice_idInvoice" Type="Int32" Nullable="false" />
           <Property Name="Item_idItem" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="invoice" Relationship="agkikdbModel.fk_InvoiceLines_Invoice1" FromRole="invoicelines" ToRole="invoice" />
-          <NavigationProperty Name="item" Relationship="agkikdbModel.fk_InvoiceLines_Item1" FromRole="invoicelines" ToRole="item" />
+          <NavigationProperty Name="invoice" Relationship="AgkikdbModel.fk_InvoiceLines_Invoice1" FromRole="invoicelines" ToRole="invoice" />
+          <NavigationProperty Name="item" Relationship="AgkikdbModel.fk_InvoiceLines_Item1" FromRole="invoicelines" ToRole="item" />
         </EntityType>
         <EntityType Name="item">
           <Key>
@@ -432,7 +464,7 @@
           <Property Name="idItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ItemSKU" Type="String" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <NavigationProperty Name="invoicelines" Relationship="agkikdbModel.fk_InvoiceLines_Item1" FromRole="item" ToRole="invoicelines" />
+          <NavigationProperty Name="invoicelines" Relationship="AgkikdbModel.fk_InvoiceLines_Item1" FromRole="item" ToRole="invoicelines" />
         </EntityType>
         <EntityType Name="role">
           <Key>
@@ -440,7 +472,7 @@
           </Key>
           <Property Name="idRoles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" />
-          <NavigationProperty Name="users" Relationship="agkikdbModel.fk_Users_Roles1" FromRole="roles" ToRole="users" />
+          <NavigationProperty Name="users" Relationship="AgkikdbModel.fk_Users_Roles1" FromRole="roles" ToRole="users" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -460,10 +492,10 @@
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
           <Property Name="LastLoggedInDate" Type="DateTime" Nullable="false" />
           <Property Name="Roles_idRoles" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="address" Relationship="agkikdbModel.fk_Users_Address" FromRole="users" ToRole="address" />
-          <NavigationProperty Name="address1" Relationship="agkikdbModel.fk_Users_AltAddress" FromRole="users" ToRole="address" />
-          <NavigationProperty Name="role" Relationship="agkikdbModel.fk_Users_Roles1" FromRole="users" ToRole="roles" />
-          <NavigationProperty Name="accounttransactions" Relationship="agkikdbModel.fk_AccountTransaction_Users1" FromRole="user" ToRole="accounttransaction" />
+          <NavigationProperty Name="accounttransactions" Relationship="AgkikdbModel.fk_AccountTransaction_Users1" FromRole="users" ToRole="accounttransaction" />
+          <NavigationProperty Name="address" Relationship="AgkikdbModel.fk_Users_Address" FromRole="users" ToRole="address" />
+          <NavigationProperty Name="address1" Relationship="AgkikdbModel.fk_Users_AltAddress" FromRole="users" ToRole="address" />
+          <NavigationProperty Name="role" Relationship="AgkikdbModel.fk_Users_Roles1" FromRole="users" ToRole="roles" />
         </EntityType>
         <EntityType Name="vendor">
           <Key>
@@ -481,12 +513,36 @@
           <Property Name="Address_idAddress" Type="Int32" />
           <Property Name="AltAddress_idAddress" Type="Int32" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="address" Relationship="agkikdbModel.fk_Vendors_Address" FromRole="vendors" ToRole="address" />
-          <NavigationProperty Name="address1" Relationship="agkikdbModel.fk_Vendors_AltAddress" FromRole="vendors" ToRole="address" />
+          <NavigationProperty Name="address" Relationship="AgkikdbModel.fk_Vendors_Address" FromRole="vendors" ToRole="address" />
+          <NavigationProperty Name="address1" Relationship="AgkikdbModel.fk_Vendors_AltAddress" FromRole="vendors" ToRole="address" />
         </EntityType>
+        <Association Name="fk_AccountTransaction_Accounts1">
+          <End Role="accounts" Type="AgkikdbModel.account" Multiplicity="1" />
+          <End Role="accounttransaction" Type="AgkikdbModel.accounttransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="idBankAccounts" />
+            </Principal>
+            <Dependent Role="accounttransaction">
+              <PropertyRef Name="Accounts_idBankAccounts" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_AccountTransaction_Users1">
+          <End Role="users" Type="AgkikdbModel.user" Multiplicity="1" />
+          <End Role="accounttransaction" Type="AgkikdbModel.accounttransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="idUsers" />
+            </Principal>
+            <Dependent Role="accounttransaction">
+              <PropertyRef Name="Users_idUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Customers_Address">
-          <End Role="address" Type="agkikdbModel.address" Multiplicity="0..1" />
-          <End Role="customers" Type="agkikdbModel.customer" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.address" Multiplicity="0..1" />
+          <End Role="customers" Type="AgkikdbModel.customer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -497,8 +553,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Customers_AltAddress">
-          <End Role="address" Type="agkikdbModel.address" Multiplicity="0..1" />
-          <End Role="customers" Type="agkikdbModel.customer" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.address" Multiplicity="0..1" />
+          <End Role="customers" Type="AgkikdbModel.customer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -509,8 +565,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Users_Address">
-          <End Role="address" Type="agkikdbModel.address" Multiplicity="0..1" />
-          <End Role="users" Type="agkikdbModel.user" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.address" Multiplicity="0..1" />
+          <End Role="users" Type="AgkikdbModel.user" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -521,8 +577,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Users_AltAddress">
-          <End Role="address" Type="agkikdbModel.address" Multiplicity="0..1" />
-          <End Role="users" Type="agkikdbModel.user" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.address" Multiplicity="0..1" />
+          <End Role="users" Type="AgkikdbModel.user" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -533,8 +589,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Vendors_Address">
-          <End Role="address" Type="agkikdbModel.address" Multiplicity="0..1" />
-          <End Role="vendors" Type="agkikdbModel.vendor" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.address" Multiplicity="0..1" />
+          <End Role="vendors" Type="AgkikdbModel.vendor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -545,8 +601,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Vendors_AltAddress">
-          <End Role="address" Type="agkikdbModel.address" Multiplicity="0..1" />
-          <End Role="vendors" Type="agkikdbModel.vendor" Multiplicity="*" />
+          <End Role="address" Type="AgkikdbModel.address" Multiplicity="0..1" />
+          <End Role="vendors" Type="AgkikdbModel.vendor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="address">
               <PropertyRef Name="idAddress" />
@@ -557,8 +613,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_InvoiceLines_Invoice1">
-          <End Role="invoice" Type="agkikdbModel.invoice" Multiplicity="1" />
-          <End Role="invoicelines" Type="agkikdbModel.invoiceline" Multiplicity="*" />
+          <End Role="invoice" Type="AgkikdbModel.invoice" Multiplicity="1" />
+          <End Role="invoicelines" Type="AgkikdbModel.invoiceline" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="invoice">
               <PropertyRef Name="idInvoice" />
@@ -569,8 +625,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_InvoiceLines_Item1">
-          <End Role="item" Type="agkikdbModel.item" Multiplicity="1" />
-          <End Role="invoicelines" Type="agkikdbModel.invoiceline" Multiplicity="*" />
+          <End Role="item" Type="AgkikdbModel.item" Multiplicity="1" />
+          <End Role="invoicelines" Type="AgkikdbModel.invoiceline" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="item">
               <PropertyRef Name="idItem" />
@@ -581,8 +637,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Users_Roles1">
-          <End Role="roles" Type="agkikdbModel.role" Multiplicity="1" />
-          <End Role="users" Type="agkikdbModel.user" Multiplicity="*" />
+          <End Role="roles" Type="AgkikdbModel.role" Multiplicity="1" />
+          <End Role="users" Type="AgkikdbModel.user" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="roles">
               <PropertyRef Name="idRoles" />
@@ -592,67 +648,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="account">
-          <Key>
-            <PropertyRef Name="idBankAccounts" />
-          </Key>
-          <Property Type="Int32" Name="idBankAccounts" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="SByte" Name="AccountType" Nullable="false" />
-          <Property Type="String" Name="AccountName" Nullable="false" />
-          <Property Type="String" Name="AccountNo" />
-          <Property Type="String" Name="AccountHolderName" />
-          <Property Type="String" Name="CardNo" />
-          <Property Type="String" Name="BankName" />
-          <Property Type="String" Name="BankBranch" />
-          <Property Type="String" Name="BankIFSC" />
-          <Property Type="Decimal" Name="AccountBalance" Nullable="false" />
-          <NavigationProperty Name="accounttransactions" Relationship="agkikdbModel.fk_AccountTransaction_Accounts1" FromRole="account" ToRole="accounttransaction" />
-        </EntityType>
-        <EntityType Name="accounttransaction">
-          <Key>
-            <PropertyRef Name="idAccountTransaction" />
-          </Key>
-          <Property Type="Int32" Name="idAccountTransaction" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="Accounts_idBankAccounts" Nullable="false" />
-          <Property Type="Decimal" Name="TransactionAmount" Nullable="false" />
-          <Property Type="String" Name="TransactionRemarks" />
-          <Property Type="DateTime" Name="TransactionDate" Nullable="false" />
-          <Property Type="Int32" Name="Users_idUsers" Nullable="false" />
-          <NavigationProperty Name="account" Relationship="agkikdbModel.fk_AccountTransaction_Accounts1" FromRole="accounttransaction" ToRole="account" />
-          <NavigationProperty Name="user" Relationship="agkikdbModel.fk_AccountTransaction_Users1" FromRole="accounttransaction" ToRole="user" />
-        </EntityType>
-        <Association Name="fk_AccountTransaction_Accounts1">
-          <End Type="agkikdbModel.account" Role="account" Multiplicity="1" />
-          <End Type="agkikdbModel.accounttransaction" Role="accounttransaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="account">
-              <PropertyRef Name="idBankAccounts" />
-            </Principal>
-            <Dependent Role="accounttransaction">
-              <PropertyRef Name="Accounts_idBankAccounts" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_AccountTransaction_Users1">
-          <End Type="agkikdbModel.user" Role="user" Multiplicity="1" />
-          <End Type="agkikdbModel.accounttransaction" Role="accounttransaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="idUsers" />
-            </Principal>
-            <Dependent Role="accounttransaction">
-              <PropertyRef Name="Users_idUsers" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="agkikdbModelStoreContainer" CdmEntityContainer="AgkikdbEntities">
+        <EntityContainerMapping StorageEntityContainer="AgkikdbModelStoreContainer" CdmEntityContainer="AgkikdbEntities">
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="AgkikdbModel.account">
+              <MappingFragment StoreEntitySet="accounts">
+                <ScalarProperty Name="idBankAccounts" ColumnName="idBankAccounts" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="AccountHolderName" ColumnName="AccountHolderName" />
+                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankBranch" ColumnName="BankBranch" />
+                <ScalarProperty Name="BankIFSC" ColumnName="BankIFSC" />
+                <ScalarProperty Name="AccountBalance" ColumnName="AccountBalance" />
+                <ScalarProperty Name="IsPrimaryAccount" ColumnName="IsPrimaryAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accounttransactions">
+            <EntityTypeMapping TypeName="AgkikdbModel.accounttransaction">
+              <MappingFragment StoreEntitySet="accounttransaction">
+                <ScalarProperty Name="idAccountTransaction" ColumnName="idAccountTransaction" />
+                <ScalarProperty Name="Accounts_idBankAccounts" ColumnName="Accounts_idBankAccounts" />
+                <ScalarProperty Name="TransactionAmount" ColumnName="TransactionAmount" />
+                <ScalarProperty Name="TransactionRemarks" ColumnName="TransactionRemarks" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="Users_idUsers" ColumnName="Users_idUsers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="addresses">
-            <EntityTypeMapping TypeName="agkikdbModel.address">
+            <EntityTypeMapping TypeName="AgkikdbModel.address">
               <MappingFragment StoreEntitySet="address">
                 <ScalarProperty Name="idAddress" ColumnName="idAddress" />
                 <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
@@ -665,7 +697,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="customers">
-            <EntityTypeMapping TypeName="agkikdbModel.customer">
+            <EntityTypeMapping TypeName="AgkikdbModel.customer">
               <MappingFragment StoreEntitySet="customers">
                 <ScalarProperty Name="idCustomers" ColumnName="idCustomers" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -682,14 +714,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="invoices">
-            <EntityTypeMapping TypeName="agkikdbModel.invoice">
+            <EntityTypeMapping TypeName="AgkikdbModel.invoice">
               <MappingFragment StoreEntitySet="invoice">
                 <ScalarProperty Name="idInvoice" ColumnName="idInvoice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="invoicelines">
-            <EntityTypeMapping TypeName="agkikdbModel.invoiceline">
+            <EntityTypeMapping TypeName="AgkikdbModel.invoiceline">
               <MappingFragment StoreEntitySet="invoicelines">
                 <ScalarProperty Name="idInvoiceLines" ColumnName="idInvoiceLines" />
                 <ScalarProperty Name="Invoice_idInvoice" ColumnName="Invoice_idInvoice" />
@@ -698,7 +730,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="items">
-            <EntityTypeMapping TypeName="agkikdbModel.item">
+            <EntityTypeMapping TypeName="AgkikdbModel.item">
               <MappingFragment StoreEntitySet="item">
                 <ScalarProperty Name="idItem" ColumnName="idItem" />
                 <ScalarProperty Name="ItemSKU" ColumnName="ItemSKU" />
@@ -707,7 +739,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="roles">
-            <EntityTypeMapping TypeName="agkikdbModel.role">
+            <EntityTypeMapping TypeName="AgkikdbModel.role">
               <MappingFragment StoreEntitySet="roles">
                 <ScalarProperty Name="idRoles" ColumnName="idRoles" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -715,7 +747,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="agkikdbModel.user">
+            <EntityTypeMapping TypeName="AgkikdbModel.user">
               <MappingFragment StoreEntitySet="users">
                 <ScalarProperty Name="idUsers" ColumnName="idUsers" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -735,7 +767,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vendors">
-            <EntityTypeMapping TypeName="agkikdbModel.vendor">
+            <EntityTypeMapping TypeName="AgkikdbModel.vendor">
               <MappingFragment StoreEntitySet="vendors">
                 <ScalarProperty Name="idVendors" ColumnName="idVendors" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -749,34 +781,6 @@
                 <ScalarProperty Name="Address_idAddress" ColumnName="Address_idAddress" />
                 <ScalarProperty Name="AltAddress_idAddress" ColumnName="AltAddress_idAddress" />
                 <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="accounts">
-            <EntityTypeMapping TypeName="agkikdbModel.account">
-              <MappingFragment StoreEntitySet="accounts">
-                <ScalarProperty Name="AccountBalance" ColumnName="AccountBalance" />
-                <ScalarProperty Name="BankIFSC" ColumnName="BankIFSC" />
-                <ScalarProperty Name="BankBranch" ColumnName="BankBranch" />
-                <ScalarProperty Name="BankName" ColumnName="BankName" />
-                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
-                <ScalarProperty Name="AccountHolderName" ColumnName="AccountHolderName" />
-                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
-                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
-                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
-                <ScalarProperty Name="idBankAccounts" ColumnName="idBankAccounts" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="accounttransactions">
-            <EntityTypeMapping TypeName="agkikdbModel.accounttransaction">
-              <MappingFragment StoreEntitySet="accounttransaction">
-                <ScalarProperty Name="Users_idUsers" ColumnName="Users_idUsers" />
-                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-                <ScalarProperty Name="TransactionRemarks" ColumnName="TransactionRemarks" />
-                <ScalarProperty Name="TransactionAmount" ColumnName="TransactionAmount" />
-                <ScalarProperty Name="Accounts_idBankAccounts" ColumnName="Accounts_idBankAccounts" />
-                <ScalarProperty Name="idAccountTransaction" ColumnName="idAccountTransaction" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -801,78 +805,63 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1">
-        <EntityTypeShape EntityType="agkikdbModel.address" Width="1.5" PointX="0.75" PointY="6.25" Height="3.5186979166666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="agkikdbModel.customer" Width="1.5" PointX="3" PointY="4" Height="3.5186979166666656" IsExpanded="true" />
-        <EntityTypeShape EntityType="agkikdbModel.invoice" Width="1.5" PointX="0.75" PointY="1.25" Height="1.4033821614583335" IsExpanded="true" />
-        <EntityTypeShape EntityType="agkikdbModel.invoiceline" Width="1.5" PointX="3" PointY="0.875" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="agkikdbModel.item" Width="1.5" PointX="0.75" PointY="11" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="agkikdbModel.role" Width="1.5" PointX="3.75" PointY="9.125" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="agkikdbModel.user" Width="1.5" PointX="6" PointY="5.875" Height="4.2879036458333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="agkikdbModel.vendor" Width="1.5" PointX="3" PointY="13.25" Height="3.7109993489583317" IsExpanded="true" />
-        <AssociationConnector Association="agkikdbModel.fk_Customers_Address" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.8843489583333328" />
-          <ConnectorPoint PointX="2.6041666666666665" PointY="6.8843489583333319" />
-          <ConnectorPoint PointX="2.7708333333333335" PointY="6.8843489583333328" />
-          <ConnectorPoint PointX="3" PointY="6.8843489583333328" />
+        <EntityTypeShape EntityType="AgkikdbModel.account" Width="1.5" PointX="6" PointY="1.375" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgkikdbModel.accounttransaction" Width="1.5" PointX="8.25" PointY="6.75" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgkikdbModel.address" Width="1.5" PointX="0.75" PointY="6.375" Height="3.5186979166666648" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgkikdbModel.customer" Width="1.5" PointX="3" PointY="4.125" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgkikdbModel.invoice" Width="1.5" PointX="8.75" PointY="1.25" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgkikdbModel.invoiceline" Width="1.5" PointX="11" PointY="0.875" Height="1.9802864583333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgkikdbModel.item" Width="1.5" PointX="8.75" PointY="4" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgkikdbModel.role" Width="1.5" PointX="3.75" PointY="9.25" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgkikdbModel.user" Width="1.5" PointX="6" PointY="5.875" Height="4.4802050781250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgkikdbModel.vendor" Width="1.5" PointX="3" PointY="13.625" Height="3.7109993489583353" IsExpanded="true" />
+        <AssociationConnector Association="AgkikdbModel.fk_AccountTransaction_Accounts1" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="3.3266910807291667" />
+          <ConnectorPoint PointX="8.46875" PointY="3.3266910807291667" />
+          <ConnectorPoint PointX="8.46875" PointY="6.75" />
         </AssociationConnector>
-        <AssociationConnector Association="agkikdbModel.fk_Customers_AltAddress" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.5046744791666669" />
-          <ConnectorPoint PointX="2.6041666666666665" PointY="6.504674479166666" />
-          <ConnectorPoint PointX="2.7708333333333335" PointY="6.5046744791666669" />
-          <ConnectorPoint PointX="3" PointY="6.5046744791666669" />
+        <AssociationConnector Association="AgkikdbModel.fk_AccountTransaction_Users1" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="8.0285953776041659" />
+          <ConnectorPoint PointX="8.25" PointY="8.0285953776041659" />
         </AssociationConnector>
-        <AssociationConnector Association="agkikdbModel.fk_Users_Address" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="8.53826171875" />
-          <ConnectorPoint PointX="2.6041666666666665" PointY="8.53826171875" />
-          <ConnectorPoint PointX="2.7708333333333335" PointY="8.53826171875" />
-          <ConnectorPoint PointX="6" PointY="8.53826171875" />
+        <AssociationConnector Association="AgkikdbModel.fk_Customers_Address" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.0093489583333328" />
+          <ConnectorPoint PointX="3" PointY="7.0093489583333328" />
         </AssociationConnector>
-        <AssociationConnector Association="agkikdbModel.fk_Users_AltAddress" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.997229817708333" />
-          <ConnectorPoint PointX="2.6041666666666665" PointY="7.9972298177083321" />
-          <ConnectorPoint PointX="2.7708333333333335" PointY="7.997229817708333" />
-          <ConnectorPoint PointX="6" PointY="7.997229817708333" />
+        <AssociationConnector Association="AgkikdbModel.fk_Customers_AltAddress" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.6296744791666669" />
+          <ConnectorPoint PointX="3" PointY="6.6296744791666669" />
         </AssociationConnector>
-        <AssociationConnector Association="agkikdbModel.fk_Vendors_Address" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.2257692307692309" PointY="9.7686979166666674" />
-          <ConnectorPoint PointX="2.625" PointY="10.167928685897437" />
-          <ConnectorPoint PointX="2.625" PointY="15.105499674479166" />
-          <ConnectorPoint PointX="3" PointY="15.105499674479166" />
+        <AssociationConnector Association="AgkikdbModel.fk_Users_Address" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.4468489583333337" />
+          <ConnectorPoint PointX="6" PointY="8.4468489583333337" />
         </AssociationConnector>
-        <AssociationConnector Association="agkikdbModel.fk_Vendors_AltAddress" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.7121584551282059" />
-          <ConnectorPoint PointX="2.65625" PointY="10.118408455128206" />
-          <ConnectorPoint PointX="2.65625" PointY="15.105499674479166" />
-          <ConnectorPoint PointX="3" PointY="15.105499674479166" />
+        <AssociationConnector Association="AgkikdbModel.fk_Users_AltAddress" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.0140234375" />
+          <ConnectorPoint PointX="6" PointY="8.0140234375" />
         </AssociationConnector>
-        <AssociationConnector Association="agkikdbModel.fk_InvoiceLines_Invoice1" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="1.9516910807291668" />
-          <ConnectorPoint PointX="2.6041666666666665" PointY="1.9516910807291661" />
-          <ConnectorPoint PointX="2.7708333333333335" PointY="1.9516910807291668" />
-          <ConnectorPoint PointX="3" PointY="1.9516910807291668" />
+        <AssociationConnector Association="AgkikdbModel.fk_Vendors_Address" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="9.8936979166666639" />
+          <ConnectorPoint PointX="1.5" PointY="15.480499674479168" />
+          <ConnectorPoint PointX="3" PointY="15.480499674479168" />
         </AssociationConnector>
-        <AssociationConnector Association="agkikdbModel.fk_InvoiceLines_Item1" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="11.063460538461539" />
-          <ConnectorPoint PointX="2.5660744349011204" PointY="10.747386103560418" />
-          <ConnectorPoint PointX="2.6839255650988791" PointY="10.629534973362661" />
-          <ConnectorPoint PointX="2.6875" PointY="10.625960538461539" />
-          <ConnectorPoint PointX="2.6875" PointY="1.3820935403645827" />
-          <ConnectorPoint PointX="3" PointY="1.3820935403645827" />
+        <AssociationConnector Association="AgkikdbModel.fk_Vendors_AltAddress" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="9.8936979166666639" />
+          <ConnectorPoint PointX="1.9062525" PointY="14.521497337239584" />
+          <ConnectorPoint PointX="3" PointY="14.521497337239584" />
         </AssociationConnector>
-        <AssociationConnector Association="agkikdbModel.fk_Users_Roles1" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="9.7401025390625016" />
-          <ConnectorPoint PointX="6" PointY="9.7401025390625016" />
+        <AssociationConnector Association="AgkikdbModel.fk_InvoiceLines_Invoice1" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.25" PointY="1.9516910807291668" />
+          <ConnectorPoint PointX="11" PointY="1.9516910807291668" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="agkikdbModel.account" Width="1.5" PointX="6" PointY="1.5" Height="3.1340950520833317" />
-        <EntityTypeShape EntityType="agkikdbModel.accounttransaction" Width="2.125" PointX="8.25" PointY="6.875" Height="2.5571907552083353" />
-        <AssociationConnector Association="agkikdbModel.fk_AccountTransaction_Accounts1" >
-          <ConnectorPoint PointX="7.5" PointY="3.0670475260416659" />
-          <ConnectorPoint PointX="9.3125" PointY="3.0670475260416659" />
-          <ConnectorPoint PointX="9.3125" PointY="6.875" />
+        <AssociationConnector Association="AgkikdbModel.fk_InvoiceLines_Item1" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.25" PointY="4.8939925130208337" />
+          <ConnectorPoint PointX="11.75" PointY="4.8939925130208337" />
+          <ConnectorPoint PointX="11.75" PointY="2.8552864583333326" />
         </AssociationConnector>
-        <AssociationConnector Association="agkikdbModel.fk_AccountTransaction_Users1" >
-          <ConnectorPoint PointX="7.5" PointY="8.1535953776041676" />
-          <ConnectorPoint PointX="8.25" PointY="8.1535953776041676" />
+        <AssociationConnector Association="AgkikdbModel.fk_Users_Roles1" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="9.8026025390625016" />
+          <ConnectorPoint PointX="6" PointY="9.8026025390625016" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

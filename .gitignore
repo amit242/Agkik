@@ -26,7 +26,7 @@ bld/
 .vs/
 
 # MSTest test Results
-[Tt]est[Rr]esult*/
+Code/[Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
 # NUNIT
