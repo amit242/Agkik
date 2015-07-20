@@ -31,6 +31,31 @@
 -->
     </ControlTemplate>
 
+    <ControlTemplate x:Key="validationErrorTemplateBottom">
+        <DockPanel>
+
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+                <StackPanel.Background>
+                    <SolidColorBrush Opacity="0.3" Color="White"/>
+                </StackPanel.Background>
+                <Grid >
+                    <Ellipse Width="12" Height="12" Fill="Red" HorizontalAlignment="Center" VerticalAlignment="Center"></Ellipse>
+                    <TextBlock Foreground="White" FontWeight="Heavy" FontSize="8" HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center" TextAlignment="Center" 
+                                       ToolTip="{Binding ElementName=ErrorAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">X</TextBlock>
+                </Grid>
+                    <TextBlock Foreground="Red" FontWeight="Normal" VerticalAlignment="Center" FontSize="10" FontStyle="Italic"
+                                   Text="{Binding ElementName=ErrorAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+
+                </TextBlock>
+
+            </StackPanel>
+            <Border BorderBrush="Red" BorderThickness="1">
+                <AdornedElementPlaceholder x:Name="ErrorAdorner"></AdornedElementPlaceholder>
+            </Border>
+        </DockPanel>
+    </ControlTemplate>
+    
     <ControlTemplate x:Key="validationErrorTemplateOnlyHighlight">
         <DockPanel>
             <Border BorderBrush="Red" BorderThickness="1">

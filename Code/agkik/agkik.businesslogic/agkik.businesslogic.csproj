@@ -42,6 +42,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AgkikDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="models\AccountMetadata.cs" />
     <Compile Include="models\Address.cs" />
     <Compile Include="models\City.cs" />
     <Compile Include="models\Contact.cs" />

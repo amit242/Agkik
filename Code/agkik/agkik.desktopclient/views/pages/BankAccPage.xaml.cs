@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using agkik.businesslogic;
 using agkik.businesslogic.businessapi;
 
 namespace agkik.desktopclient.views.pages
@@ -24,15 +25,43 @@ namespace agkik.desktopclient.views.pages
         {
             InitializeComponent();
         }
-
+        private List<account> AccountList;
         private void Page_Initialized(object sender, EventArgs e)
         {
-            dgAccounts.ItemsSource = AccountManager.getAccounts();
+            AccountList = AccountManager.GetAccounts();
+            dgAccounts.ItemsSource = AccountList;
+            newBankAccount.DataContext = new account();
+            cboFromAccountNo.ItemsSource = AccountList;
+            cboToAccountNo.ItemsSource = AccountList;
         }
 
         private void dgAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //dgAccounts.SelectedItem
+            account ac = (account)dgAccounts.SelectedItem;
+            
+            selectedBankAccount.DataContext = ac;
+        }
+
+        private void btnAddAccount_Click(object sender, RoutedEventArgs e)
+        {
+            account ac = (account)newBankAccount.DataContext;
+            AccountManager.AddUpdateAccount(ac);
+            
+        }
+
+        private void btnUpdateAccount_Click(object sender, RoutedEventArgs e)
+        {
+            AccountManager.AddUpdateAccount((account)selectedBankAccount.DataContext);
+        }
+
+        private void tiTransferFunds_Initialized(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnTransfer_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

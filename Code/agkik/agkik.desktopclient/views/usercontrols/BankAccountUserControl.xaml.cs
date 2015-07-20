@@ -32,6 +32,7 @@ namespace agkik.desktopclient.views.usercontrols
             list.Add("Asset - Bank Account");
             list.Add("Liability");
             cbAccountType.ItemsSource = list;
+
             
 
         }
@@ -49,6 +50,19 @@ namespace agkik.desktopclient.views.usercontrols
                 accountGrid.RowDefinitions[3].Height = GridLength.Auto;
                 accountGrid.RowDefinitions[4].Height = GridLength.Auto;
                 accountGrid.RowDefinitions[5].Height = GridLength.Auto;
+            }
+        }
+
+        private void validateTextboxLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                TextBox tb = (TextBox)sender;
+                if (string.IsNullOrWhiteSpace(tb.Text))
+                {
+                    tb.Text = "abc";
+                    tb.Text = string.Empty;
+                }
             }
         }
     }

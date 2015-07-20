@@ -21,28 +21,40 @@
         <Setter Property="Height" Value="35" />
         <Setter Property="FontSize" Value="18" />
     </Style>
-    
+    <!-- Texbox styles -->
     <Style x:Key="textBoxStyle" TargetType="TextBox">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="120" />
+        
     </Style>
-    <Style x:Key="textBoxStyleWider" TargetType="TextBox">
+    <Style x:Key="textBoxStyleWider" TargetType="TextBox" BasedOn="{StaticResource textBoxStyle}">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="200" />
     </Style>
-    <Style x:Key="textBoxStyleNotes" TargetType="TextBox">
+    <Style x:Key="textBoxStyleNotes" TargetType="TextBox" BasedOn="{StaticResource textBoxStyle}">
         <Setter Property="Height" Value="150" />
         <Setter Property="Width" Value="250" />
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="AcceptsReturn" Value="True" />
     </Style>
-    <Style x:Key="textBoxStyleBigger" TargetType="TextBox">
+    <Style x:Key="textBoxStyleBigger" TargetType="TextBox" BasedOn="{StaticResource textBoxStyle}">
         <Setter Property="Height" Value="35" />
         <Setter Property="Width" Value="200" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
+
+
+    <Style TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="60" />
+    </Style>
+
+    <Style x:Key="rowDefinitionBigger" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="70" />
+    </Style>
+
+    <!-- Stack panel style -->
     <Style x:Key="stackPanelIndent" TargetType="StackPanel">
         <Setter Property="Margin" Value="10,1,1,1" />
         <Setter Property="Height" Value="40"/>
