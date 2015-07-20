@@ -41,15 +41,17 @@ namespace agkik.desktopclient.views.usercontrols
         {
             if (cbAccountType.SelectedIndex == 0)
             {
-                accountGrid.RowDefinitions[3].Height = new GridLength(0);
-                accountGrid.RowDefinitions[4].Height = new GridLength(0);
-                accountGrid.RowDefinitions[5].Height = new GridLength(0);
+                Style style = Application.Current.FindResource("rowDefinition-hidden") as Style;
+                accountGrid.RowDefinitions[3].Style = style;
+                accountGrid.RowDefinitions[4].Style = style;
+                accountGrid.RowDefinitions[5].Style = style;
             }
             else
             {
-                accountGrid.RowDefinitions[3].Height = GridLength.Auto;
-                accountGrid.RowDefinitions[4].Height = GridLength.Auto;
-                accountGrid.RowDefinitions[5].Height = GridLength.Auto;
+                Style style = Application.Current.FindResource("rowDefinition-normal") as Style;
+                accountGrid.RowDefinitions[3].Style = style;
+                accountGrid.RowDefinitions[4].Style = style;
+                accountGrid.RowDefinitions[5].Style = style;
             }
         }
 

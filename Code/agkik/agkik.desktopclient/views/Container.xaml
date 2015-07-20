@@ -96,7 +96,7 @@
             </Menu>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" DockPanel.Dock="Left" DataContext="{Binding Source={StaticResource loginVM}}" Width="150" Background="#FFC1CCDB">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" DockPanel.Dock="Left" DataContext="{Binding Source={StaticResource loginVM}}" Width="199.693" Background="#FFC1CCDB">
             <StackPanel HorizontalAlignment="Left"  Orientation="Horizontal" Margin="1,1,10,1">
                 <TextBlock Text="Welcome " RenderTransformOrigin="-0.653,0.715"></TextBlock>
                 <TextBlock Text="{Binding Source={StaticResource loginVM}, Path=CurrentUser.FirstName}" FontWeight="DemiBold"></TextBlock>

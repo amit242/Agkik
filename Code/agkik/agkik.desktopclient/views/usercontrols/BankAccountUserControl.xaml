@@ -12,7 +12,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition Style="{StaticResource rowDefinitionBigger}" />
+            <RowDefinition Style="{StaticResource rowDefinition-bigger}" />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />

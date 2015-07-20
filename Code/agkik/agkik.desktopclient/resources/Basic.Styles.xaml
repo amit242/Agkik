@@ -45,12 +45,19 @@
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
+    <Style x:Key="rowDefinition-hidden" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="0" />
+    </Style>
 
-    <Style TargetType="{x:Type RowDefinition}">
+    <Style x:Key="rowDefinition-normal" TargetType="{x:Type RowDefinition}">
         <Setter Property="Height" Value="60" />
     </Style>
 
-    <Style x:Key="rowDefinitionBigger" TargetType="{x:Type RowDefinition}">
+    <Style TargetType="{x:Type RowDefinition}" BasedOn="{StaticResource rowDefinition-normal}">
+        
+    </Style>
+
+    <Style x:Key="rowDefinition-bigger" TargetType="{x:Type RowDefinition}">
         <Setter Property="Height" Value="70" />
     </Style>
 
