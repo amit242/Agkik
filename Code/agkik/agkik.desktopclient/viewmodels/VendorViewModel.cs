@@ -12,7 +12,7 @@ using agkik.desktopclient.Services;
 using System.Windows;
 
 
-namespace agkik.desktopclient.ViewModels
+namespace agkik.desktopclient.viewmodels
 {
     internal class VendorViewModel : ViewModelBase
     {

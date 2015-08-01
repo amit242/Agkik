@@ -5,60 +5,61 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols"
-             xmlns:vm="clr-namespace:agkik.desktopclient.ViewModels">
+             xmlns:vm="clr-namespace:agkik.desktopclient.viewmodels">
 
     <StackPanel>
         <AdornerDecorator>
-            <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Name="tbVendorDetails" Text="Personal Details" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
-                        <Label Name="lblFirstName" Content="_First Name: " Target="{Binding ElementName=txtFirstName}" Style="{StaticResource labelStyle}"/>
-                        <TextBox Name="txtFirstName" MaxLength="45" Style="{StaticResource textBoxStyle}" Text="{Binding Path=FirstName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+            <WrapPanel>
+                <GroupBox  Background="#FFFFDD" Style="{StaticResource groupbox}">
+                    <GroupBox.Header>
+                        <TextBlock Text="Vendor Details" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+                    </GroupBox.Header>
+                    <StackPanel Orientation="Vertical" Background="#88AAAA" Width="383" VerticalAlignment="Top">
+                        <Border Style="{StaticResource gridRowBorder}">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                                <Label Name="lblFirstName" Content="_First Name: " Target="{Binding ElementName=txtFirstName}" Style="{StaticResource labelStyleWide}"/>
+                                <TextBox Name="txtFirstName" MaxLength="45" Style="{StaticResource textBox-medium}" Text="{Binding Path=FirstName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                            </StackPanel>
+                        </Border>
+                        <Border Style="{StaticResource gridRowBorder}">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                                <Label Name="lblLastName" Content="_Last Name: " Target="{Binding ElementName=txtLastName}" Style="{StaticResource labelStyleWide}" />
+                                <TextBox Name="txtLastName" MaxLength="45" Style="{StaticResource textBox-medium}" Text="{Binding Path=LastName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                            </StackPanel>
+                        </Border>
+                        <Border Style="{StaticResource gridRowBorder}">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                                <Label Name="lblCompanyName" Content="_Organisation/Company: " Target="{Binding ElementName=txtCompanyName}" Style="{StaticResource labelStyleWide}"/>
+                                <TextBox Name="txtCompanyName" MaxLength="45"  Style="{StaticResource textBox-medium}" Text="{Binding Path=CompanyName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                            </StackPanel>
+                        </Border>
+                        <Border Style="{StaticResource gridRowBorder}">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                                <Label Name="lblDefaultExpenseCategory" Content="Default Category: " Target="{Binding ElementName=cboDefaultExpenseCategory}" Style="{StaticResource labelStyleWide}"/>
+                                <ComboBox Name="cboDefaultExpenseCategory" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=ExpenseCategories}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource typeAheadCombobox-big-wide}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                            </StackPanel>
+                        </Border>
+                        <Border Style="{StaticResource gridRowBorder}">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-notes}">
+                                <Label Name="lblVendorNotes" HorizontalAlignment="Left" Content="_Notes: " Target="{Binding ElementName=txtVendorNotes}" Style="{StaticResource labelStyleWide}"/>
+                                <TextBox Name="txtVendorNotes" HorizontalAlignment="Left" MaxLength="200" Style="{StaticResource textBoxStyleNotes}" Text="{Binding Path=Notes, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
-                        <Label Name="lblLastName" Content="_Last Name: " Target="{Binding ElementName=txtLastName}" Style="{StaticResource labelStyle}" />
-                        <TextBox Name="txtLastName" MaxLength="45" Style="{StaticResource textBoxStyle}" Text="{Binding Path=LastName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
-                        <Label Name="lblCompanyName" Content="C_ompany Name: " Target="{Binding ElementName=txtCompanyName}" Style="{StaticResource labelStyle}"/>
-                        <TextBox Name="txtCompanyName" MaxLength="45"  Style="{StaticResource textBoxStyle}" Text="{Binding Path=CompanyName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
-                    </StackPanel>
-                </StackPanel>
-                <Separator Height="5" />
-                <StackPanel Orientation="Horizontal"></StackPanel>
-                <uc:Address x:Name="vendorAddress" AddressName="Primary Address" DataContext="{Binding PrimaryAddress}"></uc:Address>
-                <!--<CheckBox Name="chkShowAltAddress" Content="Has alternate address" />-->
-                <Separator Height="5" />
-
-                <Expander IsExpanded="{Binding Path=ShowAltAddress}" Margin="2,0,0,2" Visibility="{Binding Path=ShowAltAddress, Converter={StaticResource booleanToVisibilityConverter}}">
-                    <Expander.Header>
-                        <TextBlock FontStyle="Italic" FontSize="14" Visibility="{Binding Path=IsEnabled, Converter={StaticResource booleanToVisibilityConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="Text" Value="Click here to provide Alternate Address" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Expander, AncestorLevel=1}, Path=IsExpanded}" Value="True">
-                                            <Setter Property="Text" Value="Remove Alternate Address" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Expander.Header>
-
-                    <AdornerDecorator>
-                        <uc:Address x:Name="vendorAltAddress" AddressName="Alternate Address" DataContext="{Binding AlternateAddress}"></uc:Address>
-                    </AdornerDecorator>
-                </Expander>
-                <Separator Height="5"/>
-                <uc:ContactDetails x:Name="vendorContact" ContactName="Vendor Contact" DataContext="{Binding Contact}"></uc:ContactDetails>
-                <Separator Height="15" />
-
-                <Label Name="lblVendorNotes" HorizontalAlignment="Left" Content="_Notes: " Target="{Binding ElementName=txtVendorNotes}" Style="{StaticResource labelStyle}"/>
-                <TextBox Name="txtVendorNotes" HorizontalAlignment="Left" MaxLength="200" Style="{StaticResource textBoxStyleNotes}" Text="{Binding Path=Notes, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
-                
-            </StackPanel>
+                </GroupBox>
+                <GroupBox Style="{StaticResource groupbox}">
+                    <GroupBox.Header>
+                        <TextBlock Text="Address" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+                    </GroupBox.Header>
+                    <uc:Address x:Name="vendorAddress" Background="#88AAAA"  DataContext="{Binding PrimaryAddress}"></uc:Address>
+                </GroupBox>
+                <GroupBox Style="{StaticResource groupbox}">
+                    <GroupBox.Header>
+                        <TextBlock Text="Contact Details" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+                    </GroupBox.Header>
+                    <uc:ContactDetails x:Name="vendorContact" Background="#88AAAA" DataContext="{Binding Contact}"></uc:ContactDetails>
+                </GroupBox>
+            </WrapPanel>
         </AdornerDecorator>
     </StackPanel>
 </UserControl>

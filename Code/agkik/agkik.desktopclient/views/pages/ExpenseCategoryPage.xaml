@@ -1,0 +1,16 @@
+﻿<Page x:Class="agkik.desktopclient.views.pages.ExpenseCategoryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" Title="ExpenseCategoryPage"
+      xmlns:vm="clr-namespace:agkik.desktopclient.viewmodels.demo"
+      xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols">
+
+    <StackPanel>
+        <StackPanel.Resources>
+            <vm:DemoExpsenseCategoryVM x:Key="expenseCategoryVM"></vm:DemoExpsenseCategoryVM>
+        </StackPanel.Resources>
+        <uc:CategoriesUserControl HeaderName="Manage Expense Categories" DataContext="{Binding Source={StaticResource expenseCategoryVM}}"></uc:CategoriesUserControl>
+    </StackPanel>
+</Page>

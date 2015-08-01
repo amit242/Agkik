@@ -48,7 +48,7 @@ namespace agkik.desktopclient.views.usercontrols
             }
             else
             {
-                Style style = Application.Current.FindResource("rowDefinition-normal") as Style;
+                Style style = Application.Current.FindResource("rowDefinition-big") as Style;
                 accountGrid.RowDefinitions[3].Style = style;
                 accountGrid.RowDefinitions[4].Style = style;
                 accountGrid.RowDefinitions[5].Style = style;

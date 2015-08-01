@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.CategoriesUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             mc:Ignorable="d" Loaded="UserControl_Loaded">
+    <StackPanel>
+        <StackPanel Height="45" Background="DarkSlateGray">
+            <Label Name="lblHeader" Style="{StaticResource labelStylePopupHeader}"></Label>
+        </StackPanel>
+        <WrapPanel>
+            <GroupBox Name="MainCategories" Background="#FFFFDD">
+                <GroupBox.Header>
+                    <TextBlock Text="Manage Main Categories" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+                </GroupBox.Header>
+                <StackPanel Orientation="Vertical" Margin="0,20,0,0" >
+                    <StackPanel.Resources>
+                        <CollectionViewSource x:Key="mainCategoryCollection" Source="{Binding Path=MainCategories}">
+                            <CollectionViewSource.GroupDescriptions>
+                                <PropertyGroupDescription PropertyName="CategoryType"/>
+                            </CollectionViewSource.GroupDescriptions>
+                            <CollectionViewSource.SortDescriptions>
+                                <scm:SortDescription PropertyName="CategoryType" />
+                                <scm:SortDescription PropertyName="Name" />
+                            </CollectionViewSource.SortDescriptions>
+                        </CollectionViewSource>
+                    </StackPanel.Resources>
+                    <StackPanel Orientation="Horizontal" Height="45">
+                        <Button HorizontalAlignment="Left" Name="btnAddMainCategory" Style="{StaticResource appSmallButtonStyle}" Click="btnAddMainCategory_Click">
+                            <Image Source="/agkik.desktopclient;component/media/Add.png" Margin="-5" Height="38" Width="30" />
+                        </Button>
+                        <StackPanel Width="15"></StackPanel>
+                        <Button HorizontalAlignment="Left" Name="btnEditMainCategory" Style="{StaticResource appSmallButtonStyle}" Click="btnEditMainCategory_Click">
+                            <Image Source="/agkik.desktopclient;component/media/Edit.png" Margin="-5" Height="38" Width="30" />
+                        </Button>
+                        <StackPanel Width="15"></StackPanel>
+                        <Button HorizontalAlignment="Left" Name="btnDeleteCustomCategory" Style="{StaticResource appSmallButtonStyle}">
+                            <Image Source="/agkik.desktopclient;component/media/Delete.png" Margin="-5" Height="38" Width="30" />
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Height="10"></StackPanel>
+                    
+                    <ListView Name="lvMainCategories"  Width="500" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource mainCategoryCollection}}" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding CategoryId}" />
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
+                            </GridView>
+                        </ListView.View>
+                        
+                        <ListView.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.ContainerStyle>
+                                    <Style TargetType="{x:Type GroupItem}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+                                                    <Expander IsExpanded="True">
+                                                        <Expander.Header>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding Name}"/>
+                                                                <TextBlock FontWeight="Bold" FontSize="14" Text=" Categories ("/>
+                                                                <TextBlock FontSize="14" Foreground="Blue" Text="{Binding ItemCount}"/>
+                                                                <TextBlock FontWeight="Bold" FontSize="14" Text=")"/>
+                                                            </StackPanel>
+                                                        </Expander.Header>
+                                                        <ItemsPresenter />
+                                                    </Expander>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GroupStyle.ContainerStyle>
+                            </GroupStyle>
+                        </ListView.GroupStyle>
+                    </ListView>
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Height="20" Width="20"></StackPanel>
+            <GroupBox Name="SubCategories" Background="Azure">
+                <GroupBox.Header>
+                    <TextBlock Text="Manage Sub Categories" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+                </GroupBox.Header>
+                <StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                        <StackPanel.Resources>
+                            <CollectionViewSource x:Key="subCategoryCollection" Source="{Binding Path=SubCategories}">
+                                <CollectionViewSource.GroupDescriptions>
+                                    <PropertyGroupDescription PropertyName="ParentCategoryName"/>
+                                </CollectionViewSource.GroupDescriptions>
+                                <CollectionViewSource.SortDescriptions>
+                                    <scm:SortDescription PropertyName="ParentCategoryName" />
+                                    <scm:SortDescription PropertyName="Name" />
+                                </CollectionViewSource.SortDescriptions>
+                            </CollectionViewSource>
+                        </StackPanel.Resources>
+                        <StackPanel Orientation="Horizontal" Height="45">
+                            <Button HorizontalAlignment="Left" Name="btnAddSubCategory" Style="{StaticResource appSmallButtonStyle}" Click="btnAddSubCategory_Click">
+                                <Image Source="/agkik.desktopclient;component/media/Add.png" Margin="-5" Height="38" Width="30" />
+                            </Button>
+                            <StackPanel Width="15"></StackPanel>
+                            <Button HorizontalAlignment="Left" Name="btnEditSubCategory" Style="{StaticResource appSmallButtonStyle}" Click="btnEditSubCategory_Click">
+                                <Image Source="/agkik.desktopclient;component/media/Edit.png" Margin="-5" Height="38" Width="30" />
+                            </Button>
+                            <StackPanel Width="15"></StackPanel>
+                            <Button HorizontalAlignment="Left" Name="btnDeleteSubCategory" Style="{StaticResource appSmallButtonStyle}">
+                                <Image Source="/agkik.desktopclient;component/media/Delete.png" Margin="-5" Height="38" Width="30" />
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Height="10"></StackPanel>
+                        <ListView Name="lvSubCategories" Width="500" HorizontalAlignment="Left"  ItemsSource="{Binding Source={StaticResource subCategoryCollection}}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding CategoryId}" />
+                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
+                                    <GridViewColumn Header="Parent Category ID" DisplayMemberBinding="{Binding ParentCategory.CategoryId}" />
+                                </GridView>
+                            </ListView.View>
+
+                            <ListView.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.ContainerStyle>
+                                        <Style TargetType="{x:Type GroupItem}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate>
+                                                        <Expander IsExpanded="True">
+                                                            <Expander.Header>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding Name}"/>
+                                                                    <TextBlock FontWeight="Bold" FontSize="14" Text=" ("/>
+                                                                    <TextBlock FontSize="14" Foreground="Blue" Text="{Binding ItemCount}"/>
+                                                                    <TextBlock FontWeight="Bold" FontSize="14" Text=")"/>
+                                                                </StackPanel>
+                                                            </Expander.Header>
+                                                            <ItemsPresenter />
+                                                        </Expander>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </GroupStyle.ContainerStyle>
+                                </GroupStyle>
+                            </ListView.GroupStyle>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+                <!--<StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}" Background="#88AAAA">
+                        <Label Name="lblAccountName" Content="Sub Category _Name: " Target="{Binding ElementName=txtSubCategoryName}" Style="{StaticResource labelStyleWide}"/>
+                        <TextBox Name="txtSubCategoryName" MaxLength="100"  Style="{StaticResource textBoxStyleWider}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}" Background="#88AAAA">
+                        <Label Name="lblMainCategories" Content="Parent _Main Category: " Target="{Binding ElementName=cbMainCategories}" Style="{StaticResource labelStyleWide}"/>
+                        <ComboBox Name="cbMainCategories" Style="{StaticResource widerComboBoxStyle}" />
+                    </StackPanel>
+                    
+                </StackPanel>-->
+            </GroupBox>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

@@ -1,7 +1,7 @@
 ﻿using agkik.businesslogic.Common;
 using agkik.desktopclient.Services;
 
-namespace agkik.desktopclient.ViewModels
+namespace agkik.desktopclient.viewmodels
 {
     internal abstract class ViewModelBase : MessageableObject
     {

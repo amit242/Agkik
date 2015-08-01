@@ -14,13 +14,22 @@
         <Canvas.Background>
             <ImageBrush ImageSource="../Media/agkikLogin2.jpg" ></ImageBrush>
         </Canvas.Background>
-        <TextBlock Name="tbClose"  Margin="477,225,0,0" Canvas.Left="113" Canvas.Top="-213">
-            <Hyperlink FontSize="14" Click="tbClose_click" FontStyle="Normal" Foreground="Wheat">Close</Hyperlink>
-        </TextBlock>
-        <TextBlock Height="170" FontWeight="Bold" FontFamily="Viner Hand ITC"  HorizontalAlignment="Left" Name="tbLogo" Text="Agkik" VerticalAlignment="Top" FontSize="100" FontStretch="ExtraCondensed"   Foreground="Wheat" Canvas.Left="55" Canvas.Top="31" Width="313" />
-        <TextBlock Height="50" FontWeight="Bold" HorizontalAlignment="Left" Name="tbLoginHeading" Text="Login:" VerticalAlignment="Top" FontSize="30" FontStretch="ExtraCondensed" Canvas.Left="432" Canvas.Top="199" Foreground="Wheat" Width="100" RenderTransformOrigin="0.425,1.252" />
-        <Label Height="32" FontWeight="Bold" FontSize="20"  HorizontalAlignment="Right" VerticalAlignment="Center" Width="113" Content="_UserName" Canvas.Left="240" Canvas.Top="269" Target="{Binding ElementName=txtUserName}" Foreground="Wheat" />
-        <Label Height="32" FontWeight="Bold" FontSize="20"   HorizontalAlignment="Right" VerticalAlignment="Center" Width="113" Content="_Password" Canvas.Left="240" Canvas.Top="312" Target="{Binding ElementName=txtPassword}" Foreground="Wheat" OpacityMask="White" />
+        <StackPanel Width="636">
+            <Button Click="tbClose_click" HorizontalAlignment="Right" Style="{StaticResource appSmallButtonStyle}" ToolTip="Close" >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border>
+                            <Image Source="/agkik.desktopclient;component/media/close.png" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        <TextBlock Height="170" FontWeight="Bold" FontFamily="Viner Hand ITC"  HorizontalAlignment="Left" Name="tbLogo" Text="Agkik" VerticalAlignment="Top" FontSize="100" FontStretch="ExtraCondensed" Foreground="#FFFF00" Canvas.Left="55" Canvas.Top="31" Width="313" />
+        <Label Height="36" FontWeight="Bold" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Center" Width="258" Content="Accounting simplified" Foreground="Azure" Canvas.Left="64" Canvas.Top="179" FontFamily="Utsaah" FontStretch="Expanded" FontStyle="Italic" />
+        <TextBlock Height="50" FontWeight="Bold" HorizontalAlignment="Left" Name="tbLoginHeading" Text="Login:" VerticalAlignment="Top" FontSize="30" FontStretch="ExtraCondensed" Canvas.Left="432" Canvas.Top="199" Foreground="#FFFF00" Width="100" RenderTransformOrigin="0.425,1.252" />
+        <Label Height="32" FontWeight="Bold" FontSize="20"  HorizontalAlignment="Right" VerticalAlignment="Center" Width="113" Content="_UserName" Canvas.Left="240" Canvas.Top="269" Target="{Binding ElementName=txtUserName}" Foreground="#FFFF00" />
+        <Label Height="32" FontWeight="Bold" FontSize="20"   HorizontalAlignment="Right" VerticalAlignment="Center" Width="113" Content="_Password" Canvas.Left="240" Canvas.Top="312" Target="{Binding ElementName=txtPassword}" Foreground="#FFFF00" OpacityMask="White" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="390,267,0,0" Name="txtUserName" VerticalAlignment="Top" Width="247" Text="{Binding Path=CurrentUser.UserName, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="-32" Canvas.Top="6" />
         <PasswordBox Height="23" HorizontalAlignment="Left" Margin="390,320,0,0" Name="txtPassword" VerticalAlignment="Top" Width="247" Canvas.Left="-32" Canvas.Top="1" />
         <Button Content="_Login" Height="43" Name="btnLogin" VerticalAlignment="Top" Width="104" Click="btnLogin_Click" Canvas.Left="501" Canvas.Top="363" BorderThickness="1" HorizontalAlignment="Left" FontSize="22.667" FontWeight="Bold" ></Button>

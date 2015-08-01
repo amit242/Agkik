@@ -25,7 +25,7 @@
                     <MenuItem Header="_Exit" />
                 </MenuItem>
 
-                <MenuItem Header="_Edit" >
+                <!--<MenuItem Header="_Edit" >
                     <MenuItem Header="_Undo" Command="Undo"/>
                     <Separator />
                     <MenuItem Header="_Cut" Command="Cut"/>
@@ -33,32 +33,34 @@
                     <MenuItem Header="_Paste" Command="Paste"/>
                     <Separator />
                     <MenuItem Header="_Select All" Command="SelectAll"/>
-                </MenuItem>
+                </MenuItem>-->
 
-                <MenuItem Header="_Invoices" >
+                <MenuItem Header="_Income" >
                     <MenuItem Header="_Invoice History"/>
                     <MenuItem Header="_New Invoice..." />
                     <MenuItem Header="_Find Invoice..." />
                     <Separator />
                     <MenuItem Header="_New Quote..." />
                     <MenuItem Header="_View Quotes..." />
+                    <Separator />
+                    <MenuItem Header="_Income Categories...">
+                        <MenuItem Header="_Invoiced" Click="menuIncomeCategory_Click" />
+                        <MenuItem Header="_Non - Invoiced" Click="menuNonInvoiceIncomeCategory_Click"  />
+                    </MenuItem>
                 </MenuItem>
 
-                <MenuItem Header="_Inventory" >
+                <MenuItem Header="_Expenses" >
+                    <MenuItem Header="_Add an expense..." />
                     <MenuItem Header="_View Inventory" />
                     <MenuItem Header="_View Item Groups" />
-                    <MenuItem Header="_Add Item..." />
                     <MenuItem Header="_Find Item..." />
                     <Separator />
-                    <MenuItem Header="_Receive Stock..." />
-                    <MenuItem Header="_Reduce Stock..."  />
-                    <MenuItem Header="_Transfer Stock..." />
-                    <MenuItem Header="_Stock Count..." />
+                    <MenuItem Header="Manage _Expense Categories..." Click="menuExpenseCategory_Click" />
                 </MenuItem>
 
-                <MenuItem Header="_Customers" >
-                    <MenuItem Header="_View Customers" />
-                    <MenuItem Header="_Add Customers"/>
+                <MenuItem Header="_Clients" >
+                    <MenuItem Header="_View Clients" />
+                    <MenuItem Header="_Add Clients"/>
                     <MenuItem Header="_Find Customer..."/>
                 </MenuItem>
 
@@ -72,7 +74,17 @@
                     <MenuItem Header="_Show Reorder..." />
                     <MenuItem Header="_Receive Order..." />
                 </MenuItem>
-
+                <MenuItem Header="_Inventory" >
+                    <MenuItem Header="_View Inventory" />
+                    <MenuItem Header="_View Item Groups" />
+                    <MenuItem Header="_Add Item..." />
+                    <MenuItem Header="_Find Item..." />
+                    <Separator />
+                    <MenuItem Header="_Receive Stock..." />
+                    <MenuItem Header="_Reduce Stock..."  />
+                    <MenuItem Header="_Transfer Stock..." />
+                    <MenuItem Header="_Stock Count..." />
+                </MenuItem>
                 <MenuItem Header="_Reports" >
                     <MenuItem Header="_Purchase Report..." />
                     <MenuItem Header="_Sales Report..." />
@@ -101,10 +113,10 @@
                 <TextBlock Text="Welcome " RenderTransformOrigin="-0.653,0.715"></TextBlock>
                 <TextBlock Text="{Binding Source={StaticResource loginVM}, Path=CurrentUser.FirstName}" FontWeight="DemiBold"></TextBlock>
             </StackPanel>
-            <RadioButton GroupName="buttonGroup" Name="btnManageBankAccount" Width="Auto" Checked="btnManageBankAccount_Checked">
+            <RadioButton GroupName="leftNavButtonGroup" Name="btnManageBankAccount" Width="Auto" Checked="btnManageBankAccount_Checked">
                 <RadioButton.Template>
                     <ControlTemplate>
-                        <Border  VerticalAlignment="Center"  Style="{StaticResource menuButtonBGStyle}">
+                        <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
                             <StackPanel>
                                 <Image Source="../Media/cash.ico" />
                                 <Label Target="{Binding ElementName=btnManageBankAccount}" Content="_Bank/Cash"></Label>
@@ -113,7 +125,7 @@
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
-            <RadioButton GroupName="buttonGroup" Name="buttonShowInvoice" Width="Auto" Checked="buttonShowInvoice_Checked">
+            <RadioButton GroupName="leftNavButtonGroup" Name="buttonShowInvoice" Width="Auto" Checked="buttonShowInvoice_Checked">
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center"  Style="{StaticResource menuButtonBGStyle}">
@@ -125,7 +137,43 @@
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
-            <RadioButton GroupName="buttonGroup" Name="buttonInventory" Width="Auto">
+            <RadioButton GroupName="leftNavButtonGroup" Name="btnExpenses" Width="Auto" Checked="buttonShowInvoice_Checked">
+                <RadioButton.Template>
+                    <ControlTemplate>
+                        <Border  VerticalAlignment="Center"  Style="{StaticResource menuButtonBGStyle}">
+                            <StackPanel>
+                                <Image Source="../Media/expense.jpg" />
+                                <Label>Expenses</Label>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </RadioButton.Template>
+            </RadioButton>
+            <RadioButton GroupName="leftNavButtonGroup" Name="btnManageClients" Width="Auto" Checked="btnManageClients_Checked">
+                <RadioButton.Template>
+                    <ControlTemplate>
+                        <Border Style="{StaticResource menuButtonBGStyle}" VerticalAlignment="Center">
+                            <StackPanel>
+                                <Image Source="../Media/Customer.png" />
+                                <Label Content="Clients" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </RadioButton.Template>
+            </RadioButton>
+            <RadioButton GroupName="leftNavButtonGroup" Name="btnManageVendors" Width="Auto" Checked="btnManageVendors_Checked">
+                <RadioButton.Template>
+                    <ControlTemplate>
+                        <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
+                            <StackPanel>
+                                <Image Source="../Media/supplier.png"  />
+                                <Label>Vendors</Label>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </RadioButton.Template>
+            </RadioButton>
+            <RadioButton GroupName="leftNavButtonGroup" Name="buttonInventory" Width="Auto">
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
@@ -137,19 +185,8 @@
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
-            <RadioButton GroupName="buttonGroup" Name="buttonCustomer" Width="Auto">
-                <RadioButton.Template>
-                    <ControlTemplate>
-                        <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
-                            <StackPanel>
-                                <Image Source="../Media/Customer.png"  />
-                                <Label>Customers</Label>
-                            </StackPanel>
-                        </Border>
-                    </ControlTemplate>
-                </RadioButton.Template>
-            </RadioButton>
-            <RadioButton GroupName="buttonGroup" Name="buttonReports" Width="Auto"  >
+            
+            <RadioButton GroupName="leftNavButtonGroup" Name="buttonReports" Width="Auto"  >
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
@@ -161,8 +198,7 @@
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
-
-            <RadioButton GroupName="buttonGroup" Name="buttonUserProfile" Width="Auto"  >
+            <RadioButton GroupName="leftNavButtonGroup" Name="buttonUserProfile" Width="Auto"  >
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
@@ -174,7 +210,7 @@
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
-            <RadioButton GroupName="buttonGroup" Name="btnManage" Click="btnManage_Click" Visibility="{Binding Path=IsAdmin, Converter={StaticResource booleanToVisibilityConverter}}" Width="Auto">
+            <RadioButton GroupName="leftNavButtonGroup" Name="btnManage" Click="btnManage_Click" Visibility="{Binding Path=IsAdmin, Converter={StaticResource booleanToVisibilityConverter}}" Width="Auto">
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
@@ -186,7 +222,7 @@
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
-            <RadioButton GroupName="buttonGroup" Name="buttonLogout" Click="buttonLogout_Click" Width="Auto">
+            <RadioButton GroupName="leftNavButtonGroup" Name="buttonLogout" Click="buttonLogout_Click" Width="Auto">
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
@@ -199,7 +235,7 @@
                 </RadioButton.Template>
             </RadioButton>
         </StackPanel>
-        <ScrollViewer DockPanel.Dock="Right" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" >
+        <ScrollViewer DockPanel.Dock="Right" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" >
             <Frame x:Name="frmContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </ScrollViewer>
 

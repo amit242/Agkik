@@ -1,6 +1,6 @@
 ﻿
 
-namespace agkik.desktopclient.ViewModels
+namespace agkik.desktopclient.viewmodels
 {
     internal class AddressViewModel : ViewModelBase
     {

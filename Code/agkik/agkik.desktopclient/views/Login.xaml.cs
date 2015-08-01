@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using agkik.desktopclient.ViewModels;
+using agkik.desktopclient.viewmodels;
 using System.Windows.Input;
 using System.Windows.Controls.Primitives;
 

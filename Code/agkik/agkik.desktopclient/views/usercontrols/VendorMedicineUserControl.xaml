@@ -26,7 +26,7 @@
         </StackPanel>
         <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
             <Label Name="lblExpiryDate" Content="_Expiry Date: " Target="{Binding ElementName=dpExpiryDate}" Style="{StaticResource labelStyleWide}"/>
-            <DatePicker Name="dpExpiryDate" Width="150" Height="25" Style="{StaticResource datePickerStyleCustom}" DisplayDateStart="{x:Static sys:DateTime.Now}"/>
+            <DatePicker Name="dpExpiryDate" Width="150" Height="25" Style="{StaticResource datePicker}" DisplayDateStart="{x:Static sys:DateTime.Now}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
             <Label Name="lblMRP" Content="_MRP: " Target="{Binding ElementName=txtMRP}" Style="{StaticResource labelStyleWide}"/>
@@ -66,7 +66,7 @@
         </StackPanel>
         <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
             <Label Name="lblInventoryEntryDate" Content="_Inventory Entry Date: " Target="{Binding ElementName=dpInventoryEntryDate}" Style="{StaticResource labelStyleWide}"/>
-            <DatePicker Name="dpInventoryEntryDate" Width="150" Height="25" Style="{StaticResource datePickerStyleCustom}" SelectedDate="{x:Static sys:DateTime.Now}"/>
+            <DatePicker Name="dpInventoryEntryDate" Width="150" Height="25" Style="{StaticResource datePicker}" SelectedDate="{x:Static sys:DateTime.Now}"/>
         </StackPanel>
         <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
             <Label Name="lblQuantitySold" Content="_Quantity Sold: " Target="{Binding ElementName=txtQuantitySold}" Style="{StaticResource labelStyleWide}"/>

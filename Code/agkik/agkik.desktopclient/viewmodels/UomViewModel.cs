@@ -9,7 +9,7 @@ using log4net;
 using System.Reflection;
 using System.ComponentModel.DataAnnotations;
 
-namespace agkik.desktopclient.ViewModels
+namespace agkik.desktopclient.viewmodels
 {
     class UomViewModel : ViewModelBase
     {

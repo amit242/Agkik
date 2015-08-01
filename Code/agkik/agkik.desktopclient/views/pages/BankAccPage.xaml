@@ -9,9 +9,9 @@
 
 
     <StackPanel Margin="10,10,0,0">
-        <DataGrid Name="dgAccounts" Background="AliceBlue" SelectionMode="Single" Height="304" Width="1000" HeadersVisibility="Column" HorizontalAlignment="Left"  IsReadOnly="True" AlternatingRowBackground="Beige" AutoGenerateColumns="False" SelectionChanged="dgAccounts_SelectionChanged">
+        <DataGrid Name="dgAccounts" Background="AliceBlue" SelectionMode="Single" Height="304" HeadersVisibility="Column" HorizontalAlignment="Left"  IsReadOnly="True" AlternatingRowBackground="Beige" AutoGenerateColumns="False" SelectionChanged="dgAccounts_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=AccountId}" Header="Account Id"  FontWeight="Bold" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=idBankAccounts}" Header="Account Id"  FontWeight="Bold" Width="*" />
                 <DataGridTextColumn Binding="{Binding Path=AccountName}" Header="Account Name" FontWeight="Bold" Width="*"/>
                 <DataGridTextColumn Binding="{Binding Path=AccountNo}" Header="Account No"  FontWeight="Bold" Width="*" />
                 <DataGridTextColumn Binding="{Binding Path=AccountType}" Header="Account Type" FontWeight="Bold" Width="*"/>
@@ -21,25 +21,18 @@
                 <DataGridTextColumn Binding="{Binding Path=IsPrimaryAccount}" Header="Primary Account" FontWeight="Bold" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Height="20"></StackPanel>
-        <TabControl Name="tcBankCash" Width="760" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
-            <TabControl.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="-1.344"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="1.936"/>
-                </TransformGroup>
-            </TabControl.RenderTransform>
+        <Separator Height="20" />
+        <TabControl Name="tcBankCash" HorizontalAlignment="Left">
             <TabItem Header="_View/Update Existing Bank Accounts" Name="tiShowUpdateBankAccount" Height="37.96" VerticalAlignment="Bottom" >
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                     <uc:BankAccountUserControl x:Name="selectedBankAccount" Background="#88AAAA" HorizontalAlignment="Left"></uc:BankAccountUserControl>
+                    <Separator />
                     <Button Content="_Update" Name="btnUpdateAccount" Style="{StaticResource bigLightBlueButton}" Click="btnUpdateAccount_Click"></Button>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Add A _New Bank Account" Name="tiAddBankAccount">
                 <StackPanel Orientation="Vertical" Background="White">
-                    <uc:BankAccountUserControl x:Name="newBankAccount" Background="#88AA88" HorizontalAlignment="Left"></uc:BankAccountUserControl>
+                    <uc:BankAccountUserControl x:Name="newBankAccount" Background="#88AA88" HorizontalAlignment="Left" d:IsHidden="True"></uc:BankAccountUserControl>
                     <Button Content="_Add" Name="btnAddAccount" Style="{StaticResource bigLightBlueButton}" Click="btnAddAccount_Click"></Button>
                 </StackPanel>
             </TabItem>
@@ -59,11 +52,15 @@
                     <Border Style="{StaticResource gridRowBorder}" Grid.ColumnSpan="3" Grid.Row="1" />
                     <Border Background="White" Grid.ColumnSpan="3" Grid.Row="2" />
 
-                    <StackPanel Orientation="Horizontal" Height="60" Grid.ColumnSpan="4" >
+                    <StackPanel Orientation="Horizontal" Height="60">
                         <Label Name="lblAmount" FontWeight="Bold" Content="Transfer _Amount: " Target="{Binding ElementName=txtFromAccountNo}" Style="{StaticResource labelStyleBigger}" />
                         <TextBox Name="txtAmount" MaxLength="10" Style="{StaticResource textBoxStyleBigger}" Text="{Binding Path=AccountNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
                     </StackPanel>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" Height="60" >
+                        <Label Name="lblTransferDate" Content="Transfer _Date: " Target="{Binding ElementName=txtFromAccountNo}" Style="{StaticResource labelStyleWide}" />
+                        <DatePicker Name="dpTransferDate" Style="{StaticResource datePicker}" Text="{Binding Path=AccountNo, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
                         <Label Name="lblFromAccountNo" Content="_From Account No: " Target="{Binding ElementName=txtFromAccountNo}" Style="{StaticResource labelStyleWide}"/>
                         <ComboBox x:Name="cboFromAccountNo" IsEditable="True" IsTextSearchEnabled="True" DisplayMemberPath="AccountName" SelectedItem="{Binding SelectedAccount}" Style="{StaticResource widerTypeAheadComboboxStyle}" Text="{Binding Path=NewAccountName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
                             <ComboBox.Resources>
@@ -72,7 +69,7 @@
                                 </Style>
                             </ComboBox.Resources>
                         </ComboBox>
-                        <TextBlock x:Name="tbSelectOrTypeFromAccount" Text="--Select or Type From Account No--" IsHitTestVisible="False" Foreground="Gray" Margin="-200,22,0,0" >
+                        <TextBlock x:Name="tbSelectOrTypeFromAccount" Text="--Select or Type From Account No--" IsHitTestVisible="False" Foreground="Gray" Margin="-200,8,0,0" >
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Style.Setters>
@@ -96,7 +93,7 @@
                                 </Style>
                             </ComboBox.Resources>
                         </ComboBox>
-                        <TextBlock x:Name="tbSelectOrTypeToAccount" Text="--Select or Type To Account No--" IsHitTestVisible="False" Foreground="Gray" Margin="-200,22,0,0" >
+                        <TextBlock x:Name="tbSelectOrTypeToAccount" Text="--Select or Type To Account No--" IsHitTestVisible="False" Foreground="Gray" Margin="-200,8,0,0" >
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Style.Setters>
@@ -114,6 +111,12 @@
                     <Button Grid.Row="2" Grid.ColumnSpan="3" Name="btnTransfer" Content="_Transfer" Style="{StaticResource bigLightBlueButton}" Click="btnTransfer_Click"></Button>
                 </Grid>
 
+            </TabItem>
+            <TabItem Header="Delete Bank Account" Name="tiDeleteBankAccount" Height="37.96" VerticalAlignment="Bottom" >
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <uc:BankAccountUserControl x:Name="selectedDelBankAccount" IsEnabled="False" Background="#AA8888" HorizontalAlignment="Left"></uc:BankAccountUserControl>
+                    <Button Content="_Delete" Name="btnDeleteAccount" Style="{StaticResource bigLightRedButton}" Click="btnUpdateAccount_Click"></Button>
+                </StackPanel>
             </TabItem>
         </TabControl>
     </StackPanel>

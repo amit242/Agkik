@@ -11,13 +11,9 @@ using System.Reflection;
 
 namespace agkik.businesslogic
 {
-
-
-
     [MetadataType(typeof(AccountMetadata))]
     public partial class account : IDataErrorInfo
     {
-
         public class AccountMetadata
         {
             [Required(ErrorMessage = "AccountName is required")]

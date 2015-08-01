@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using agkik.desktopclient.ViewModels;
+using agkik.desktopclient.viewmodels;
 using agkik.desktopclient.views.pages;
 using System.Windows.Navigation;
 
@@ -21,10 +21,16 @@ namespace agkik.desktopclient.views
     /// </summary>
     public partial class Container : Window
     {
-        InvoicePage _invoicePage;
+        APInvoicePage _invoicePage;
         LoginViewModel _loginViewModel;
         bool _IsAdminWindowOpened = false;
         private BankAccPage _bankAccPage;
+        private VendorPage _vendorPage;
+        private ClientPage _clientPage;
+        private ExpenseCategoryPage _expenseCategoryPage;
+        private IncomeCategoryPage _incomeCategoryPage;
+        private NonInvoicedIncomeCategoryPage _nonInvoicedIncomeCategoryPage;
+
         public Container()
         {
             InitializeComponent();
@@ -75,7 +81,7 @@ namespace agkik.desktopclient.views
         {
             if (_invoicePage == null)
             {
-                _invoicePage = new InvoicePage();
+                _invoicePage = new APInvoicePage();
             }
             //frmContent.NavigationService.RemoveBackEntry(
             frmContent.NavigationService.Navigate(_invoicePage);
@@ -89,6 +95,55 @@ namespace agkik.desktopclient.views
             }
             //frmContent.NavigationService.RemoveBackEntry();
             frmContent.NavigationService.Navigate(_bankAccPage);
+        }
+
+        private void menuExpenseCategory_Click(object sender, RoutedEventArgs e)
+        {
+            //if (_expenseCategoryPage == null)
+            //{
+                _expenseCategoryPage = new ExpenseCategoryPage();
+            //}
+
+            frmContent.NavigationService.Navigate(_expenseCategoryPage);
+        }
+
+        private void menuIncomeCategory_Click(object sender, RoutedEventArgs e)
+        {
+            //if (_incomeCategoryPage == null)
+            //{
+                _incomeCategoryPage = new IncomeCategoryPage();
+            //}
+
+            frmContent.NavigationService.Navigate(_incomeCategoryPage);
+        }
+        private void menuNonInvoiceIncomeCategory_Click(object sender, RoutedEventArgs e)
+        {
+            //if (_nonInvoicedIncomeCategoryPage == null)
+            //{
+                _nonInvoicedIncomeCategoryPage = new NonInvoicedIncomeCategoryPage();
+            //}
+            
+            frmContent.NavigationService.Navigate(_nonInvoicedIncomeCategoryPage);
+        }
+
+        private void btnManageVendors_Checked(object sender, RoutedEventArgs e)
+        {
+            if (_vendorPage == null)
+            {
+                _vendorPage = new VendorPage();
+            }
+            //frmContent.NavigationService.RemoveBackEntry();
+            frmContent.NavigationService.Navigate(_vendorPage);
+        }
+
+        private void btnManageClients_Checked(object sender, RoutedEventArgs e)
+        {
+            if (_clientPage == null)
+            {
+                _clientPage = new ClientPage();
+            }
+            //frmContent.NavigationService.RemoveBackEntry();
+            frmContent.NavigationService.Navigate(_clientPage);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using agkik.businesslogic.models;
 
-namespace agkik.desktopclient.ViewModels
+namespace agkik.desktopclient.viewmodels
 {
     class MedicineViewModel : ViewModelBase
     {

@@ -10,16 +10,9 @@ namespace agkik.desktopclient.views.usercontrols
     {
         //private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //private AddressViewModel _addressVM;
-        public string AddressName
-        {
-            get { return tbAddressName.Text; }
-            set { tbAddressName.Text = value; }
-        }
-
         public Address()
         {
             InitializeComponent();
-            
         }
 
         private void txtZip_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)

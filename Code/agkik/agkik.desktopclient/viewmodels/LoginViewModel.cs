@@ -5,7 +5,7 @@ using agkik.businesslogic.businessapi;
 using log4net;
 using System.Reflection;
 
-namespace agkik.desktopclient.ViewModels
+namespace agkik.desktopclient.viewmodels
 {
     internal class LoginViewModel : ViewModelBase
     {

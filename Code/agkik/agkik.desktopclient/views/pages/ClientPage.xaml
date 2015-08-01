@@ -1,0 +1,59 @@
+﻿<Page x:Class="agkik.desktopclient.views.pages.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols"
+      xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+      xmlns:vm="clr-namespace:agkik.desktopclient.viewmodels" Title="Client Page">
+    <StackPanel>
+        <StackPanel.Resources>
+            <vm:ClientViewModel x:Key="ClientVM"></vm:ClientViewModel>
+        </StackPanel.Resources>
+        <StackPanel Height="45" Background="DarkSlateGray">
+            <Label Name="lblHeader" Style="{StaticResource labelStylePopupHeader}" Content="Manage Clients"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <StackPanel.Resources>
+                <CollectionViewSource x:Key="clientCollection" Source="{Binding Path=ClientList}"></CollectionViewSource>
+            </StackPanel.Resources>
+
+            <DataGrid Name="dgClients" Background="AliceBlue" ItemsSource="{Binding Source={StaticResource clientCollection}}" SelectionMode="Single" Height="200" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=ClientId}" Header="ClientId"  FontWeight="Bold" Width="*"  />
+                    <DataGridTextColumn Binding="{Binding Path=FirstName}" Header="First Name" FontWeight="Bold" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Last Name" FontWeight="Bold" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=CompanyName}" Header="Company Name" FontWeight="Bold" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=RegistrationDate}" Header="Registration Date" FontWeight="Bold" Width="*"/>
+                </DataGrid.Columns>
+                <ia:Interaction.Triggers>
+                    <ia:EventTrigger EventName="SelectionChanged">
+                        <ia:InvokeCommandAction Command="{Binding SelectClientCommand}" CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" />
+                    </ia:EventTrigger>
+                </ia:Interaction.Triggers>
+            </DataGrid>
+        </StackPanel>
+        <Separator Height="20"/>
+        <TabControl Name="tcClient" DockPanel.Dock="Right" DataContext="{Binding Source={StaticResource ClientVM}}">
+            <TabItem Header="Add Client" Name="tiAddClient" PreviewKeyDown="tiAddClient_PreviewKeyDown" Height="37.96">
+                <AdornerDecorator>
+                    <StackPanel Orientation="Vertical">
+                        <uc:ClientUserControl x:Name="newClient" Background="Beige" IsEnabled="True" DataContext="{Binding Path=NewClient}"></uc:ClientUserControl>
+                        <Button Name="btnAddClient" Content="Add Client" Style="{StaticResource bigLightBlueButton}" Command="{Binding Path=AddClientCommand}" />
+                        <TextBlock Name="tbErrorMessage" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" OpacityMask="Crimson" Foreground="#FF0000" Text="{Binding Path=DisplayMessage}" Visibility="{Binding Path=IsMessageVisible, Converter={StaticResource booleanToVisibilityConverter}}"/>
+                    </StackPanel>
+                </AdornerDecorator>
+            </TabItem>
+            <TabItem Header="View/Update Existing Clients" Name="tiShowClients">
+                <AdornerDecorator>
+                    <StackPanel>
+                        <CheckBox Name="chkEditDetails" Content="Edit Details" FontSize="15" FontWeight="Bold"/>
+                        <uc:ClientUserControl x:Name="selectedClient" Background="Beige" DataContext="{Binding Path=SelectedClient}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}"></uc:ClientUserControl>
+                        <Separator Height="15" />
+                        <Button Name="btnUpdateClient" Content="Update Client" Style="{StaticResource bigLightBlueButton}" Command="{Binding Path=UpdateClientCommand}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}" />
+                    </StackPanel>
+                </AdornerDecorator>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Page>

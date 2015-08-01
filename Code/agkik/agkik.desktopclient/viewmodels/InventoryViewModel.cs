@@ -10,7 +10,7 @@ using agkik.desktopclient.Services;
 using log4net;
 using System.Reflection;
 
-namespace agkik.desktopclient.ViewModels
+namespace agkik.desktopclient.viewmodels
 {
     internal class InventoryViewModel : ViewModelBase
     {

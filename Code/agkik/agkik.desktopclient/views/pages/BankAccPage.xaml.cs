@@ -40,6 +40,7 @@ namespace agkik.desktopclient.views.pages
             account ac = (account)dgAccounts.SelectedItem;
             
             selectedBankAccount.DataContext = ac;
+            selectedDelBankAccount.DataContext = ac;
         }
 
         private void btnAddAccount_Click(object sender, RoutedEventArgs e)

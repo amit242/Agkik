@@ -23,11 +23,5 @@ namespace agkik.desktopclient.views.usercontrols
         {
             InitializeComponent();
         }
-
-        public String ContactName
-        {
-            get { return tbContactName.Text; }
-            set { tbContactName.Text = value; }
-        }
     }
 }
