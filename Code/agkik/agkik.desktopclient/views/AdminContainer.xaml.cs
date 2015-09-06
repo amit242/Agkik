@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using agkik.desktopclient.views.pages;
+using System.Windows.Navigation;
 
 namespace agkik.desktopclient.views
 {
@@ -19,32 +9,75 @@ namespace agkik.desktopclient.views
     /// </summary>
     public partial class AdminContainer : Window
     {
-        VendorPage _vendorPage;
-        InventoryPage _inventoryPage;
+        private BankAccPage _bankAccPage;
+        private ExpenseCategoryPage _expenseCategoryPage;
+        private IncomeCategoryPage _incomeCategoryPage;
+        private VendorPage _vendorPage;
+        private ClientPage _clientPage;
+        private UserPage _userPage;
+
         public AdminContainer()
         {
             InitializeComponent();
+            frmContent.NavigationUIVisibility = NavigationUIVisibility.Hidden;
+        }
+        private void btnManageBankAccount_Checked(object sender, RoutedEventArgs e)
+        {
+            if (_bankAccPage == null)
+            {
+                _bankAccPage = new BankAccPage();
+            }
+            //frmContent.NavigationService.RemoveBackEntry();
+            frmContent.NavigationService.Navigate(_bankAccPage);
         }
 
-        private void btnVendor_Click(object sender, RoutedEventArgs e)
+        private void menuExpenseCategory_Click(object sender, RoutedEventArgs e)
+        {
+            //if (_expenseCategoryPage == null)
+            //{
+            _expenseCategoryPage = new ExpenseCategoryPage();
+            //}
+
+            frmContent.NavigationService.Navigate(_expenseCategoryPage);
+        }
+
+        private void menuIncomeCategory_Click(object sender, RoutedEventArgs e)
+        {
+            //if (_incomeCategoryPage == null)
+            //{
+            _incomeCategoryPage = new IncomeCategoryPage();
+            //}
+
+            frmContent.NavigationService.Navigate(_incomeCategoryPage);
+        }
+        private void btnManageVendors_Checked(object sender, RoutedEventArgs e)
         {
             if (_vendorPage == null)
             {
                 _vendorPage = new VendorPage();
             }
-            frmContent.NavigationService.RemoveBackEntry();
+            //frmContent.NavigationService.RemoveBackEntry();
             frmContent.NavigationService.Navigate(_vendorPage);
         }
 
-        private void btnInventory_Click(object sender, RoutedEventArgs e)
+        private void btnManageClients_Checked(object sender, RoutedEventArgs e)
         {
-            if (_inventoryPage == null)
+            if (_clientPage == null)
             {
-                _inventoryPage = new InventoryPage();
+                _clientPage = new ClientPage();
             }
-            frmContent.NavigationService.RemoveBackEntry();
-            frmContent.NavigationService.Navigate(_inventoryPage);
-            
+            //frmContent.NavigationService.RemoveBackEntry();
+            frmContent.NavigationService.Navigate(_clientPage);
+        }
+
+        private void btnManageUsers_Checked(object sender, RoutedEventArgs e)
+        {
+            if (_userPage == null)
+            {
+                _userPage = new UserPage(true);
+            }
+            //frmContent.NavigationService.RemoveBackEntry();
+            frmContent.NavigationService.Navigate(_userPage);
         }
     }
 }

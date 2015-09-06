@@ -1,0 +1,62 @@
+﻿<Page x:Class="agkik.desktopclient.views.pages.NonInvoicedIncomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" Title="NonInvoicedIncomePage">
+    <StackPanel>
+        <StackPanel Height="45" Background="DarkSlateGray">
+            <Label Name="lblHeader" Style="{StaticResource labelStylePopupHeader}" Content="Non Invoiced Income"></Label>
+        </StackPanel>
+        <Grid Name="accountGrid" Margin="10,0,10,0" Background="#88AAAA">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Style="{StaticResource rowDefinition-big}" />
+                <RowDefinition Style="{StaticResource rowDefinition-bigger}" />
+                <RowDefinition Style="{StaticResource rowDefinition-big}" />
+            </Grid.RowDefinitions>
+            <Border Style="{StaticResource gridRowBorder}" Grid.Row="0" Grid.ColumnSpan="3" />
+            <Border Style="{StaticResource gridRowBorder}" Grid.Row="1" Grid.ColumnSpan="3" />
+            <Border Style="{StaticResource gridRowBorder}" Grid.Row="2" Grid.ColumnSpan="3" />
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                <Label Name="lblCategory" Content="_Category: " Target="{Binding ElementName=cbCategory}" Style="{StaticResource labelStyleWide}"/>
+                <ComboBox Name="cbCategory" Style="{StaticResource comboBox-big-wide}" SelectedIndex="{Binding Path=Category, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource stackPanelIndent}">
+                <Label Name="lblPayToAccount" Content="Paid to _Account: " Target="{Binding ElementName=cboPayToAccount}" Style="{StaticResource labelStyleWide}" />
+                <ComboBox Name="cboPayToAccount" IsEditable="True" Style="{StaticResource typeAheadComboboxStyle}" IsTextSearchEnabled="True" ItemsSource="{Binding Path=AccountList}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                <Label Name="lblDatePaid" Content="_Date Paid: " Target="{Binding ElementName=dpDatePaid}" Style="{StaticResource labelStyleWide}"/>
+                <DatePicker Name="dpDatePaid" Style="{StaticResource datePicker-small}" Text="{Binding Path=DatePaid, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                <Label Name="lblAmount" Content="_Amount: " Target="{Binding ElementName=txtAmount}" Style="{StaticResource labelStyleWide}"/>
+                <TextBox Name="txtAmount" Tag="Enter Inital Balance" MaxLength="10" Typography.NumeralAlignment="Normal" Style="{StaticResource textBoxStyle-amount}"  Text="{Binding Path=AccountBalance, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent}">
+                <Label Name="lblNotes" Content="_Notes: " Target="{Binding ElementName=txtNotes}" Style="{StaticResource labelStyleWide}"/>
+                <TextBox Name="txtNotes" MaxLength="100"  Style="{StaticResource textBox-medium}" Text="{Binding Path=AccountName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+            </StackPanel>
+        </Grid>
+        <Button Content="_Add Income" Name="btnAddIncome" Style="{StaticResource bigLightBlueButton}"></Button>
+        <Separator Height="20" />
+        <DataGrid Name="dgNonInvoicedIncome" Background="AliceBlue" SelectionMode="Single" Height="304" HeadersVisibility="Column" HorizontalAlignment="Left"  IsReadOnly="True" AlternatingRowBackground="Beige" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Category}" Header="Category"  FontWeight="Bold" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=AccountName}" Header="Paid to Account Name" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=AccountNo}" Header="Paid to Account No"  FontWeight="Bold" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=DatePaid}" Header="Date Paid" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=Amount}" Header="Amount  " FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=BankBranch}" Header="Bank Branch" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=AccountBalance}" Header="Balance Amount" FontWeight="Bold" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=IsPrimaryAccount}" Header="Primary Account" FontWeight="Bold" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Page>

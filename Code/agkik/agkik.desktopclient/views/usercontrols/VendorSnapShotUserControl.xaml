@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.VendorSnapShotUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Background="#88AAAA">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-normal}">
+                <Label Name="lblName" Content="_Name: " Target="{Binding ElementName=tbName}" Style="{StaticResource labelStyleWide}" />
+                <TextBlock Name="tbName" Style="{StaticResource textblock-bold}" Text="{Binding Path=Name, Mode=OneWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-normal}">
+                <Label Name="lblCompanyName" Content="_Organisation/Company: " Target="{Binding ElementName=txtCompanyName}" Style="{StaticResource labelStyleWide}" />
+                <TextBlock Name="tbCompanyName" Style="{StaticResource textblock-big-bold}" Text="{Binding Path=CompanyName, Mode=OneWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                <Label Name="lblAddress" Content="Address: " Target="{Binding ElementName=txtAddress}" Style="{StaticResource labelStyleWide}" />
+                <TextBlock Name="tbAddress" Style="{StaticResource textblock-note-bold}" Text="{Binding Path=Address}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                <Label Name="lblContact" Content="Contact Details: " Target="{Binding ElementName=txtAddress}" Style="{StaticResource labelStyleWide}" />
+                <TextBlock Name="tbContact" Style="{StaticResource textblock-note-bold}" Text="{Binding Path=Address}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-normal}">
+                <Label Name="lblDefaultExpenseCategory" Content="Default Category: " Target="{Binding ElementName=cboDefaultExpenseCategory}" Style="{StaticResource labelStyleWide}"/>
+                <TextBlock Name="tbDefaultCategory" Text="{Binding Path=DefaultCategory}" Style="{StaticResource textblock-bold}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                <Label Name="lblVendorNotes" HorizontalAlignment="Left" Content="_Notes: " Target="{Binding ElementName=txtVendorNotes}" Style="{StaticResource labelStyleWide}"/>
+                <TextBlock Name="tbNotes" HorizontalAlignment="Left" Style="{StaticResource textblock-note-bold}" Text="{Binding Path=Notes}" />
+            </StackPanel>
+        </StackPanel>
+</UserControl>

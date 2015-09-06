@@ -21,7 +21,8 @@ namespace agkik.desktopclient.views
     /// </summary>
     public partial class Container : Window
     {
-        APInvoicePage _invoicePage;
+        APInvoicePage _apInvoicePage;
+        ARInvoicePage _arInvoicePage;
         LoginViewModel _loginViewModel;
         bool _IsAdminWindowOpened = false;
         private BankAccPage _bankAccPage;
@@ -30,6 +31,7 @@ namespace agkik.desktopclient.views
         private ExpenseCategoryPage _expenseCategoryPage;
         private IncomeCategoryPage _incomeCategoryPage;
         private NonInvoicedIncomeCategoryPage _nonInvoicedIncomeCategoryPage;
+        private UserPage _userPage;
 
         public Container()
         {
@@ -77,14 +79,24 @@ namespace agkik.desktopclient.views
            // TODO: handle unsaved data
         }
 
-        private void buttonShowInvoice_Checked(object sender, RoutedEventArgs e)
+        private void buttonShowExpense_Checked(object sender, RoutedEventArgs e)
         {
-            if (_invoicePage == null)
+            if (_apInvoicePage == null)
             {
-                _invoicePage = new APInvoicePage();
+                _apInvoicePage = new APInvoicePage();
             }
             //frmContent.NavigationService.RemoveBackEntry(
-            frmContent.NavigationService.Navigate(_invoicePage);
+            frmContent.NavigationService.Navigate(_apInvoicePage);
+        }
+
+        private void buttonShowARInvoice_Checked(object sender, RoutedEventArgs e)
+        {
+            if (_arInvoicePage == null)
+            {
+                _arInvoicePage = new ARInvoicePage();
+            }
+            //frmContent.NavigationService.RemoveBackEntry(
+            frmContent.NavigationService.Navigate(_arInvoicePage);
         }
 
         private void btnManageBankAccount_Checked(object sender, RoutedEventArgs e)
@@ -144,6 +156,16 @@ namespace agkik.desktopclient.views
             }
             //frmContent.NavigationService.RemoveBackEntry();
             frmContent.NavigationService.Navigate(_clientPage);
+        }
+
+        private void btnManageUsers_Checked(object sender, RoutedEventArgs e)
+        {
+            if (_userPage == null)
+            {
+                _userPage = new UserPage(false);
+            }
+            //frmContent.NavigationService.RemoveBackEntry();
+            frmContent.NavigationService.Navigate(_userPage);
         }
     }
 }

@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-             mc:Ignorable="d" Loaded="UserControl_Loaded">
+             xmlns:conv="clr-namespace:agkik.desktopclient.Resources.Converters"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" x:Name="CategoryControl">
     <StackPanel>
         <StackPanel Height="45" Background="DarkSlateGray">
             <Label Name="lblHeader" Style="{StaticResource labelStylePopupHeader}"></Label>
@@ -12,7 +13,7 @@
         <WrapPanel>
             <GroupBox Name="MainCategories" Background="#FFFFDD">
                 <GroupBox.Header>
-                    <TextBlock Text="Manage Main Categories" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+                    <TextBlock Text="Main Categories" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
                 </GroupBox.Header>
                 <StackPanel Orientation="Vertical" Margin="0,20,0,0" >
                     <StackPanel.Resources>
@@ -26,30 +27,30 @@
                             </CollectionViewSource.SortDescriptions>
                         </CollectionViewSource>
                     </StackPanel.Resources>
-                    <StackPanel Orientation="Horizontal" Height="45">
+                    <StackPanel Orientation="Horizontal" Height="50">
                         <Button HorizontalAlignment="Left" Name="btnAddMainCategory" Style="{StaticResource appSmallButtonStyle}" Click="btnAddMainCategory_Click">
-                            <Image Source="/agkik.desktopclient;component/media/Add.png" Margin="-5" Height="38" Width="30" />
+                            <Image Source="/agkik.desktopclient;component/media/Add.png"/>
                         </Button>
                         <StackPanel Width="15"></StackPanel>
                         <Button HorizontalAlignment="Left" Name="btnEditMainCategory" Style="{StaticResource appSmallButtonStyle}" Click="btnEditMainCategory_Click">
-                            <Image Source="/agkik.desktopclient;component/media/Edit.png" Margin="-5" Height="38" Width="30" />
+                            <Image Source="/agkik.desktopclient;component/media/Edit.png"  />
                         </Button>
                         <StackPanel Width="15"></StackPanel>
                         <Button HorizontalAlignment="Left" Name="btnDeleteCustomCategory" Style="{StaticResource appSmallButtonStyle}">
-                            <Image Source="/agkik.desktopclient;component/media/Delete.png" Margin="-5" Height="38" Width="30" />
+                            <Image Source="/agkik.desktopclient;component/media/Delete.png"  />
                         </Button>
                     </StackPanel>
                     <StackPanel Height="10"></StackPanel>
-                    
+
                     <ListView Name="lvMainCategories"  Width="500" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource mainCategoryCollection}}" >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding CategoryId}" />
                                 <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
-                                <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
+                                <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"/>
                             </GridView>
                         </ListView.View>
-                        
+
                         <ListView.GroupStyle>
                             <GroupStyle>
                                 <GroupStyle.ContainerStyle>
@@ -81,7 +82,7 @@
             <StackPanel Height="20" Width="20"></StackPanel>
             <GroupBox Name="SubCategories" Background="Azure">
                 <GroupBox.Header>
-                    <TextBlock Text="Manage Sub Categories" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
+                    <TextBlock Text="Sub Categories" Style="{StaticResource ucHeaderBoldStyle}"></TextBlock>
                 </GroupBox.Header>
                 <StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0,20,0,0">
@@ -96,27 +97,54 @@
                                 </CollectionViewSource.SortDescriptions>
                             </CollectionViewSource>
                         </StackPanel.Resources>
-                        <StackPanel Orientation="Horizontal" Height="45">
+                        <StackPanel Orientation="Horizontal" Height="50">
                             <Button HorizontalAlignment="Left" Name="btnAddSubCategory" Style="{StaticResource appSmallButtonStyle}" Click="btnAddSubCategory_Click">
-                                <Image Source="/agkik.desktopclient;component/media/Add.png" Margin="-5" Height="38" Width="30" />
+                                <Image Source="/agkik.desktopclient;component/media/Add.png"  />
                             </Button>
                             <StackPanel Width="15"></StackPanel>
                             <Button HorizontalAlignment="Left" Name="btnEditSubCategory" Style="{StaticResource appSmallButtonStyle}" Click="btnEditSubCategory_Click">
-                                <Image Source="/agkik.desktopclient;component/media/Edit.png" Margin="-5" Height="38" Width="30" />
+                                <Image Source="/agkik.desktopclient;component/media/Edit.png"  />
                             </Button>
                             <StackPanel Width="15"></StackPanel>
                             <Button HorizontalAlignment="Left" Name="btnDeleteSubCategory" Style="{StaticResource appSmallButtonStyle}">
-                                <Image Source="/agkik.desktopclient;component/media/Delete.png" Margin="-5" Height="38" Width="30" />
+                                <Image Source="/agkik.desktopclient;component/media/Delete.png"  />
                             </Button>
                         </StackPanel>
                         <StackPanel Height="10"></StackPanel>
-                        <ListView Name="lvSubCategories" Width="500" HorizontalAlignment="Left"  ItemsSource="{Binding Source={StaticResource subCategoryCollection}}">
+                        <!--<DataGrid Name="lvSubCategories" VerticalContentAlignment="Center" Background="AliceBlue" MinHeight="200" MinWidth="200" Width="450" MaxHeight="550" SelectionMode="Single" HeadersVisibility="Column" HorizontalAlignment="Left" IsReadOnly="True" AlternatingRowBackground="Beige" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource subCategoryCollection}}">
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="Height" Value="35"/>
+                                </Style>
+                            </DataGrid.RowStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=CategoryId}" Header="Id"  FontWeight="Bold" Width="*" />
+                                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" FontWeight="Bold" Width="*"/>
+                                <DataGridTextColumn Binding="{Binding Path=Description}" Header="Description" FontWeight="Bold" Width="*"/>
+                                <DataGridTextColumn Binding="{Binding Path=ParentCategory.CategoryId}" Header="Parent Id" FontWeight="Bold" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>-->
+                        <ListView Name="lvSubCategories" Width="500" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource subCategoryCollection}}">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding CategoryId}" />
+                                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding CategoryId}" Width="20" />
                                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
                                     <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
                                     <GridViewColumn Header="Parent Category ID" DisplayMemberBinding="{Binding ParentCategory.CategoryId}" />
+                                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding ExpenseType}">
+                                        <GridViewColumn.HeaderContainerStyle>
+                                            <Style>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=CategoryControl, Path=IsExpense}" Value="False">
+                                                        <Setter Property="ListBoxItem.Visibility" Value="Hidden"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding ElementName=CategoryControl, Path=IsExpense}" Value="True">
+                                                        <Setter Property="ListBoxItem.Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </GridViewColumn.HeaderContainerStyle>
+                                    </GridViewColumn>
                                 </GridView>
                             </ListView.View>
 

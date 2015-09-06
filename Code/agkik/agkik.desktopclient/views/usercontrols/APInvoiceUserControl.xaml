@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.APInvoiceUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols">
+    <StackPanel>
+        <WrapPanel>
+            <StackPanel>
+                <Expander IsExpanded="True" Background="#88AA88" Margin="5,0,0,0">
+                    <Expander.Header>
+                        <StackPanel HorizontalAlignment="Stretch">
+                            <Label Content="Invoice Header" FontWeight="Bold" FontSize="14" Foreground="White"></Label>
+                        </StackPanel>
+                    </Expander.Header>
+                    <Grid Name="accountGrid" Margin="10,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                            <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                            <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                            <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                            <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                            <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                            <RowDefinition Style="{StaticResource rowDefinition-notes}" />
+                        </Grid.RowDefinitions>
+                        <Border Style="{StaticResource gridRowBorder}" Grid.Row="0" Grid.ColumnSpan="3" />
+                        <Border Style="{StaticResource gridRowBorder}" Grid.Row="1" Grid.ColumnSpan="3" />
+                        <Border Style="{StaticResource gridRowBorder}" Grid.Row="2" Grid.ColumnSpan="3" />
+                        <Border Style="{StaticResource gridRowBorder}" Grid.Row="3" Grid.ColumnSpan="3" />
+                        <Border Style="{StaticResource gridRowBorder}" Grid.Row="4" Grid.ColumnSpan="3" />
+                        <Border Style="{StaticResource gridRowBorder}" Grid.Row="5" Grid.ColumnSpan="3" />
+                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblInvoiceType" Content="_InvoiceType: " Target="{Binding ElementName=cboInvoiceType}" Style="{StaticResource label-wide-top}"/>
+                            <ComboBox Name="cboInvoiceType" Style="{StaticResource typeAheadCombobox-small}">
+                                <ComboBoxItem>PO</ComboBoxItem>
+                                <ComboBoxItem>Non-PO</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblInvoiceNo" Content="Invoice No: " Target="{Binding ElementName=txtInvoiceNo}" Style="{StaticResource label-wide-top}"/>
+                            <TextBox Name="txtInvoiceNo" IsEnabled="False" Style="{StaticResource textBoxStyle}" Text="{Binding Path=InvoiceNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblVendor" Content="_Vendor: " Target="{Binding ElementName=cboVendor}" Style="{StaticResource label-wide-top}"/>
+                            <ComboBox Name="cboVendor" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=VendorList}"  Style="{StaticResource typeAheadComboboxStyle}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblPO" Content="Purchase Order No: " Target="{Binding ElementName=txtPO}" Style="{StaticResource label-wide-top}"/>
+                            <TextBox Name="txtPO" MaxLength="34"  Style="{StaticResource textBoxStyle}" Text="{Binding Path=PONumber, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                            <Button HorizontalAlignment="Left" Name="btnDeleteCustomCategory" Style="{StaticResource imagebutton-tiny}">
+                                <Image Source="/agkik.desktopclient;component/media/search.png" />
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblExpenseCategory" Content="_Expense Category: " Target="{Binding ElementName=cboExpenseCategory}" Style="{StaticResource label-wide-top}" />
+                            <ComboBox Name="cboExpenseCategory" IsEditable="True"  Style="{StaticResource typeAheadComboboxStyle}" IsTextSearchEnabled="True" ItemsSource="{Binding Path=ExpenseCategoryList}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblInvoiceAmount" Content="Invoice Amount: " Target="{Binding ElementName=txtInvoiceAmount}" Style="{StaticResource label-wide-top}" />
+                            <TextBox Name="txtInvoiceAmount" MaxLength="34"  Style="{StaticResource textBoxStyle-amount}" Text="{Binding Path=InvoiceAmount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblTaxType" Content="_Tax Type: " Target="{Binding ElementName=cboTaxType}" Style="{StaticResource label-wide-top}" />
+                            <ComboBox Name="cboTaxType" IsEditable="True"  Style="{StaticResource typeAheadComboboxStyle}" IsTextSearchEnabled="True" ItemsSource="{Binding Path=TaxTypeList}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblTaxAmount" Content="Tax In Invoice Amount: " Target="{Binding ElementName=txtTaxAmount}" Style="{StaticResource label-wide-top}" />
+                            <TextBox Name="txtTaxAmount" MaxLength="34"  Style="{StaticResource textBoxStyle-amount}" Text="{Binding Path=TaxAmount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblReferenceInvoiceNo" Content="Reference Invoice No: " Target="{Binding ElementName=txtReferenceInvoiceNo}" Style="{StaticResource label-wide-top}"/>
+                            <TextBox Name="txtReferenceInvoiceNo" MaxLength="34"  Style="{StaticResource textBoxStyle}" Text="{Binding Path=PONumber, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                            <Button HorizontalAlignment="Left" Name="btnShowReferenceInvoice" Style="{StaticResource imagebutton-tiny}" ToolTip="View Invoice Scanned Image">
+                                <Image Source="/agkik.desktopclient;component/media/File.png" />
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblDueDate" Content="_Due Date: " Target="{Binding ElementName=dpDueDate}" Style="{StaticResource label-wide-top}" />
+                            <DatePicker Name="dpDueDate" Style="{StaticResource datePicker-small}" Text="{Binding Path=DueDate, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblPayFromAccount" Content="Pay From _Account: " Target="{Binding ElementName=cboPayFromAccount}" Style="{StaticResource label-wide-top}" />
+                            <ComboBox Name="cboPayFromAccount" IsEditable="True" Style="{StaticResource typeAheadComboboxStyle}" IsTextSearchEnabled="True" ItemsSource="{Binding Path=AccountList}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblPaymentDate" Content="_Payment Date: " Target="{Binding ElementName=dpPaymentDate}" Style="{StaticResource label-wide-top}" />
+                            <DatePicker Name="dpPaymentDate" Style="{StaticResource datePicker-small}" Text="{Binding Path=PaymentDate, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                            <Label Name="lblProject" Content="_Project: " Target="{Binding ElementName=cboProject}" Style="{StaticResource label-wide-top}" />
+                            <ComboBox Name="cboProject" IsEditable="True"  Style="{StaticResource typeAheadComboboxStyle}" IsTextSearchEnabled="True" ItemsSource="{Binding Path=ProjectList}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource stackPanelIndent-notes-small}">
+                            <Label Name="lblNotes" Content="_Notes: " Target="{Binding ElementName=txtNotes}" Style="{StaticResource label-wide-top}" />
+                            <TextBox Name="txtNotes" MaxLength="34"  Style="{StaticResource textbox-notes-small}" Text="{Binding Path=TaxAmount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                        </StackPanel>
+                    </Grid>
+                </Expander>
+            </StackPanel>
+            <StackPanel>
+                <Expander Name="expandVendor" IsExpanded="False" Background="#88AAAA" Margin="5,0,5,0" >
+                    <Expander.Header>
+                        <StackPanel HorizontalAlignment="Stretch">
+                            <Label Content="Vendor Details" FontWeight="Bold" FontSize="14" Foreground="White"></Label>
+                        </StackPanel>
+                    </Expander.Header>
+                    <uc:VendorSnapShotUserControl />
+                </Expander>
+            </StackPanel>
+        </WrapPanel>
+        <Separator Height="20"></Separator>
+        <Expander IsExpanded="True" Background="#448888" Margin="5,0,5,0" >
+            <Expander.Header>
+                <StackPanel HorizontalAlignment="Stretch">
+                    <Label Content="Invoice Lines" FontWeight="Bold" FontSize="14" Foreground="White"></Label>
+                </StackPanel>
+            </Expander.Header>
+            <StackPanel>
+                <DataGrid Name="dgAPInvoices" VerticalContentAlignment="Center" Background="AliceBlue" MaxHeight="300" SelectionMode="Single" HeadersVisibility="Column" HorizontalAlignment="Left" AlternatingRowBackground="Beige" AutoGenerateColumns="False" ItemsSource="{Binding Path=InvoiceList}">
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Height" Value="35"/>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=LineNo}" Header="Line #"  FontWeight="Bold" Width="40" />
+                        <DataGridTextColumn Binding="{Binding Path=ItemNo}" Header="Item #" FontWeight="Bold" Width="*"/>
+                        <DataGridTextColumn Binding="{Binding Path=ItemDescription}" Header="Item Description" FontWeight="Bold" Width="*"/>
+                        <DataGridComboBoxColumn Header="Expense Category" Width="*">
+
+                        </DataGridComboBoxColumn>
+                        <DataGridComboBoxColumn Header="Pay From Account" Width="*">
+
+                        </DataGridComboBoxColumn>
+                        <DataGridComboBoxColumn Header="Tax Type" Width="*">
+
+                        </DataGridComboBoxColumn>
+                        <DataGridTextColumn Binding="{Binding Path=TaxAmount}" Header="Tax Amount" FontWeight="Bold" Width="*"/>
+                        <DataGridTextColumn Binding="{Binding Path=Amount}" Header="Line Amount" FontWeight="Bold" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel HorizontalAlignment="Right" Margin="5" Background="#228844">
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                        <Label Name="lblLineTotal" Content="Total Amount: " Target="{Binding ElementName=txtLineTotal}" Style="{StaticResource label-wide-top}" />
+                        <TextBox Name="txtLineTotal" MaxLength="34"  Style="{StaticResource textBoxStyle-amount}" Text="{Binding Path=InvoiceAmount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                        <Label Name="lblTaxTotal" Content="Total Tax: " Target="{Binding ElementName=txtTaxTotal}" Style="{StaticResource label-wide-top}" />
+                        <TextBox Name="txtTaxTotal" MaxLength="34"  Style="{StaticResource textBoxStyle-amount}" Text="{Binding Path=InvoiceAmount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource stackPanelIndent-smaller-top}">
+                        <Label Name="lblGrossAmount" Content="Gross Amount: " Target="{Binding ElementName=txtGrossAmount}" Style="{StaticResource label-wide-top}" />
+                        <TextBox Name="txtGrossAmount" MaxLength="34"  Style="{StaticResource textBoxStyle-amount}" Text="{Binding Path=InvoiceAmount, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Expander>
+    </StackPanel>
+</UserControl>

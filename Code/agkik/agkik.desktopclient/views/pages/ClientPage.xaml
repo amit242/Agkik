@@ -3,9 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols"
+      mc:Ignorable="d" Title="Client Page"
+      xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols"
       xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-      xmlns:vm="clr-namespace:agkik.desktopclient.viewmodels" Title="Client Page">
+      xmlns:vm="clr-namespace:agkik.desktopclient.viewmodels">
     <StackPanel>
         <StackPanel.Resources>
             <vm:ClientViewModel x:Key="ClientVM"></vm:ClientViewModel>
@@ -25,6 +26,7 @@
                     <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Last Name" FontWeight="Bold" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=CompanyName}" Header="Company Name" FontWeight="Bold" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=RegistrationDate}" Header="Registration Date" FontWeight="Bold" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=IsActive}" Header="Is Active?" FontWeight="Bold" Width="*"/>
                 </DataGrid.Columns>
                 <ia:Interaction.Triggers>
                     <ia:EventTrigger EventName="SelectionChanged">
@@ -47,7 +49,10 @@
             <TabItem Header="View/Update Existing Clients" Name="tiShowClients">
                 <AdornerDecorator>
                     <StackPanel>
-                        <CheckBox Name="chkEditDetails" Content="Edit Details" FontSize="15" FontWeight="Bold"/>
+                        <DockPanel>
+                            <CheckBox DockPanel.Dock="Left" Name="chkEditDetails" Content="Edit Details" FontSize="15" FontWeight="Bold"/>
+                            <CheckBox DockPanel.Dock="Right" HorizontalAlignment="Center" Name="chkActive" Content="Is Active?" FontSize="15" FontWeight="Bold" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}"/>
+                        </DockPanel>
                         <uc:ClientUserControl x:Name="selectedClient" Background="Beige" DataContext="{Binding Path=SelectedClient}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}"></uc:ClientUserControl>
                         <Separator Height="15" />
                         <Button Name="btnUpdateClient" Content="Update Client" Style="{StaticResource bigLightBlueButton}" Command="{Binding Path=UpdateClientCommand}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}" />

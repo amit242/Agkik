@@ -22,8 +22,16 @@ namespace agkik.desktopclient.views.usercontrols
     public partial class CategoriesUserControl : UserControl
     {
         //public static readonly DependencyProperty _headerName = DependencyProperty.Register("HeaderName", typeof(string), typeof(CategoriesUserControl));
-
+        public static readonly DependencyProperty _isExpense =
+       DependencyProperty.Register("IsExpense", typeof(bool), typeof(CategoriesUserControl));
         private string _headerName;
+        //private bool _isExpense;
+
+        public bool IsExpense
+        {
+            get { return (bool)GetValue(_isExpense); }
+            set { SetValue(_isExpense, value); }
+        }
 
         public string HeaderName
         {
@@ -57,7 +65,16 @@ namespace agkik.desktopclient.views.usercontrols
 
         private void btnAddSubCategory_Click(object sender, RoutedEventArgs e)
         {
-            SubCategoryPopop addPopup = new SubCategoryPopop();
+            SubCategoryPopup addPopup;
+            if (IsExpense)
+            {
+                DemoExpsenseCategoryVM vm = (DemoExpsenseCategoryVM)this.DataContext;
+                addPopup = new SubCategoryPopup(lvMainCategories.ItemsSource, IsExpense, vm.ExpenseTypes);
+            }
+            else
+            {
+                addPopup = new SubCategoryPopup(lvMainCategories.ItemsSource);
+            }
             addPopup.ShowDialog();
         }
 
@@ -66,7 +83,16 @@ namespace agkik.desktopclient.views.usercontrols
             DemoSubCategory selectedCategory = (DemoSubCategory)lvSubCategories.SelectedItem;
             if (selectedCategory != null)
             {
-                SubCategoryPopop editPopup = new SubCategoryPopop(selectedCategory.Name, selectedCategory.Description, lvMainCategories.ItemsSource);
+                SubCategoryPopup editPopup;
+                if (IsExpense)
+                {
+                    DemoExpsenseCategoryVM vm = (DemoExpsenseCategoryVM)this.DataContext;
+                    editPopup = new SubCategoryPopup(lvMainCategories.ItemsSource, selectedCategory, IsExpense, vm.ExpenseTypes);
+                }
+                else
+                {
+                    editPopup = new SubCategoryPopup(lvMainCategories.ItemsSource, selectedCategory);
+                }
                 editPopup.ShowDialog();
             }
         }
@@ -74,6 +100,7 @@ namespace agkik.desktopclient.views.usercontrols
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             lblHeader.Content = this._headerName;
+            
             // main category
             /*
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvMainCategories.ItemsSource);

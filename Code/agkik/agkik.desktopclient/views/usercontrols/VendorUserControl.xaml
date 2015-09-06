@@ -17,8 +17,8 @@
                     <StackPanel Orientation="Vertical" Background="#88AAAA" Width="383" VerticalAlignment="Top">
                         <Border Style="{StaticResource gridRowBorder}">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
-                                <Label Name="lblFirstName" Content="_First Name: " Target="{Binding ElementName=txtFirstName}" Style="{StaticResource labelStyleWide}"/>
-                                <TextBox Name="txtFirstName" MaxLength="45" Style="{StaticResource textBox-medium}" Text="{Binding Path=FirstName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                                <Label Name="lblFirstName" Content="_Name: " Target="{Binding ElementName=txtFirstName}" Style="{StaticResource labelStyleWide}"/>
+                                <TextBox Name="txtFirstName" MaxLength="45" Style="{StaticResource textBox-medium}" Text="{Binding Path=LastName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
                             </StackPanel>
                         </Border>
                         <Border Style="{StaticResource gridRowBorder}">

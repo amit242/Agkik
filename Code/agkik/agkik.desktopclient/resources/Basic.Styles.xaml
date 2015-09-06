@@ -10,6 +10,19 @@
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="FontSize" Value="14" />
     </Style>
+    <Style x:Key="textblock-bold" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ucHeaderBoldStyle}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style x:Key="textblock-big-bold" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource textblock-bold}" >
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+    <Style x:Key="textblock-note-bold" TargetType="TextBlock" BasedOn="{StaticResource textblock-bold}">
+        <Setter Property="Height" Value="50" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
     <Style x:Key="labelStyle" TargetType="Label">
         <Setter Property="Height" Value="28" />
         <Setter Property="Width" Value="100" />
@@ -23,6 +36,10 @@
         <Setter Property="Width" Value="160" />
         <Setter Property="FontSize" Value="14" />
     </Style>
+    <Style x:Key="label-wide-top" TargetType="Label" BasedOn="{StaticResource labelStyleWide}">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+    </Style>
     <Style x:Key="labelStyleBigger" TargetType="Label" BasedOn="{StaticResource labelStyleWide}">
         <Setter Property="Height" Value="35" />
         <Setter Property="FontSize" Value="18" />
@@ -33,22 +50,38 @@
         <Setter Property="FontSize" Value="25" />
         <Setter Property="Foreground" Value="#FFFF99" />
     </Style>
+
+    <Style x:Key="passwordBox-medium" TargetType="PasswordBox">
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Width" Value="200" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
     <!-- Texbox styles -->
     <Style x:Key="textBoxStyle" TargetType="TextBox">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="120" />
-
     </Style>
+
+    <Style x:Key="textBoxStyle-small" TargetType="TextBox">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
     <Style x:Key="textBoxStyleWider" TargetType="TextBox" BasedOn="{StaticResource textBoxStyle}">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="200" />
     </Style>
     <Style x:Key="textBoxStyleNotes" TargetType="TextBox" BasedOn="{StaticResource textBoxStyle}">
-        <Setter Property="Height" Value="100" />
+        <Setter Property="Height" Value="80" />
         <Setter Property="Width" Value="200" />
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="AcceptsReturn" Value="True" />
+    </Style>
+
+    <Style x:Key="textbox-notes-small" TargetType="TextBox" BasedOn="{StaticResource textBoxStyleNotes}">
+        <Setter Property="Height" Value="50" />
     </Style>
 
     <Style x:Key="textBox-medium" TargetType="TextBox" BasedOn="{StaticResource textBoxStyleWider}">
@@ -64,6 +97,10 @@
         <Setter Property="FontSize" Value="20" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
+    <Style x:Key="textBoxStyle-amount" TargetType="TextBox"  BasedOn="{StaticResource textBoxStyleBigger-boldfont}">
+        <Setter Property="Width" Value="120" />
+    </Style>
+
 
     <Style x:Key="rowDefinition-hidden" TargetType="{x:Type RowDefinition}">
         <Setter Property="Height" Value="0" />
@@ -76,7 +113,9 @@
     <Style x:Key="rowDefinition-bigger" TargetType="{x:Type RowDefinition}">
         <Setter Property="Height" Value="70" />
     </Style>
-
+    <Style x:Key="rowDefinition-notes" TargetType="{x:Type RowDefinition}">
+        <Setter Property="Height" Value="60" />
+    </Style>
     <Style x:Key="rowDefinition-normal" TargetType="{x:Type RowDefinition}">
         <Setter Property="Height" Value="50" />
     </Style>
@@ -84,6 +123,7 @@
     <Style x:Key="rowDefinition-small" TargetType="{x:Type RowDefinition}">
         <Setter Property="Height" Value="40" />
     </Style>
+    <!-- datagrid cell-->
 
     <!-- normal -->
     <Style TargetType="{x:Type RowDefinition}">
@@ -94,11 +134,24 @@
     <Style x:Key="stackPanelIndent" TargetType="StackPanel">
         <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="Height" Value="40"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
     </Style>
 
-    <Style x:Key="stackPanelIndent-small" TargetType="StackPanel">
+    <Style x:Key="stackPanelIndent-small" TargetType="StackPanel" BasedOn="{StaticResource stackPanelIndent}">
         <Setter Property="Margin" Value="0,0,0,0" />
-        <Setter Property="Height" Value="25"/>
+        <Setter Property="Height" Value="28"/>
+    </Style>
+
+    <Style x:Key="stackPanelIndent-smaller-top" TargetType="StackPanel" BasedOn="{StaticResource stackPanelIndent-small}">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="0,2,0,0" />
+    </Style>
+
+    <Style x:Key="stackPanelIndent-normal" TargetType="StackPanel" BasedOn="{StaticResource stackPanelIndent}">
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Height" Value="30"/>
     </Style>
 
     <Style x:Key="stackPanelIndent-big" TargetType="StackPanel" BasedOn="{StaticResource stackPanelIndent}">
@@ -108,6 +161,11 @@
     <Style x:Key="stackPanelIndent-notes" TargetType="StackPanel" BasedOn="{StaticResource stackPanelIndent-big}" >
         <Setter Property="Height" Value="120"/>
     </Style>
+    <Style x:Key="stackPanelIndent-notes-small" TargetType="StackPanel" BasedOn="{StaticResource stackPanelIndent-notes}" >
+        <Setter Property="Height" Value="55"/>
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="0,1,0,0" />
+    </Style>
     <!-- Border Styles-->
     <Style x:Key="gridRowBorder" TargetType="Border">
         <Setter Property="BorderThickness" Value="0 0 0 2" />
@@ -116,7 +174,6 @@
     <!-- Button styles -->
     <Style TargetType="Button">
         <Setter Property="Height" Value="50" />
-        <Setter Property="Width" Value="70" />
         <Setter Property="Cursor" Value="Hand" />
     </Style>
     <Style x:Key="button-agkik" TargetType="Button">
@@ -126,28 +183,58 @@
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="button-agkik-transparent" TargetType="Button" BasedOn="{StaticResource button-agkik}">
         <Setter Property="Background" Value="Transparent" />
     </Style>
-
-    <Style x:Key="bigButton" TargetType="Button" BasedOn="{StaticResource button-agkik}">
+    <Style x:Key="bigButton" TargetType="Button" BasedOn="{StaticResource button-agkik-transparent}">
         <Setter Property="Height" Value="50" />
         <Setter Property="FontSize" Value="22" />
     </Style>
-    <Style x:Key="button-small" TargetType="Button" BasedOn="{StaticResource button-agkik}">
-        <Setter Property="Height" Value="40" />
+    <Style x:Key="button-small" TargetType="Button" BasedOn="{StaticResource button-agkik-transparent}">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Padding" Value="0,0" />
     </Style>
     <Style x:Key="button-small-blue" TargetType="Button" BasedOn="{StaticResource button-small}">
         <Setter Property="Background" Value="#AADDFF" />
-        <Setter Property="Padding" Value="5,4" />
+        <Setter Property="Padding" Value="1,0" />
     </Style>
+
     <Style x:Key="appSmallButtonStyle" TargetType="Button">
+        
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Height" Value="40" />
         <Setter Property="Width" Value="40" />
+        <Setter Property="Margin" Value="5" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Width" Value="45" />
                 <Setter Property="Height" Value="45" />
+                <Setter Property="Margin" Value="2" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="imagebutton-small" TargetType="Button" BasedOn="{StaticResource button-agkik}">
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Width" Value="26" />
+        <Setter Property="Margin" Value="2" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Yellow" />
+                <Setter Property="Width" Value="28" />
+                <Setter Property="Height" Value="28" />
+                <Setter Property="Margin" Value="1" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="imagebutton-tiny" TargetType="Button" BasedOn="{StaticResource button-agkik}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Width" Value="23" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Yellow" />
+                <Setter Property="Width" Value="25" />
+                <Setter Property="Height" Value="25" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -193,10 +280,13 @@
         <Setter Property="Cursor" Value="Hand" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#FFFFFAEA" />
+                <Setter Property="Background" Value="#0088CC" />
             </Trigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=RadioButton,AncestorLevel=1}, Path=IsPressed}" Value="True">
+                <Setter Property="Background" Value="#0088CC" />
+            </DataTrigger>
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=RadioButton,AncestorLevel=1}, Path=IsChecked}" Value="True">
-                <Setter Property="Background" Value="#FFFFFAEA" />
+                <Setter Property="Background" Value="#FFFFFA" />
             </DataTrigger>
         </Style.Triggers>
         <Style.Resources>
@@ -284,7 +374,7 @@
     </Style>
 
     <!-- datepicker style-->
-    
+
     <Style x:Key="datePicker" TargetType="DatePicker">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="150" />
@@ -293,6 +383,8 @@
         <Setter Property="SelectedDateFormat" Value="Short"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Padding" Value="2"/>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="BorderBrush">
             <Setter.Value>
                 <LinearGradientBrush EndPoint=".5,0" StartPoint=".5,1">
@@ -443,7 +535,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="datePicker-small" TargetType="DatePicker">
         <Setter Property="Height" Value="25" />
         <Setter Property="Width" Value="100" />
@@ -452,6 +544,7 @@
         <Setter Property="SelectedDateFormat" Value="Short"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Padding" Value="2"/>
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="BorderBrush">
             <Setter.Value>
                 <LinearGradientBrush EndPoint=".5,0" StartPoint=".5,1">
@@ -580,7 +673,7 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False" HorizontalAlignment="Left" Margin="-25,-15,0,0" Grid.Row="0" Template="{StaticResource DropDownButtonTemplate}" VerticalAlignment="Top" />
+                            <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False" HorizontalAlignment="Left" Margin="0,-15,0,0" Grid.Row="0" Template="{StaticResource DropDownButtonTemplate}" VerticalAlignment="Top" />
                             <DatePickerTextBox x:Name="PART_TextBox" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="Stretch" Grid.Row="0" VerticalContentAlignment="Stretch" Width="75"/>
                             <Grid x:Name="PART_DisabledVisual" Grid.ColumnSpan="2" Grid.Column="0" IsHitTestVisible="False" Opacity="0" Grid.Row="0">
                                 <Grid.ColumnDefinitions>

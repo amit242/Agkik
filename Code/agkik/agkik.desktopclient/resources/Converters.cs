@@ -6,6 +6,7 @@ using System.Windows.Data;
 using System.Windows;
 using System.Collections;
 using System.Globalization;
+using System.Windows.Controls;
 
 namespace agkik.desktopclient.Resources.Converters
 {

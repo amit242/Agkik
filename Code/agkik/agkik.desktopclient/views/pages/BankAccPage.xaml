@@ -9,6 +9,9 @@
 
 
     <StackPanel Margin="10,10,0,0">
+        <StackPanel Height="45" Background="DarkSlateGray">
+            <Label Name="lblHeader" Style="{StaticResource labelStylePopupHeader}" Content="Manage Bank/Cash Accounts"></Label>
+        </StackPanel>
         <DataGrid Name="dgAccounts" Background="AliceBlue" SelectionMode="Single" Height="304" HeadersVisibility="Column" HorizontalAlignment="Left"  IsReadOnly="True" AlternatingRowBackground="Beige" AutoGenerateColumns="False" SelectionChanged="dgAccounts_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=idBankAccounts}" Header="Account Id"  FontWeight="Bold" Width="*" />
@@ -23,17 +26,17 @@
         </DataGrid>
         <Separator Height="20" />
         <TabControl Name="tcBankCash" HorizontalAlignment="Left">
+            <TabItem Header="Add A _New Bank Account" Name="tiAddBankAccount">
+                <StackPanel Orientation="Vertical" Background="White">
+                    <uc:BankAccountUserControl x:Name="newBankAccount" Background="#88AA88" HorizontalAlignment="Left" d:IsHidden="True"></uc:BankAccountUserControl>
+                    <Button Content="_Add" Name="btnAddAccount" Style="{StaticResource bigLightBlueButton}" Click="btnAddAccount_Click"></Button>
+                </StackPanel>
+            </TabItem>
             <TabItem Header="_View/Update Existing Bank Accounts" Name="tiShowUpdateBankAccount" Height="37.96" VerticalAlignment="Bottom" >
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                     <uc:BankAccountUserControl x:Name="selectedBankAccount" Background="#88AAAA" HorizontalAlignment="Left"></uc:BankAccountUserControl>
                     <Separator />
                     <Button Content="_Update" Name="btnUpdateAccount" Style="{StaticResource bigLightBlueButton}" Click="btnUpdateAccount_Click"></Button>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Add A _New Bank Account" Name="tiAddBankAccount">
-                <StackPanel Orientation="Vertical" Background="White">
-                    <uc:BankAccountUserControl x:Name="newBankAccount" Background="#88AA88" HorizontalAlignment="Left" d:IsHidden="True"></uc:BankAccountUserControl>
-                    <Button Content="_Add" Name="btnAddAccount" Style="{StaticResource bigLightBlueButton}" Click="btnAddAccount_Click"></Button>
                 </StackPanel>
             </TabItem>
             <TabItem Header="_Record Account Transfer " Name="tiTransferFunds" Initialized="tiTransferFunds_Initialized">

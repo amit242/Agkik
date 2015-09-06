@@ -90,6 +90,7 @@
     <Compile Include="viewmodels\LoginViewModel.cs" />
     <Compile Include="viewmodels\MedicineViewModel.cs" />
     <Compile Include="viewmodels\UomViewModel.cs" />
+    <Compile Include="viewmodels\UserViewModel.cs" />
     <Compile Include="viewmodels\ViewModelBase.cs" />
     <Compile Include="viewmodels\VendorViewModel.cs" />
     <Compile Include="views\Container.xaml.cs">
@@ -119,6 +120,12 @@
     <Compile Include="views\pages\ClientPage.xaml.cs">
       <DependentUpon>ClientPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\pages\CompanyProfilePage.xaml.cs">
+      <DependentUpon>CompanyProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\pages\DashBoardPage.xaml.cs">
+      <DependentUpon>DashBoardPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\pages\ExpenseCategoryPage.xaml.cs">
       <DependentUpon>ExpenseCategoryPage.xaml</DependentUpon>
     </Compile>
@@ -134,20 +141,41 @@
     <Compile Include="views\pages\NonInvoicedIncomeCategoryPage.xaml.cs">
       <DependentUpon>NonInvoicedIncomeCategoryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\pages\NonInvoicedIncomePage.xaml.cs">
+      <DependentUpon>NonInvoicedIncomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\pages\ReportsPage.xaml.cs">
+      <DependentUpon>ReportsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\pages\RolesPage.xaml.cs">
+      <DependentUpon>RolesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\pages\UserPage.xaml.cs">
+      <DependentUpon>UserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\pages\VendorPage.xaml.cs">
       <DependentUpon>VendorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\popups\MainCategoryPopup.xaml.cs">
       <DependentUpon>MainCategoryPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\popups\SubCategoryPopop.xaml.cs">
-      <DependentUpon>SubCategoryPopop.xaml</DependentUpon>
+    <Compile Include="views\popups\SubCategoryPopup.xaml.cs">
+      <DependentUpon>SubCategoryPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\usercontrols\Address.xaml.cs">
       <DependentUpon>Address.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\usercontrols\APInvoiceListUserControl.xaml.cs">
       <DependentUpon>APInvoiceListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\APInvoiceUserControl.xaml.cs">
+      <DependentUpon>APInvoiceUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\ARInvoiceListUserControl.xaml.cs">
+      <DependentUpon>ARInvoiceListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\ARInvoiceUserControl.xaml.cs">
+      <DependentUpon>ARInvoiceUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\usercontrols\BankAccountUserControl.xaml.cs">
       <DependentUpon>BankAccountUserControl.xaml</DependentUpon>
@@ -170,14 +198,23 @@
     <Compile Include="views\usercontrols\MedicineUserControl.xaml.cs">
       <DependentUpon>MedicineUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\usercontrols\PrivilageUserControl.xaml.cs">
+      <DependentUpon>PrivilageUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\usercontrols\Uom.xaml.cs">
       <DependentUpon>Uom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\UserUserControl.xaml.cs">
+      <DependentUpon>UserUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\usercontrols\VendorMedicineUserControl.xaml.cs">
       <DependentUpon>VendorMedicineUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\usercontrols\VendorSearchUserControl.xaml.cs">
       <DependentUpon>VendorSearchUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\usercontrols\VendorSnapShotUserControl.xaml.cs">
+      <DependentUpon>VendorSnapShotUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\usercontrols\VendorUserControl.xaml.cs">
       <DependentUpon>VendorUserControl.xaml</DependentUpon>
@@ -230,6 +267,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="views\pages\CompanyProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\pages\DashBoardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="views\pages\ExpenseCategoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -250,6 +295,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="views\pages\NonInvoicedIncomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\pages\ReportsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\pages\RolesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\pages\UserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="views\pages\VendorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -258,7 +319,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="views\popups\SubCategoryPopop.xaml">
+    <Page Include="views\popups\SubCategoryPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -267,6 +328,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="views\usercontrols\APInvoiceListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\APInvoiceUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\ARInvoiceListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\ARInvoiceUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -298,7 +371,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="views\usercontrols\PrivilageUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="views\usercontrols\Uom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\UserUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -307,6 +388,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="views\usercontrols\VendorSearchUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\VendorSnapShotUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -411,7 +496,51 @@
   <ItemGroup>
     <Resource Include="media\close.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="media\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\invoice-new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\invoice-delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\invoice-edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\File.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\payment-receive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\pay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\company.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\income-invoiced.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\expense-invoiced.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\income-noninvoiced.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="media\expense-noninvoiced.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

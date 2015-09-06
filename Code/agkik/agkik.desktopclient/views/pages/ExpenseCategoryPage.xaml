@@ -11,6 +11,14 @@
         <StackPanel.Resources>
             <vm:DemoExpsenseCategoryVM x:Key="expenseCategoryVM"></vm:DemoExpsenseCategoryVM>
         </StackPanel.Resources>
-        <uc:CategoriesUserControl HeaderName="Manage Expense Categories" DataContext="{Binding Source={StaticResource expenseCategoryVM}}"></uc:CategoriesUserControl>
+        <TabControl>
+            <TabItem Header="Invoiced" Name="tiInvoiced" Height="37.96" VerticalAlignment="Bottom" >
+                <uc:CategoriesUserControl HeaderName="Manage Expense Categories (Invoiced)" IsExpense="True" DataContext="{Binding Source={StaticResource expenseCategoryVM}}"></uc:CategoriesUserControl>
+            </TabItem>
+            <TabItem Header="Non Invoiced" Name="tiNonInvoiced" Height="37.96" VerticalAlignment="Bottom" >
+                <uc:CategoriesUserControl HeaderName="Manage Expense Categories (Non-Invoiced)" IsExpense="True" DataContext="{Binding Source={StaticResource expenseCategoryVM}}"></uc:CategoriesUserControl>
+            </TabItem>
+        </TabControl>
+        
     </StackPanel>
 </Page>

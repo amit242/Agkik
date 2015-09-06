@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="agkik.desktopclient.views.usercontrols.ARInvoiceListUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Width="400">
+    <StackPanel>
+        <Expander Foreground="White" IsExpanded="True" Background="#448888">
+            <Expander.Header>
+                <StackPanel HorizontalAlignment="Stretch">
+                    <Label Content="Filter criteria" FontWeight="Bold" FontSize="14" Foreground="White"></Label>
+                </StackPanel>
+            </Expander.Header>
+            <Grid Name="accountGrid" Margin="10,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                    <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                    <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                    <RowDefinition Style="{StaticResource rowDefinition-small}" />
+                </Grid.RowDefinitions>
+                <Border Style="{StaticResource gridRowBorder}" Grid.Row="0" Grid.ColumnSpan="3" />
+                <Border Style="{StaticResource gridRowBorder}" Grid.Row="1" Grid.ColumnSpan="3" />
+                <Border Style="{StaticResource gridRowBorder}" Grid.Row="2" Grid.ColumnSpan="3" />
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-small}">
+                    <Label Name="lblCategory" Content="_Category: " Target="{Binding ElementName=cboExpenseCategory}" Style="{StaticResource labelStyle-small}"/>
+                    <ComboBox Name="cboExpenseCategory" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=ExpenseCategories}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource typeAheadCombobox-small}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-small}">
+                    <Label Name="lblClient" Content="_Client: " Target="{Binding ElementName=cboClient}" Style="{StaticResource labelStyle-small}"/>
+                    <ComboBox Name="cboClient" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=ClientList}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource typeAheadCombobox-small}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-small}">
+                    <Label Name="lblStartDate" Content="_Start Date: " Target="{Binding ElementName=dpStartDate}" Style="{StaticResource labelStyle-small}" />
+                    <DatePicker Name="dpStartDate" Style="{StaticResource datePicker-small}" Text="{Binding Path=StartDate, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-small}">
+                    <Label Name="lblEndDate" Content="_End Date: " Target="{Binding ElementName=dpEndDate}" Style="{StaticResource labelStyle-small}" />
+                    <DatePicker Name="dpEndDate" Style="{StaticResource datePicker-small}" Text="{Binding Path=EndDate, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-small}">
+                    <Label Name="lblProject" Content="_Project: " Target="{Binding ElementName=cboProject}" Style="{StaticResource labelStyle-small}" />
+                    <ComboBox Name="cboProject" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=ProjectList}" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource typeAheadCombobox-small}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-small}">
+                    <Label Name="lblShowFilter" Content="_Showing: " Target="{Binding ElementName=cboShowFilter}" Style="{StaticResource labelStyle-small}" />
+                    <ComboBox Name="cboShowFilter" IsEditable="True" IsTextSearchEnabled="True" ItemsSource="{Binding Path=FilterList}" Text="{Binding Path=Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource typeAheadCombobox-small}" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-small}">
+                    <Label Name="lblInvoiceNo" Content="_Invoice No: " Target="{Binding ElementName=txtInvoiceNo}" Style="{StaticResource labelStyle-small}" />
+                    <TextBox Name="txtInvoiceNo" Text="{Binding Path=Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource textBoxStyle-small}" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Style="{StaticResource stackPanelIndent-small}">
+                    <Button Name="btnFilterInvoices" Style="{StaticResource button-small-blue}" Click="btnFilterInvoices_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/agkik.desktopclient;component/media/filter.png" Height="15" Width="15" />
+                            <Label Content="_Filter Invoices"></Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Expander>
+        <Separator Height="10" />
+        <DataGrid Name="dgAPInvoices" VerticalContentAlignment="Center" Background="AliceBlue" MinHeight="200" MaxHeight="550" SelectionMode="Single" HeadersVisibility="Column" HorizontalAlignment="Left" IsReadOnly="True" AlternatingRowBackground="Beige" AutoGenerateColumns="False" SelectionChanged="dgAPInvoices_SelectionChanged" ItemsSource="{Binding Path=InvoiceList}">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="35"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=ClientName}" Header="Client"  FontWeight="Bold" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=InvoiceNo}" Header="Invoice No" FontWeight="Bold" Width="*"/>
+                <DataGridTemplateColumn Header="Payment">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock VerticalAlignment="Center" FontWeight="Bold">
+                                <TextBlock.Style>
+                                    <Style>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=IsPaid}" Value="true">
+                                                <Setter Property="TextBlock.Text" Value="{Binding Path=PaymentDate, StringFormat=Received on: \{0:dd/MM/yyyy\}}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=IsPaid}" Value="false">
+                                                <Setter Property="TextBlock.Foreground" Value="Red" />
+                                                <Setter Property="TextBlock.Text" Value="{Binding Path=DueDate, StringFormat=Due on: \{0:dd/MM/yyyy\}}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding Path=Amount}" Header="Amount" FontWeight="Bold" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</UserControl>

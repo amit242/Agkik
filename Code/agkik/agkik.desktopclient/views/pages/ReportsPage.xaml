@@ -1,0 +1,20 @@
+﻿<Page x:Class="agkik.desktopclient.views.pages.ReportsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" Title="ReportsPage">
+
+    <StackPanel>
+        <StackPanel DockPanel.Dock="Top" Height="45" Background="DarkSlateGray">
+            <Label Name="lblHeader" Style="{StaticResource labelStylePopupHeader}">Reports</Label>
+        </StackPanel>
+        <TabControl>
+            <TabItem Header="Balance Sheet" Height="37.96"></TabItem>
+            <TabItem Header="Profit/Loss Statement" Height="37.96"></TabItem>
+            <TabItem Header="Income Report" Height="37.96"></TabItem>
+            <TabItem Header="Expense Report" Height="37.96"></TabItem>
+            <TabItem Header="Historical Data" Height="37.96"></TabItem>
+        </TabControl>
+    </StackPanel>
+</Page>

@@ -26,6 +26,7 @@
                     <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Last Name" FontWeight="Bold" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=CompanyName}" Header="Company Name" FontWeight="Bold" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=RegistrationDate}" Header="Registration Date" FontWeight="Bold" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=IsActive}" Header="Is Active?" FontWeight="Bold" Width="*"/>
                 </DataGrid.Columns>
                 <ia:Interaction.Triggers>
                     <ia:EventTrigger EventName="SelectionChanged">
@@ -48,7 +49,10 @@
             <TabItem Header="View/Update Existing Vendors" Name="tiShowVendors">
                 <AdornerDecorator>
                     <StackPanel>
-                        <CheckBox Name="chkEditDetails" Content="Edit Details" FontSize="15" FontWeight="Bold"/>
+                        <DockPanel>
+                            <CheckBox DockPanel.Dock="Left" Name="chkEditDetails" Content="Edit Details" FontSize="15" FontWeight="Bold"/>
+                            <CheckBox DockPanel.Dock="Right" HorizontalAlignment="Center" Name="chkActive" Content="Is Active?" FontSize="15" FontWeight="Bold" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}"/>
+                        </DockPanel>
                         <uc:VendorUserControl x:Name="selectedVendor" Background="Beige" DataContext="{Binding Path=SelectedVendor}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}"></uc:VendorUserControl>
                         <Separator Height="15" />
                         <Button Name="btnUpdateVendor" Content="Update Vendor" Style="{StaticResource bigLightBlueButton}" Command="{Binding Path=UpdateVendorCommand}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}" />

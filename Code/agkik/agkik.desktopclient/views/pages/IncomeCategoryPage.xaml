@@ -9,7 +9,16 @@
     <StackPanel>
         <StackPanel.Resources>
             <vm:DemoIncomeCategoryVM x:Key="incomeCategoryVM"></vm:DemoIncomeCategoryVM>
+            <vm:DemoNonInvoicedIncomeCategoryVM x:Key="noninvoicedIncomeCategoryVM"></vm:DemoNonInvoicedIncomeCategoryVM>
         </StackPanel.Resources>
-        <uc:CategoriesUserControl HeaderName="Manage Income Categories (Invoiced)" DataContext="{Binding Source={StaticResource incomeCategoryVM}}"></uc:CategoriesUserControl>
+        <TabControl>
+            <TabItem Header="Invoiced" Name="tiInvoiced" Height="37.96" VerticalAlignment="Bottom" >
+                <uc:CategoriesUserControl HeaderName="Manage Income Categories (Invoiced)" DataContext="{Binding Source={StaticResource incomeCategoryVM}}"></uc:CategoriesUserControl>
+            </TabItem>
+            <TabItem Header="Non Invoiced" Name="tiNonInvoiced" Height="37.96" VerticalAlignment="Bottom" >
+                <uc:CategoriesUserControl HeaderName="Manage Income Categories (Non-Invoiced)" DataContext="{Binding Source={StaticResource noninvoicedIncomeCategoryVM}}"></uc:CategoriesUserControl>
+            </TabItem>
+        </TabControl>
+        
     </StackPanel>
 </Page>

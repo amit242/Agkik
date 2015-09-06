@@ -5,7 +5,7 @@
         mc:Ignorable="d"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        d:DesignHeight="481" d:DesignWidth="672" SizeToContent="WidthAndHeight"
+        SizeToContent="WidthAndHeight"
         Icon="../Media/icon.png"
         WindowStyle="None" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown"
         FocusManager.FocusedElement="{Binding ElementName=txtUserName}">

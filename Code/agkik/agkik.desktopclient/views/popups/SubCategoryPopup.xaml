@@ -1,9 +1,9 @@
-﻿<Window x:Class="agkik.desktopclient.views.popups.SubCategoryPopop"
+﻿<Window x:Class="agkik.desktopclient.views.popups.SubCategoryPopup"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" ResizeMode="NoResize"
-        Title="Sub Category Popup" Height="400" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Canvas MouseDown="Canvas_MouseDown">
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Background="#88AAAA" Height="400" Width="400">
+        Title="Sub Category Popup" Height="410" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Canvas MouseDown="Canvas_MouseDown" Loaded="Canvas_Loaded">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Background="#88AAAA" Height="410" Width="400">
             <DockPanel  Height="45" Style="{StaticResource popupHeader}">
                 <Label Name="lblHeader" Content="New Sub Category" Style="{StaticResource labelStylePopupHeader}"></Label>
                 <StackPanel Width="Auto" HorizontalAlignment="Stretch">
@@ -21,7 +21,7 @@
             <Label Name="lblCategoryName" Content="Category _Name: " Target="{Binding ElementName=txtAccountName}" Style="{StaticResource labelStyleWide}" HorizontalAlignment="Left"/>
             <TextBox Name="txtCategoryName" MaxLength="100"  Style="{StaticResource textBoxStyleWider}" Width="262" />
             <Label Name="lblMainCategory" Content="Create Under _Main Category: " Target="{Binding ElementName=cboMainCategory}" Width="auto" Style="{StaticResource labelStyleWide}" HorizontalAlignment="Left"/>
-            <ComboBox Name="cboMainCategory" IsEditable="True" IsTextSearchEnabled="True" Width="262" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource typeAheadCombobox-big}" Validation.ErrorTemplate="{StaticResource validationErrorTemplateBottom}">
+            <ComboBox Name="cboMainCategory" IsEditable="True" IsTextSearchEnabled="True" Width="262"  Style="{StaticResource typeAheadCombobox-big}" >
                 <ComboBox.GroupStyle>
                     <GroupStyle>
                         <GroupStyle.ContainerStyle>
@@ -48,6 +48,8 @@
                     </GroupStyle>
                 </ComboBox.GroupStyle>
             </ComboBox>
+            <Label Name="lblExpenseType" Visibility="Collapsed" Content="_Expense Type: " Target="{Binding ElementName=cboExpenseType}" Width="auto" Style="{StaticResource labelStyleWide}" HorizontalAlignment="Left"/>
+            <ComboBox Name="cboExpenseType" Visibility="Collapsed" Width="262" Style="{StaticResource typeAheadCombobox-big}" />
             <Label Name="lblCategoryDescription" Content="_Description: " Target="{Binding ElementName=txtAccountName}" Style="{StaticResource labelStyleWide}" HorizontalAlignment="Left"/>
             <TextBox Name="txtCategoryDescription" MaxLength="100"  Style="{StaticResource textBoxStyleWider}" Height="110" Width="266" />
             <StackPanel Height="60" Orientation="Horizontal" HorizontalAlignment="Center">

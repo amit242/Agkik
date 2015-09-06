@@ -23,5 +23,10 @@ namespace agkik.desktopclient.views.pages
         {
             InitializeComponent();
         }
+
+        private void btnNewInvoice_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,9 +1,9 @@
 ﻿<Window x:Class="agkik.desktopclient.views.Container"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Agkik" Width="700" WindowState="Maximized" Icon="../Media/icon.png" Closing="Window_Closing" MinHeight="450" MinWidth="900">
+        Title="Agkik" Width="700" WindowState="Maximized" Icon="../Media/icon.png" Closing="Window_Closing" MinHeight="580" MinWidth="900">
     <DockPanel>
-        <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+        <!--<StackPanel Orientation="Vertical" DockPanel.Dock="Top">
             <Menu IsMainMenu="True" HorizontalAlignment="Stretch">
                 <MenuItem Header="_File" >
                     <MenuItem Header="_Import Inventory..."/>
@@ -24,17 +24,6 @@
                     <Separator />
                     <MenuItem Header="_Exit" />
                 </MenuItem>
-
-                <!--<MenuItem Header="_Edit" >
-                    <MenuItem Header="_Undo" Command="Undo"/>
-                    <Separator />
-                    <MenuItem Header="_Cut" Command="Cut"/>
-                    <MenuItem Header="_Copy" Command="Copy"/>
-                    <MenuItem Header="_Paste" Command="Paste"/>
-                    <Separator />
-                    <MenuItem Header="_Select All" Command="SelectAll"/>
-                </MenuItem>-->
-
                 <MenuItem Header="_Income" >
                     <MenuItem Header="_Invoice History"/>
                     <MenuItem Header="_New Invoice..." />
@@ -106,44 +95,68 @@
 
                 <MenuItem Header="_Help" />
             </Menu>
-        </StackPanel>
+        </StackPanel>-->
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" DockPanel.Dock="Left" DataContext="{Binding Source={StaticResource loginVM}}" Width="199.693" Background="#FFC1CCDB">
             <StackPanel HorizontalAlignment="Left"  Orientation="Horizontal" Margin="1,1,10,1">
                 <TextBlock Text="Welcome " RenderTransformOrigin="-0.653,0.715"></TextBlock>
                 <TextBlock Text="{Binding Source={StaticResource loginVM}, Path=CurrentUser.FirstName}" FontWeight="DemiBold"></TextBlock>
             </StackPanel>
-            <RadioButton GroupName="leftNavButtonGroup" Name="btnManageBankAccount" Width="Auto" Checked="btnManageBankAccount_Checked">
+            <RadioButton GroupName="leftNavButtonGroup" Name="buttonShowDashBoard" Width="Auto">
                 <RadioButton.Template>
                     <ControlTemplate>
-                        <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
+                        <Border  VerticalAlignment="Center"  Style="{StaticResource menuButtonBGStyle}">
                             <StackPanel>
-                                <Image Source="../Media/cash.ico" />
-                                <Label Target="{Binding ElementName=btnManageBankAccount}" Content="_Bank/Cash"></Label>
+                                <Image Source="../Media/dashboard.png" />
+                                <Label>DashBoard</Label>
                             </StackPanel>
                         </Border>
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
-            <RadioButton GroupName="leftNavButtonGroup" Name="buttonShowInvoice" Width="Auto" Checked="buttonShowInvoice_Checked">
+            <RadioButton GroupName="leftNavButtonGroup" Name="buttonShowInvoice" Width="Auto" Checked="buttonShowARInvoice_Checked">
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center"  Style="{StaticResource menuButtonBGStyle}">
                             <StackPanel>
-                                <Image Source="../Media/Show_Invoice.gif" />
-                                <Label>Invoices</Label>
+                                <Image Source="../Media/income-invoiced.png" />
+                                <Label>Income - Invoiced</Label>
                             </StackPanel>
                         </Border>
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
-            <RadioButton GroupName="leftNavButtonGroup" Name="btnExpenses" Width="Auto" Checked="buttonShowInvoice_Checked">
+            <RadioButton GroupName="leftNavButtonGroup" Name="btnShowNonInvoicedIncome" Width="Auto" Checked="buttonShowARInvoice_Checked">
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center"  Style="{StaticResource menuButtonBGStyle}">
                             <StackPanel>
-                                <Image Source="../Media/expense.jpg" />
-                                <Label>Expenses</Label>
+                                <Image Source="../Media/income-noninvoiced.png" />
+                                <Label>Income - Non Invoiced</Label>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </RadioButton.Template>
+            </RadioButton>
+            <RadioButton GroupName="leftNavButtonGroup" Name="btnExpenses" Width="Auto" Checked="buttonShowExpense_Checked">
+                <RadioButton.Template>
+                    <ControlTemplate>
+                        <Border  VerticalAlignment="Center"  Style="{StaticResource menuButtonBGStyle}">
+                            <StackPanel>
+                                <Image Source="../Media/expense-invoiced.png" />
+                                <Label>Expense - Invoiced</Label>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </RadioButton.Template>
+            </RadioButton>
+            <RadioButton GroupName="leftNavButtonGroup" Name="btnExpenseNonInvoiced" Width="Auto" Checked="buttonShowExpense_Checked">
+                <RadioButton.Template>
+                    <ControlTemplate>
+                        <Border  VerticalAlignment="Center"  Style="{StaticResource menuButtonBGStyle}">
+                            <StackPanel>
+                                <Image Source="../Media/expense-noninvoiced.png" />
+                                <Label>Expense - Non Invoiced</Label>
                             </StackPanel>
                         </Border>
                     </ControlTemplate>
@@ -173,7 +186,7 @@
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
-            <RadioButton GroupName="leftNavButtonGroup" Name="buttonInventory" Width="Auto">
+            <!--<RadioButton GroupName="leftNavButtonGroup" Name="buttonInventory" Width="Auto">
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">
@@ -197,8 +210,8 @@
                         </Border>
                     </ControlTemplate>
                 </RadioButton.Template>
-            </RadioButton>
-            <RadioButton GroupName="leftNavButtonGroup" Name="buttonUserProfile" Width="Auto"  >
+            </RadioButton>-->
+            <RadioButton GroupName="leftNavButtonGroup" Name="buttonUserProfile" Width="Auto" Checked="btnManageUsers_Checked">
                 <RadioButton.Template>
                     <ControlTemplate>
                         <Border  VerticalAlignment="Center" Style="{StaticResource menuButtonBGStyle}">

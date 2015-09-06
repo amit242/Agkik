@@ -10,6 +10,75 @@ namespace agkik.desktopclient.viewmodels.demo
     {
     }
 
+    public class DemoInvoice
+    {
+        public string VendorName { get; set; }
+        public string InvoiceNo { get; set; }
+        public bool IsPaid { get; set; }
+        public DateTime DueDate { get; set; }
+        public DateTime PaymentDate { get; set; }
+        public double Amount { get; set; }
+    }
+
+    public class DemoInvoiceVM
+    {
+        private List<DemoInvoice> _InvoiceList;
+
+        public List<DemoInvoice> InvoiceList
+        {
+            get { return getInvoices(); }
+            set { _InvoiceList = value; }
+        }
+
+        private List<DemoInvoice> getInvoices()
+        {
+            if (_InvoiceList == null)
+            {
+                _InvoiceList = new List<DemoInvoice>();
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX4444", VendorName = "ACME", PaymentDate = new DateTime(2015, 01, 13), IsPaid = true , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX8889", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1236", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1237", VendorName = "ACME", PaymentDate = new DateTime(2015, 02, 13), IsPaid = true , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1134", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX9239", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX2234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX4444", VendorName = "ACME", PaymentDate = new DateTime(2015, 01, 13), IsPaid = true, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX8889", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1236", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1237", VendorName = "ACME", PaymentDate = new DateTime(2015, 02, 13), IsPaid = true, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1134", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX9239", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX2234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX4444", VendorName = "ACME", PaymentDate = new DateTime(2015, 01, 13), IsPaid = true, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX8889", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1236", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1237", VendorName = "ACME", PaymentDate = new DateTime(2015, 02, 13), IsPaid = true, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1134", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX9239", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX2234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false, Amount = 123.54 });
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX7234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX5234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1334", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1734", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX8234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1634", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX7234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX4234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX9234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX1434", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX7234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX3234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX7234", VendorName = "ACME", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+                _InvoiceList.Add(new DemoInvoice() { InvoiceNo = "XX6234", VendorName = "LASTVENDOR", DueDate = new DateTime(2015, 07, 13), IsPaid = false , Amount=123.54});
+            }
+            return _InvoiceList;
+        }
+        
+    }
+
     public abstract class DemoCategoryVM
     {
         protected List<DemoMainCategory> _MainCategories;
@@ -34,6 +103,26 @@ namespace agkik.desktopclient.viewmodels.demo
 
     public class DemoExpsenseCategoryVM : DemoCategoryVM
     {
+        private List<ExpenseType> _ExpenseTypes;
+
+        public List<ExpenseType> ExpenseTypes
+        {
+            get { return getExpenseTypes(); }
+            set { _ExpenseTypes = value; }
+        }
+
+        private List<ExpenseType> getExpenseTypes()
+        {
+            if (_ExpenseTypes == null)
+            {
+                _ExpenseTypes = new List<ExpenseType>();
+                _ExpenseTypes.Add(ExpenseType.Capital);
+                _ExpenseTypes.Add(ExpenseType.NonCapital);
+                _ExpenseTypes.Add(ExpenseType.CostOfSales);
+            }
+            return _ExpenseTypes;
+        }
+
         protected override List<DemoMainCategory> getMainCategories()
         {
             if (_MainCategories == null)
@@ -61,19 +150,19 @@ namespace agkik.desktopclient.viewmodels.demo
             {
                 _SubCategories = new List<DemoSubCategory>();
                 //DemoMainCategory p1 = getMainCategories().Find(x => x.CategoryId == "1");
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "1", Name = "Misc", Description = "misc. items", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "2", Name = "Printing", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "4", Name = "Computers", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "5", Name = "Internet Costs", Description = "Internet Costs", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "6", Name = "Fuel", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "2") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "7", Name = "Insurance", Description = "A custom Field", ParentCategory = getMainCategories().Find(x => x.CategoryId == "2") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "8", Name = "Employee Insurance", Description = "Another Custom Field", ParentCategory = getMainCategories().Find(x => x.CategoryId == "8") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "9", Name = "Projects", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "10", Name = "Equipment Repairs", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "4") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "11", Name = "Office Supplies", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "12", Name = "Employee Salary", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "5") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "13", Name = "Registration", Description = "A custom Field", ParentCategory = getMainCategories().Find(x => x.CategoryId == "2") });
-                _SubCategories.Add(new DemoSubCategory() { CategoryId = "14", Name = "Services", Description = "A custom Field", ParentCategory = getMainCategories().Find(x => x.CategoryId == "2") });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "1", Name = "Misc", Description = "misc. items", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1"), ExpenseType = ExpenseType.Capital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "2", Name = "Printing", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1"), ExpenseType = ExpenseType.NonCapital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "4", Name = "Computers", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1"), ExpenseType = ExpenseType.Capital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "5", Name = "Internet Costs", Description = "Internet Costs", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1"), ExpenseType = ExpenseType.NonCapital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "6", Name = "Fuel", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "2"), ExpenseType = ExpenseType.NonCapital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "7", Name = "Insurance", Description = "A custom Field", ParentCategory = getMainCategories().Find(x => x.CategoryId == "2"), ExpenseType = ExpenseType.NonCapital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "8", Name = "Employee Insurance", Description = "Another Custom Field", ParentCategory = getMainCategories().Find(x => x.CategoryId == "8"), ExpenseType = ExpenseType.NonCapital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "9", Name = "Projects", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1"), ExpenseType = ExpenseType.NonCapital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "10", Name = "Equipment Repairs", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "4"), ExpenseType = ExpenseType.NonCapital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "11", Name = "Office Supplies", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "1"), ExpenseType = ExpenseType.NonCapital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "12", Name = "Employee Salary", Description = "", ParentCategory = getMainCategories().Find(x => x.CategoryId == "5"), ExpenseType = ExpenseType.NonCapital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "13", Name = "Registration", Description = "A custom Field", ParentCategory = getMainCategories().Find(x => x.CategoryId == "2"), ExpenseType = ExpenseType.Capital });
+                _SubCategories.Add(new DemoSubCategoryExpense() { CategoryId = "14", Name = "Services", Description = "A custom Field", ParentCategory = getMainCategories().Find(x => x.CategoryId == "2"), ExpenseType = ExpenseType.CostOfSales });
             }
             _SubCategories.Sort(delegate(DemoSubCategory v1, DemoSubCategory v2) { return v1.Name.CompareTo(v2.Name); });
             return _SubCategories;
@@ -161,6 +250,8 @@ namespace agkik.desktopclient.viewmodels.demo
     
     public enum MainCategoryType { System, Custom };
 
+    public enum ExpenseType { Capital, NonCapital, CostOfSales };
+
     public class DemoMainCategory
     {
         private string _CategoryId;
@@ -200,7 +291,7 @@ namespace agkik.desktopclient.viewmodels.demo
 
     public class DemoSubCategory : DemoMainCategory
     {
-        private DemoMainCategory _parentCategory;
+        protected DemoMainCategory _parentCategory;
 
         public DemoMainCategory ParentCategory
         {
@@ -211,6 +302,17 @@ namespace agkik.desktopclient.viewmodels.demo
         public String ParentCategoryName
         {
             get { return _parentCategory.Name; }
+        }
+    }
+
+    public class DemoSubCategoryExpense : DemoSubCategory
+    {
+        private ExpenseType _ExpenseType;
+
+        public ExpenseType ExpenseType
+        {
+            get { return _ExpenseType; }
+            set { _ExpenseType = value; }
         }
     }
 }

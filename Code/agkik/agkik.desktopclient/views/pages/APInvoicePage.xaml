@@ -4,11 +4,49 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
+      
+      xmlns:vm="clr-namespace:agkik.desktopclient.viewmodels.demo"
       xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols"
       Title="APInvoice Page">
-    <DockPanel>
-        <Label DockPanel.Dock="Top"></Label>
-        <uc:APInvoiceListUserControl DockPanel.Dock="Left" Background="#88AAAA"></uc:APInvoiceListUserControl>
-        <StackPanel DockPanel.Dock="Right" Background="Aquamarine"></StackPanel>
+    <DockPanel Margin="10,0,0,0">
+        <DockPanel.Resources>
+            <vm:DemoInvoiceVM x:Key="demoInvoiceVM"></vm:DemoInvoiceVM>
+        </DockPanel.Resources>
+        <StackPanel DockPanel.Dock="Top" Height="45" Background="DarkSlateGray">
+            <Label Name="lblHeader" Style="{StaticResource labelStylePopupHeader}">Expense - Accounts Payable/Vendor Invoices</Label>
+        </StackPanel>
+        <uc:APInvoiceListUserControl DockPanel.Dock="Left" DataContext="{Binding Source={StaticResource demoInvoiceVM}}"></uc:APInvoiceListUserControl>
+        <StackPanel DockPanel.Dock="Right">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="30" Margin="5,5,0,0">
+                    <Button HorizontalAlignment="Left" Name="btnNewInvoice" Style="{StaticResource imagebutton-small}" Click="btnNewInvoice_Click">
+                        <Image Source="/agkik.desktopclient;component/media/invoice-new.png" />
+                    </Button>
+                    <StackPanel Width="5"></StackPanel>
+                    <Button HorizontalAlignment="Left" Name="btnEditMainCategory" Style="{StaticResource imagebutton-small}">
+                        <Image Source="/agkik.desktopclient;component/media/invoice-edit.png" />
+                    </Button>
+                    <StackPanel Width="5"></StackPanel>
+
+                    <Button HorizontalAlignment="Left" Name="btnSave" Style="{StaticResource imagebutton-small}">
+                        <Image Source="/agkik.desktopclient;component/media/save.png" />
+                    </Button>
+                </StackPanel>
+                <StackPanel Width="550" Height="30" Margin="5,5,0,0">
+                    <Button HorizontalAlignment="Center" Name="btnPay" Style="{StaticResource imagebutton-small}" Width="140">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Source="/agkik.desktopclient;component/media/pay.png" />
+                            <TextBlock>Complete payment</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" Margin="5,5,0,0">
+                    <Button HorizontalAlignment="Right" Name="btnDeleteCustomCategory" Style="{StaticResource imagebutton-small}">
+                        <Image Source="/agkik.desktopclient;component/media/invoice-delete.png" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <uc:APInvoiceUserControl />
+        </StackPanel>
     </DockPanel>
 </Page>

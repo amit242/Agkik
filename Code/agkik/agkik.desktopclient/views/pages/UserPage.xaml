@@ -1,0 +1,86 @@
+﻿<Page x:Class="agkik.desktopclient.views.pages.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" Title="UserPage"
+       xmlns:uc="clr-namespace:agkik.desktopclient.views.usercontrols"
+      xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+      xmlns:vm="clr-namespace:agkik.desktopclient.viewmodels" Initialized="Page_Initialized" Loaded="Page_Loaded">
+
+    <StackPanel>
+        <StackPanel.Resources>
+            <vm:UserViewModel x:Key="UserVM"></vm:UserViewModel>
+        </StackPanel.Resources>
+        <StackPanel Height="45" Background="DarkSlateGray">
+            <Label Name="lblHeader" Style="{StaticResource labelStylePopupHeader}" Content="Manage Users"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <StackPanel.Resources>
+                <CollectionViewSource x:Key="UserCollection" Source="{Binding Path=UserList}"></CollectionViewSource>
+            </StackPanel.Resources>
+
+            <DataGrid Name="dgUsers" Background="AliceBlue" ItemsSource="{Binding Source={StaticResource UserCollection}}" SelectionMode="Single" Height="200" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=UserId}" Header="UserId"  FontWeight="Bold" Width="*"  />
+                    <DataGridTextColumn Binding="{Binding Path=FirstName}" Header="First Name" FontWeight="Bold" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Last Name" FontWeight="Bold" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=CompanyName}" Header="Company Name" FontWeight="Bold" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=RegistrationDate}" Header="Registration Date" FontWeight="Bold" Width="*"/>
+                </DataGrid.Columns>
+                <ia:Interaction.Triggers>
+                    <ia:EventTrigger EventName="SelectionChanged">
+                        <ia:InvokeCommandAction Command="{Binding SelectUserCommand}" CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" />
+                    </ia:EventTrigger>
+                </ia:Interaction.Triggers>
+            </DataGrid>
+        </StackPanel>
+        <Separator Name="sp" Height="20"/>
+        <TabControl Name="tcUser" DataContext="{Binding Source={StaticResource UserVM}}">
+            <TabItem Header="Add User" Name="tiAddUser" Height="37.96">
+                <AdornerDecorator>
+                    <StackPanel Orientation="Vertical">
+                        <uc:UserUserControl x:Name="newUser" Background="Beige" IsEnabled="True" DataContext="{Binding Path=NewUser}"></uc:UserUserControl>
+                        <Button Name="btnAddUser" Content="Add User" Style="{StaticResource bigLightBlueButton}" Command="{Binding Path=AddUserCommand}" />
+                        <TextBlock Name="tbErrorMessage" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" OpacityMask="Crimson" Foreground="#FF0000" Text="{Binding Path=DisplayMessage}" Visibility="{Binding Path=IsMessageVisible, Converter={StaticResource booleanToVisibilityConverter}}"/>
+                    </StackPanel>
+                </AdornerDecorator>
+            </TabItem>
+            <TabItem Header="View/Update Existing Users" Name="tiShowUsers" Height="37.96">
+                <AdornerDecorator>
+                    <StackPanel>
+                        <CheckBox Name="chkEditDetails" Content="Edit Details" FontSize="15" FontWeight="Bold"/>
+                        <uc:UserUserControl x:Name="selectedUser" Background="Beige" DataContext="{Binding Path=SelectedUser}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}"></uc:UserUserControl>
+                        <Separator Height="15" />
+                        <Button Name="btnUpdateUser" Content="Update User" Style="{StaticResource bigLightBlueButton}" Command="{Binding Path=UpdateUserCommand}" IsEnabled="{Binding ElementName=chkEditDetails, Path=IsChecked}" />
+                    </StackPanel>
+                </AdornerDecorator>
+            </TabItem>
+            <TabItem Header="Reset password" Height="37.96">
+                <StackPanel Orientation="Vertical" Background="#88AAAA" Width="383" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Border Style="{StaticResource gridRowBorder}" Visibility="Collapsed" Name="brdExistingPassword">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                            <Label Name="lblOldPassword" Content="_Old Password: " Target="{Binding ElementName=txtOldPassword}" Style="{StaticResource labelStyleWide}"/>
+                            <PasswordBox Name="txtOldPassword" MaxLength="45" Style="{StaticResource passwordBox-medium}" />
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource gridRowBorder}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                            <Label Name="lblNewPassword" Content="_New Password: " Target="{Binding ElementName=txtNewPassword}" Style="{StaticResource labelStyleWide}"/>
+                            <PasswordBox Name="txtNewPassword" MaxLength="45" Style="{StaticResource passwordBox-medium}" />
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource gridRowBorder}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Style="{StaticResource stackPanelIndent-big}">
+                            <Label Name="lblRetypePassword" Content="_Retype Password: " Target="{Binding ElementName=txtRetypePassword}" Style="{StaticResource labelStyleWide}" />
+                            <PasswordBox Name="txtRetypePassword" MaxLength="45" Style="{StaticResource passwordBox-medium}" />
+                        </StackPanel>
+                    </Border>
+                    <Border Background="White">
+                        <Button Name="btnResetPassword" Content="Reset Password" Style="{StaticResource bigLightBlueButton}" Command="{Binding Path=ResetPassword}" />
+                    </Border>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Page>
